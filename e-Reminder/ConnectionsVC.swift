@@ -7,12 +7,18 @@
 //
 
 import UIKit
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+    
+}
 
 class ConnectionsVC: UITableViewController {
  //Outlets
     @IBOutlet weak var tableViewObj: UITableView!
  //Private Properties
-    private var dummyData: [String] = []
+    private var tableViewData = [cellData]()
    private var searchController: UISearchController!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +26,10 @@ class ConnectionsVC: UITableViewController {
         searchController.delegate = self
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
+        tableViewData = [cellData.init(opened: false, title: "First Connection", sectionData: ["Name", "Email", "Description of the person", "Location where they met"]), cellData.init(opened: false, title: "Second Connection", sectionData: ["Name", "Email", "Description of the person", "Location where they met"]), cellData.init(opened: false, title: "Third Connection", sectionData: ["Name", "Email", "Description of the person", "Location where they met"])]
+     
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
@@ -36,9 +43,43 @@ self.navigationController?.navigationBar.prefersLargeTitles =  true
         self.present(destinationVC, animated: true, completion: nil)
     }
     
-    
-    
-    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableViewData[section].opened == true {
+            //testing to see if in this section is this expaned or opened
+            return tableViewData[section].sectionData.count + 1
+        } else {
+            //if not return a certain value
+            return 1 // we only want one header to return if it isnot expanded or open
+        }
+    }
+    //"ConnectionsCell"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dataIndex = indexPath.row - 1
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCell") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            return cell
+        } else {
+            // user different cell ID if needed
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCell") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
+            return cell
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableViewData[indexPath.section].opened == true {
+            tableViewData[indexPath.section].opened = false
+            let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
+            tableView.reloadSections(sections, with: .none) // play around with this!!!!
+        } else {
+            tableViewData[indexPath.section].opened = true
+            let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
+            tableView.reloadSections(sections, with: .none) // play around with this!!!!
+        }
+    }
 }
 //extensions
 extension ConnectionsVC: UISearchControllerDelegate {

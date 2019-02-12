@@ -27,7 +27,7 @@ class FavoritesViewController: UIViewController {
         collectionViewObj.dataSource = self
         setupNavigationBarView()
     }
-    
+
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
         self.navigationController?.navigationBar.prefersLargeTitles =  true
