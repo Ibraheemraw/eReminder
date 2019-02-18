@@ -10,15 +10,28 @@ import UIKit
 import Firebase
 import UserNotifications
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure() // to configure firebase to your app 
+        FirebaseApp.configure() // to configure firebase to your app
+        // Gain access to the lastest Usernotification center
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.sound, .alert]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        center.delegate = self
         return true
+    }
+    //Will present the notifcation in the forgrounds
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.badge,.sound])
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

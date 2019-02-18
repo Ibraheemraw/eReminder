@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SettingsView: UIView {
     //Outlets
     @IBOutlet var contentView: UIView!

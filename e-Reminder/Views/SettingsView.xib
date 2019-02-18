@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsView" customModule="e_Reminder" customModuleProvider="target">
             <connections>
-                <outlet property="NotificationPicker" destination="GfT-0L-GVm" id="H8T-eH-KFe"/>
-                <outlet property="connectionListPicker" destination="th0-Tq-CWM" id="mOK-R7-9hx"/>
+                <outlet property="NotificationPicker" destination="GfT-0L-GVm" id="rNz-uR-IMd"/>
+                <outlet property="connectionListPicker" destination="th0-Tq-CWM" id="3Zv-Kx-bcL"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Tp5-HY-cvM"/>
             </connections>
         </placeholder>
