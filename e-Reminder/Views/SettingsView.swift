@@ -9,13 +9,29 @@
 import UIKit
 
 class SettingsView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    //Outlets
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var connectionListPicker: UIPickerView!
+    @IBOutlet weak var NotificationPicker: UIDatePicker!
+    //Override Initalizers
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
     }
-    */
+    // Required Initializers
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    //  helper method that bridges both initializers
+    private func commonInit(){
+        // load the nib file
+        Bundle.main.loadNibNamed("SettingsView", owner: self, options: nil)
+        //add the view
+        addSubview(contentView)
+        //
+        contentView.frame = bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
 
 }

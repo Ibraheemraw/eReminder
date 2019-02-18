@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var settingsView: SettingsView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingsView.connectionNamePicker.delegate = self
+        
     }
     
 }
