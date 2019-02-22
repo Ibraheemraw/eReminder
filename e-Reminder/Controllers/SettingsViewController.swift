@@ -15,11 +15,10 @@ class SettingsViewController: UIViewController {
     //Overriding functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNotications()
-        
+        settingsView.connectionListPicker.delegate = self
+       settingsView.NotificationPicker.addTarget(self, action: #selector(setupNotications), for: .valueChanged)
     }
-    // fileprivate functions
-    fileprivate func setupNotications() {
+    @objc func setupNotications() {
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"
@@ -27,10 +26,7 @@ class SettingsViewController: UIViewController {
         content.body  = "This will be a description of the Notifcation"
         content.sound = UNNotificationSound.default
         content.threadIdentifier = "local-notifcations temp"
-        
-        let date = Date.init(timeIntervalSinceNow: 10)//30 seconds from now
-        let dateComponent = Calendar.current.dateComponents([.year, .month,.day,.hour, .minute, .second], from: date)
-        
+        let dateComponent = Calendar.current.dateComponents([.year, .month,.day,.hour, .minute, .second], from: settingsView.NotificationPicker.date)
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponent, repeats: false)
         let request = UNNotificationRequest.init(identifier: "content", content: content, trigger: trigger)
         center.add(request) { (error) in
@@ -39,9 +35,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-    
 }
-
 extension SettingsViewController: UIPickerViewDelegate {
     
 }

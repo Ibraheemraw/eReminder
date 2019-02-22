@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
 class CreateViewController: UIViewController {
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var meetupMapView: MKMapView! // the map view where the user met the person they are adding 
     
    
     @IBOutlet weak var locationBttn: UIButton!
@@ -23,8 +29,8 @@ class CreateViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveLocation(_ sender: Any) {
-        print("Location is saved")
+    @IBAction func createConnection(_ sender: UIBarButtonItem) {
     }
+    
     
 }

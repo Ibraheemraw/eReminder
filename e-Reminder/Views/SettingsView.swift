@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import UserNotifications
+import UserNotificationsUI
 
 class SettingsView: UIView {
     //Outlets
@@ -23,6 +24,7 @@ class SettingsView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    
     }
     //  helper method that bridges both initializers
     private func commonInit(){
@@ -34,5 +36,5 @@ class SettingsView: UIView {
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
-
 }
+

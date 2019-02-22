@@ -70,15 +70,24 @@ self.navigationController?.navigationBar.prefersLargeTitles =  true
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableViewData[indexPath.section].opened == true {
-            tableViewData[indexPath.section].opened = false
-            let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
-            tableView.reloadSections(sections, with: .none) // play around with this!!!!
+        if indexPath.row == 0 {
+            if tableViewData[indexPath.section].opened == true {
+                tableViewData[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
+                tableView.reloadSections(sections, with: .none) // play around with this!!!!
+            } else {
+                tableViewData[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
+                tableView.reloadSections(sections, with: .none) // play around with this!!!!
+            }
         } else {
-            tableViewData[indexPath.section].opened = true
-            let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
-            tableView.reloadSections(sections, with: .none) // play around with this!!!!
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Detail")
+            
+            viewController.modalPresentationStyle = .overCurrentContext
+            viewController.modalTransitionStyle = .coverVertical
+            self.present(viewController, animated: true, completion: nil)
         }
+        
     }
 }
 //extensions
