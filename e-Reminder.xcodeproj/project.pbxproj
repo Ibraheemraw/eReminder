@@ -17,6 +17,7 @@
 		48683591221B2E3500F55D41 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48683590221B2E3500F55D41 /* SettingsView.swift */; };
 		486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */; };
 		486D5CB62215DC51005ABFF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */; };
+		48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */; };
 		48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */; };
 		48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */; };
 		48DFC9AC2210EAF5004B0E8F /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */; };
@@ -41,6 +42,7 @@
 		48683590221B2E3500F55D41 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				4835509B220CF0CA00B220EF /* eReminderLogoV2.png */,
 				48355093220CE16500B220EF /* Info.plist */,
 				486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */,
+				48DE12C72220B1A0003BD3B8 /* SwiftyHelpers */,
 			);
 			path = "e-Reminder";
 			sourceTree = "<group>";
@@ -154,6 +157,14 @@
 				48683590221B2E3500F55D41 /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		48DE12C72220B1A0003BD3B8 /* SwiftyHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */,
+			);
+			path = SwiftyHelpers;
 			sourceTree = "<group>";
 		};
 		918E9E9ED9D2A9E635696F7A /* Frameworks */ = {
@@ -308,6 +319,7 @@
 				48DFC9AC2210EAF5004B0E8F /* DraftsViewController.swift in Sources */,
 				48E8AE1E22125D97008C29C6 /* MapViewController.swift in Sources */,
 				48DFC9AE2210EFC8004B0E8F /* DetailViewController.swift in Sources */,
+				48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */,
 				48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */,
 				48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */,
 				48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */,

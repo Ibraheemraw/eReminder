@@ -11,19 +11,20 @@ import MapKit
 
 class DetailViewController: UIViewController {
     //Outlets
-    @IBOutlet weak var contenView: UIView!
+    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UIColor( red: 255.0, green: 255.0, blue:255.0, alpha: 0 )
-        let myColor : UIColor = .white
-        contenView.layer.borderColor = myColor.cgColor
-        contenView.layer.borderWidth = 5
-        contenView.layer.cornerRadius = 10
+        setupContentViewDesign()
        // contenView.layer.borderColor
         setupNavigationBar()
     }
-    
+    private func setupContentViewDesign(){
+        let myColor : UIColor = .white
+        contentView.layer.borderColor = myColor.cgColor
+        contentView.layer.borderWidth = 5
+        contentView.layer.cornerRadius = 10
+    }
    private func setupNavigationBar(){
     navigationItem.largeTitleDisplayMode = .never
     navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "cancel", style: .plain, target: self, action: #selector(goBackToMainVC))
