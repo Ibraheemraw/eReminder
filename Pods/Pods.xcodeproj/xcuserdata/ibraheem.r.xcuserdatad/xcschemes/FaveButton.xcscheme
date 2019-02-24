@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D951D16B3D7947F9E51F68D6BA179CA1"
-               BlueprintName = "gRPC-Core"
+               BlueprintIdentifier = "593E58645EC26F03DAA1A087EC7DDF13"
+               BlueprintName = "FaveButton"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "gRPC-Core.framework">
+               BuildableName = "FaveButton.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

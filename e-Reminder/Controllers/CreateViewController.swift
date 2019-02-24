@@ -39,13 +39,13 @@ class CreateViewController: UIViewController {
    @objc private func mapLongPressAction(gestureRecognizer: UILongPressGestureRecognizer){
     //print("Long Press Action Test!")
     showAddLocationAlert(title: "Add a location", message: "Here is where you add the location of where you met the person", style: .alert) { (action) in
-        print("Hello test")
+        
     }
     }
     private func setupContentViewDesign(){
-//        let myColor : UIColor = .white
-//        contentView.layer.borderColor = myColor.cgColor
-//        contentView.layer.borderWidth = 5
+        let myColor : UIColor = .white
+        contentView.layer.borderColor = myColor.cgColor
+        contentView.layer.borderWidth = 5
         contentView.layer.cornerRadius = 20
         meetupMapView.layer.cornerRadius = 15
         backgroundImageView.layer.cornerRadius = 20

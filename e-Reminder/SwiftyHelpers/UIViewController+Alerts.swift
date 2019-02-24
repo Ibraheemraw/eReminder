@@ -22,6 +22,10 @@ extension UIViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let customAction = UIAlertAction(title: "Create", style: .default, handler: handler)
+        alertController.addTextField { (text) in
+            text.placeholder = "Search for a place or a address"
+            text.textAlignment = .center
+        }
         alertController.addAction(cancelAction)
         alertController.addAction(customAction)
         present(alertController, animated: true)
