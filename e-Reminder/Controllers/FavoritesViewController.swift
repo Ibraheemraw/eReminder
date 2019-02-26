@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class FavoritesViewController: UIViewController {
     //Outlets
     @IBOutlet weak var collectionViewObj: UICollectionView!
@@ -37,7 +36,17 @@ class FavoritesViewController: UIViewController {
     }
     //Actions
     @IBAction func followUpPressed(_ sender: Any) {
-        print("Followed up")
+//        print("Followed up")
+        let string = "Hello, world!"
+        let url = URL(string: "https://www.youtube.com/")!
+       
+        
+        let activityViewController =
+            UIActivityViewController.init(activityItems: [string, url], applicationActivities: nil)
+        
+        present(activityViewController, animated: true) {
+          
+        }
     }
     
 }
@@ -78,7 +87,6 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollect
                     cell.show()
                 }
             }
-            
             animator.addCompletion { _ in
                 collectionView.isScrollEnabled = true
                 self.expandedCell = nil
@@ -101,8 +109,6 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollect
                 }
             }
         }
-        
-        
         animator.addAnimations {
             self.setNeedsStatusBarAppearanceUpdate()
         }
@@ -112,6 +118,5 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollect
         }
         
         animator.startAnimation()
-    
 }
 }

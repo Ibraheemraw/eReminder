@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "e-Reminder/Controllers/FavoritesViewController.swift"
+            timestampString = "572822486.561184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "followUpPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "e_Reminder.FavoritesViewController.followUpPressed(Any) -&gt; ()"
+                  moduleName = "e-Reminder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibraheem.r/Documents/Pursuit/Unit5/e-Reminder/e-Reminder/Controllers/FavoritesViewController.swift"
+                  timestampString = "572741393.6640739"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "1117">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in e_Reminder.FavoritesViewController.followUpPressed(Any) -&gt; ()"
+                  moduleName = "e-Reminder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibraheem.r/Documents/Pursuit/Unit5/e-Reminder/e-Reminder/Controllers/FavoritesViewController.swift"
+                  timestampString = "572741393.666766"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

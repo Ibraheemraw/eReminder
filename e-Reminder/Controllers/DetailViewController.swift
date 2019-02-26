@@ -8,16 +8,27 @@
 
 import UIKit
 import MapKit
+import FaveButton
+
+func color(_ rgbColor: Int) -> UIColor{
+    return UIColor(
+        red:   CGFloat((rgbColor & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbColor & 0x00FF00) >> 8 ) / 255.0,
+        blue:  CGFloat((rgbColor & 0x0000FF) >> 0 ) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
 
 class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var contentView: UIView!
-    
+    @IBOutlet weak var favoriteBttn: FaveButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentViewDesign()
-       // contenView.layer.borderColor
+        setupFavButton()
         setupNavigationBar()
+        
     }
     private func setupContentViewDesign(){
         let myColor : UIColor = .white
@@ -33,8 +44,27 @@ class DetailViewController: UIViewController {
     @objc func goBackToMainVC(){
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
+    private func setupFavButton() {
+        self.favoriteBttn.setSelected(selected: false, animated: false)
+        favoriteBttn.delegate = self
+    }
+    let colors = [
+        DotColors(first: color(0x7DC2F4), second: color(0xE2264D)),
+        DotColors(first: color(0xF8CC61), second: color(0x9BDFBA)),
+        DotColors(first: color(0xAF90F4), second: color(0x90D1F9)),
+        DotColors(first: color(0xE9A966), second: color(0xF8C852)),
+        DotColors(first: color(0xF68FA7), second: color(0xF6A2B8))
+    ]
+    func faveButtonDotColors(_ faveButton: FaveButton) -> [DotColors]?{
+        if faveButton == favoriteBttn{
+            return colors
+        }
+        return nil
+    }
+}
+extension DetailViewController: FaveButtonDelegate{
+    func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
+        print("Added to favorites")
+    }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4810BC432225CE9B002908D3 /* CoreDataConnections.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC412225CE9B002908D3 /* CoreDataConnections.xcdatamodeld */; };
 		48355088220CE16400B220EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355087220CE16400B220EF /* AppDelegate.swift */; };
 		4835508A220CE16400B220EF /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355089220CE16400B220EF /* ConnectionsVC.swift */; };
 		4835508D220CE16400B220EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4835508B220CE16400B220EF /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		15324DB45C2F06E4C8213A21 /* Pods-e-Reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-e-Reminder.debug.xcconfig"; path = "Target Support Files/Pods-e-Reminder/Pods-e-Reminder.debug.xcconfig"; sourceTree = "<group>"; };
+		4810BC422225CE9B002908D3 /* CoreDataConnections.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataConnections.xcdatamodel; sourceTree = "<group>"; };
 		48355084220CE16400B220EF /* e-Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48355087220CE16400B220EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48355089220CE16400B220EF /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				48355087220CE16400B220EF /* AppDelegate.swift */,
+				4810BC412225CE9B002908D3 /* CoreDataConnections.xcdatamodeld */,
 				4835508B220CE16400B220EF /* Main.storyboard */,
 				4835508E220CE16500B220EF /* Assets.xcassets */,
 				48355090220CE16500B220EF /* LaunchScreen.storyboard */,
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4810BC432225CE9B002908D3 /* CoreDataConnections.xcdatamodeld in Sources */,
 				4835508A220CE16400B220EF /* ConnectionsVC.swift in Sources */,
 				48355088220CE16400B220EF /* AppDelegate.swift in Sources */,
 				486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */,
@@ -527,6 +531,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4810BC412225CE9B002908D3 /* CoreDataConnections.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4810BC422225CE9B002908D3 /* CoreDataConnections.xcdatamodel */,
+			);
+			currentVersion = 4810BC422225CE9B002908D3 /* CoreDataConnections.xcdatamodel */;
+			path = CoreDataConnections.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4835507C220CE16400B220EF /* Project object */;
 }

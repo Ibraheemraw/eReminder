@@ -157,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="2672.8000000000002" y="-138.0809595202399"/>
         </scene>
-        <!--Drafts-->
+        <!--Messaging-->
         <scene sceneID="7gA-1U-1Ln">
             <objects>
                 <viewController id="1Se-4b-79e" customClass="DraftsViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,7 +178,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FQW-MN-VX3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Drafts" id="MN6-uW-IBL"/>
+                    <navigationItem key="navigationItem" title="Messaging" id="MN6-uW-IBL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5V-qY-5PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,6 +244,9 @@
                                                     <state key="normal" title="Follow Up">
                                                         <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="followUpPressed:" destination="Rf8-Dg-4dA" eventType="touchUpInside" id="B3v-xH-IRT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -323,25 +326,35 @@
                                     <constraint firstItem="Qo1-fW-1oF" firstAttribute="leading" secondItem="fPP-EI-0yc" secondAttribute="leading" id="ttR-T1-gsw"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-Go-Knk" customClass="FaveButton" customModule="FaveButton">
+                                <rect key="frame" x="144" y="561" width="85" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="DIk-G3-mag"/>
+                                    <constraint firstAttribute="width" constant="85" id="qOM-4g-Q7i"/>
+                                </constraints>
+                                <state key="normal" image="heart"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NWT-lh-jT3" firstAttribute="bottom" secondItem="fPP-EI-0yc" secondAttribute="bottom" constant="116" id="598-zj-yhX"/>
                             <constraint firstItem="fPP-EI-0yc" firstAttribute="top" secondItem="NWT-lh-jT3" secondAttribute="top" constant="53" id="94p-d3-c2s"/>
+                            <constraint firstItem="SGD-Go-Knk" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" constant="144" id="Bnc-rW-ib9"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" id="Gxq-35-0sy"/>
                             <constraint firstItem="fPP-EI-0yc" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" constant="45" id="Lao-pq-Zc3"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="bottom" secondItem="NWT-lh-jT3" secondAttribute="bottom" id="Uh4-ae-7Rh"/>
                             <constraint firstItem="NWT-lh-jT3" firstAttribute="trailing" secondItem="fPP-EI-0yc" secondAttribute="trailing" constant="46" id="ZnH-z8-ul6"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="trailing" secondItem="NWT-lh-jT3" secondAttribute="trailing" id="caz-9E-FCZ"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="top" secondItem="NWT-lh-jT3" secondAttribute="top" id="m5e-8U-2aY"/>
+                            <constraint firstItem="SGD-Go-Knk" firstAttribute="top" secondItem="fPP-EI-0yc" secondAttribute="bottom" constant="10" id="qV8-Jh-aYV"/>
+                            <constraint firstItem="NWT-lh-jT3" firstAttribute="trailing" secondItem="SGD-Go-Knk" secondAttribute="trailing" constant="146" id="zA5-bn-6fT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NWT-lh-jT3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About My Connection" id="x02-gC-bWq">
-                        <barButtonItem key="rightBarButtonItem" image="icons8-likes_folder_filled" id="QEF-9Q-1Em"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="About My Connection" id="x02-gC-bWq"/>
                     <connections>
                         <outlet property="contentView" destination="fPP-EI-0yc" id="4d3-gE-tZZ"/>
+                        <outlet property="favoriteBttn" destination="SGD-Go-Knk" id="lox-yd-7f5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dq-cW-qBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,11 +474,11 @@
             </objects>
             <point key="canvasLocation" x="1510" y="-138"/>
         </scene>
-        <!--Drafts-->
+        <!--Messaging-->
         <scene sceneID="QS9-59-1fv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aP2-0z-Rcr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Drafts" image="icons8-saddle_stitched_booklet_filled" selectedImage="icons8-saddle_stitched_booklet_filled" id="zip-3V-hdO"/>
+                    <tabBarItem key="tabBarItem" title="Messaging" image="icons8-saddle_stitched_booklet_filled" selectedImage="icons8-saddle_stitched_booklet_filled" id="zip-3V-hdO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qWy-IB-Y9p">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -521,8 +534,8 @@
     <resources>
         <image name="FacebookMessenger" width="1440" height="900"/>
         <image name="Reef" width="1440" height="900"/>
+        <image name="heart" width="128" height="128"/>
         <image name="icons8-add_user_group_woman_man-1" width="25" height="25"/>
-        <image name="icons8-likes_folder_filled" width="25" height="25"/>
         <image name="icons8-saddle_stitched_booklet_filled" width="25" height="25"/>
         <image name="icons8-world_map_filled" width="25" height="25"/>
     </resources>
