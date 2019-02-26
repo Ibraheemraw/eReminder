@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIViewController {
-    
     public func showAlert(title: String?, message: String?, actionTitle: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: actionTitle, style: .default) { alert in }
@@ -51,4 +50,25 @@ extension UIViewController {
         alertController.addAction(customAction)
         present(alertController, animated: true)
     }
+    
+    public func addImageAlert(_ imagePicker: UIImagePickerController!){
+        let alertController = UIAlertController.init(title: "Change Connection Photo", message: nil, preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction.init(title: "Take Photo", style: .default){(alertAction) in
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true)
+        }
+        let chooseFromLibraryAction = UIAlertAction.init(title: "Choose From Library", style: .default) { (alertAction) in
+             imagePicker.sourceType = .photoLibrary
+            self.present(imagePicker, animated: true)
+        }
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel)
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            takePhotoAction.isEnabled = false
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(takePhotoAction)
+        alertController.addAction(chooseFromLibraryAction)
+        present(alertController, animated: true)
+    }
+    
 }

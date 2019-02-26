@@ -14,6 +14,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    static var container = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer // database that holds the model
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

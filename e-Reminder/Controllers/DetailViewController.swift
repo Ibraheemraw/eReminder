@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var favoriteBttn: FaveButton!
+    //Properties
+    private var container = AppDelegate.container // is the database that holds our model
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentViewDesign()
