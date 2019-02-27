@@ -159,6 +159,7 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //orignal image key
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImage.contentMode = .scaleAspectFit
             profileImage.image = image
         } else {
             print("orignal image is nil")

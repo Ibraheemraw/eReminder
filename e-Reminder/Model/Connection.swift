@@ -10,5 +10,7 @@ import UIKit
 import CoreData
 class Connection: NSManagedObject {
  // create a function that returns a connection and takes in connection info and context
-    static func createConnections(context: NSManagedObjectContext){}
+    static func createConnections(context: NSManagedObjectContext){
+        
+    }
 }

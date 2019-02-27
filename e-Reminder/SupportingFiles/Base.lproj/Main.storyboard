@@ -372,6 +372,9 @@
                                             <constraint firstAttribute="height" constant="56" id="rSn-kr-VUH"/>
                                         </constraints>
                                         <state key="normal" image="heart"/>
+                                        <connections>
+                                            <action selector="addToFavorties:" destination="30Y-Kl-dNg" eventType="touchUpInside" id="29Y-sl-Dmq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsP-SW-16p" customClass="FaveButton" customModule="FaveButton">
                                         <rect key="frame" x="269" y="76" width="66" height="66"/>
@@ -380,6 +383,9 @@
                                             <constraint firstAttribute="width" constant="66" id="fCn-rM-GyU"/>
                                         </constraints>
                                         <state key="normal" image="eBttn"/>
+                                        <connections>
+                                            <action selector="sendMessage:" destination="30Y-Kl-dNg" eventType="touchUpInside" id="7Zn-M5-fDl"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="kDF-7J-ehr" customClass="CircularImageView" customModule="e_Reminder" customModuleProvider="target">
                                         <rect key="frame" x="106.5" y="12" width="130" height="130"/>
@@ -447,8 +453,12 @@
                     <navigationItem key="navigationItem" title="About My Connection" id="x02-gC-bWq"/>
                     <connections>
                         <outlet property="contentView" destination="fPP-EI-0yc" id="4d3-gE-tZZ"/>
+                        <outlet property="detailDescription" destination="qqd-Hh-0Au" id="i1R-Yy-Nmm"/>
+                        <outlet property="detailEmailLabel" destination="vGq-eO-5Yc" id="zL7-Eb-kb3"/>
+                        <outlet property="detailNameLabel" destination="e9b-Qs-FGE" id="TWp-Q6-Y0O"/>
                         <outlet property="emailButton" destination="LsP-SW-16p" id="a3H-2Z-xcP"/>
                         <outlet property="favoriteBttn" destination="SGD-Go-Knk" id="lox-yd-7f5"/>
+                        <outlet property="profileImage" destination="kDF-7J-ehr" id="7yT-9k-v4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dq-cW-qBM" userLabel="First Responder" sceneMemberID="firstResponder"/>

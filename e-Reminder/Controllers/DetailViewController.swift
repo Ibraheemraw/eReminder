@@ -24,6 +24,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var favoriteBttn: FaveButton!
     @IBOutlet weak var emailButton: FaveButton!
+    @IBOutlet weak var profileImage: CircularImageView!
+    @IBOutlet weak var detailNameLabel: UILabel!
+    @IBOutlet weak var detailEmailLabel: UILabel!
+    @IBOutlet weak var detailDescription: UILabel!
     //Properties
     private var container = AppDelegate.container // is the database that holds our model
     override func viewDidLoad() {
@@ -67,10 +71,15 @@ class DetailViewController: UIViewController {
         }
         return nil
     }
+    @IBAction func addToFavorties(_ sender: FaveButton){
+        
+    }
+    @IBAction func sendMessage(_ sender: FaveButton){
+        
+    }
 }
 extension DetailViewController: FaveButtonDelegate{
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
-        print("Added to favorites")
+        
     }
-    
 }
