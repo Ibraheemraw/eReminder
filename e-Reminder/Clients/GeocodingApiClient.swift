@@ -10,8 +10,10 @@ import Foundation
 
 final class GeocodingApiClient {
     static func createLocations(userInput: String,  callBack: @escaping([Results]?,AppError?) -> Void){
+        //Creating a edgecase for when there is a space
+        let formatteduserInputStr = userInput.replacingOccurrences(of: " ", with: "+")
         //create a constant for the endpoint
-        let endPointStr = "https://maps.googleapis.com/maps/api/geocode/json?address=\(userInput)&key=\(PrivateInfoFile.GeocodingApiKey)"
+        let endPointStr = "https://maps.googleapis.com/maps/api/geocode/json?address=\(formatteduserInputStr)&key=\(PrivateInfoFile.GeocodingApiKey)"
         // create a url for the endpoint
         guard let url = URL.init(string: endPointStr) else {
             print("bad url: \(endPointStr)")

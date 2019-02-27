@@ -15,20 +15,6 @@ extension UIViewController {
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
-    public func showAddLocationAlert(title: String?, message: String?,
-                          style: UIAlertController.Style,
-                          handler: ((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let customAction = UIAlertAction(title: "Create", style: .default, handler: handler)
-        alertController.addTextField { (text) in
-            text.placeholder = "Search for a place or a address"
-            text.textAlignment = .center
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(customAction)
-        present(alertController, animated: true)
-    }
     public func showAlert(title: String?, message: String?,
                           style: UIAlertController.Style,
                           handler: ((UIAlertAction) -> Void)?) {
@@ -52,7 +38,7 @@ extension UIViewController {
     }
     
     public func addImageAlert(_ imagePicker: UIImagePickerController!){
-        let alertController = UIAlertController.init(title: "Change Connection Photo", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController.init(title: "Create Connection Photo", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction.init(title: "Take Photo", style: .default){(alertAction) in
             imagePicker.sourceType = .camera
             self.present(imagePicker, animated: true)
