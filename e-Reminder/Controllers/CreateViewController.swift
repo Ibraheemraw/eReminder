@@ -26,11 +26,13 @@ class CreateViewController: UIViewController {
     var tbv: UITableView!
     private var container = AppDelegate.container
     private var imagePickerViewController: UIImagePickerController!
+    private var googleAddressReults = [Results]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupContentViewDesign()
         configureLongPress()
+        setupDelegates()
     }
     //Methods
     public func showImagePicker(){
@@ -49,6 +51,12 @@ class CreateViewController: UIViewController {
         longPress.minimumPressDuration = 0.5 // defualt is 0.5
         //add the getsure to the mapview
         meetupMapView.addGestureRecognizer(longPress)
+    }
+    private func setupDelegates(){
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        decriptionTxtField.delegate = self
+        
     }
    @objc private func mapLongPressAction(gestureRecognizer: UILongPressGestureRecognizer){
     //print("Long Press Action Test!")
@@ -79,6 +87,8 @@ class CreateViewController: UIViewController {
         print("connection image has been tapped") // testing purposes
     }
 }
+
+//Extension
 extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //functions you'll need for the delegate //didSelect 'didFinishPickingMediaWithInfo' and didCancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -92,5 +102,11 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
             print("orignal image is nil")
         }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
     }
 }
