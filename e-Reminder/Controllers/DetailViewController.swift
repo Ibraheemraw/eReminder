@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var favoriteBttn: FaveButton!
+    @IBOutlet weak var emailButton: FaveButton!
     //Properties
     private var container = AppDelegate.container // is the database that holds our model
     override func viewDidLoad() {
@@ -47,8 +48,11 @@ class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     private func setupFavButton() {
-        self.favoriteBttn.setSelected(selected: false, animated: false)
-        favoriteBttn.delegate = self
+      self.emailButton?.setSelected(selected: false, animated: false)
+       self.favoriteBttn?.setSelected(selected: false, animated: false)
+        emailButton.selectedColor = .yellow
+       favoriteBttn.delegate = self
+        emailButton.delegate = self
     }
     let colors = [
         DotColors(first: color(0x7DC2F4), second: color(0xE2264D)),
@@ -58,7 +62,7 @@ class DetailViewController: UIViewController {
         DotColors(first: color(0xF68FA7), second: color(0xF6A2B8))
     ]
     func faveButtonDotColors(_ faveButton: FaveButton) -> [DotColors]?{
-        if faveButton == favoriteBttn{
+        if faveButton == favoriteBttn || faveButton == emailButton {
             return colors
         }
         return nil

@@ -25,6 +25,7 @@
 		48683591221B2E3500F55D41 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48683590221B2E3500F55D41 /* SettingsView.swift */; };
 		486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */; };
 		486D5CB62215DC51005ABFF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */; };
+		48B2F9D62227321E00A7C591 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2F9D52227321E00A7C591 /* CircularImageView.swift */; };
 		48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */; };
 		48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */; };
 		48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */; };
@@ -58,6 +59,7 @@
 		48683590221B2E3500F55D41 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		48B2F9D52227321E00A7C591 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				4868358E221B2E1800F55D41 /* SettingsView.xib */,
 				48683590221B2E3500F55D41 /* SettingsView.swift */,
+				48B2F9D52227321E00A7C591 /* CircularImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */,
 				4810BC4E2225D8B8002908D3 /* ConnectionInfo.swift in Sources */,
 				48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */,
+				48B2F9D62227321E00A7C591 /* CircularImageView.swift in Sources */,
 				48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */,
 				4810BC512226017E002908D3 /* GeocodingApiClient.swift in Sources */,
 				48683591221B2E3500F55D41 /* SettingsView.swift in Sources */,

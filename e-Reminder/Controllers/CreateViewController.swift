@@ -14,6 +14,7 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!//the child view containing all of the objects (labels, textfields, mapview and button)
     @IBOutlet weak var backgroundImageView: UIImageView!//setting the gradient background
     @IBOutlet weak var connectionBttn: UIButton!//for changing the image of the connection you made
+    @IBOutlet weak var profileImage: CircularImageView!
     @IBOutlet weak var name: UILabel! // name of the person you have connected with
     @IBOutlet weak var nameTextField: UITextField! // user enters the persons name
     @IBOutlet weak var email: UILabel! // email of person you have connected with
@@ -87,7 +88,6 @@ class CreateViewController: UIViewController {
         }
     }
    @objc private func mapLongPressAction(gestureRecognizer: UILongPressGestureRecognizer){
-    //print("Long Press Action Test!")
     let alertController = UIAlertController.init(title: "Add a location", message: "Here is where you add the location of where you met the person", preferredStyle: .alert)
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     let customAction = UIAlertAction(title: "Create", style: .default){(success) in
@@ -97,7 +97,6 @@ class CreateViewController: UIViewController {
         }
         self.locationInput = userInput
         self.getLocationInfo(input: userInput)
-       // self.setupAnnotation()
     }
     alertController.addTextField { (text) in
         text.placeholder = "Search for a place or a address"
@@ -160,7 +159,7 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //orignal image key
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            connectionBttn.setImage(image, for: .normal)
+            profileImage.image = image
         } else {
             print("orignal image is nil")
         }

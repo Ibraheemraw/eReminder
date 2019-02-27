@@ -36,7 +36,6 @@ class FavoritesViewController: UIViewController {
     }
     //Actions
     @IBAction func followUpPressed(_ sender: Any) {
-//        print("Followed up")
         let string = "Hello, world!"
         let url = URL(string: "https://www.youtube.com/")!
        
