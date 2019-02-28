@@ -26,7 +26,7 @@ class ConnectionsVC: UITableViewController {
         searchController.delegate = self
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
-        tableViewData = [cellData.init(opened: false, title: "First Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Second Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Third Connection", sectionData: ["Email", "Location where they met"])]
+//        tableViewData = [cellData.init(opened: false, title: "First Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Second Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Third Connection", sectionData: ["Email", "Location where they met"])]
      
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -9,11 +9,14 @@
 import Foundation
 
 struct ConnectionInfo {
+    let user: String
     let name: String
     let email: String
     let address: String
     let latitude: Double
     let longitude: Double
+    let createdDate: Date
+    let lastMeetupDate: Date
     let description: String
     let connectionPicture: Data
 }

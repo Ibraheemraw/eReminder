@@ -141,6 +141,13 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func createConnection(_ sender: UIBarButtonItem) {
+        if let context =  container?.viewContext {
+            do {
+                
+            } catch {
+                
+            }
+        }
     }
     
     @IBAction func setImage(_ sender: UIButton){
