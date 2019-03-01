@@ -28,6 +28,10 @@ class CreateViewController: UIViewController {
     private var imagePickerViewController: UIImagePickerController! //Being able to set up the picture using the photogallery or camera
     private var locationInput: String? //for the alertController textfield
     private let identifier = "marker" // for the mapView
+    var lat: Double?
+    var long: Double?
+    private var image: UIImage?
+    private var connectionInfo: ConnectionInfo!
     private var googleAddressReults = [Results](){
         didSet{
             DispatchQueue.main.async {
@@ -44,6 +48,7 @@ class CreateViewController: UIViewController {
         nameTextField.placeholder = "Ex: Ibraheem..."
         emailTextField.placeholder = "Ex: Ibraheem@me.com..."
         decriptionTxtField.placeholder = "Something about the person..."
+        self.image = profileImage.image
         
     }
     
@@ -128,6 +133,8 @@ class CreateViewController: UIViewController {
             //Giving the annotation a coordinate
             annotation.coordinate = coordinate
             // giving the annotation a title from the GoogleGeocoding Model
+             self.lat = annotation.coordinate.latitude as! Double
+             self.long = annotation.coordinate.longitude as! Double
             annotation.title = locationInput! // assigning what the user types in to the title of the annotation
             // set the mapview to the coordinate region
             meetupMapView.setRegion(coordinateRegion, animated: true)
@@ -141,12 +148,20 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func createConnection(_ sender: UIBarButtonItem) {
-        if let context =  container?.viewContext {
+        //create a connection
+        if let context = container?.viewContext { // context is the container of the app delegate
             do {
-                
+                let _ = try Connection.createConnections(connectionInfo: connectionInfo, context: context)
+                //======================================
+                // PLEASE REMEMEBER TO SAVE THE CONTEXT
+                //======================================
+                try? context.save()
+                navigationItem.rightBarButtonItem?.isEnabled = false
+                showAlert(title: "Saved 🤗", message: "You created a new connection for \(connectionInfo.name)", style: .alert)
             } catch {
-                
+                showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
+            
         }
     }
     
@@ -168,6 +183,7 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.contentMode = .scaleAspectFit
             profileImage.image = image
+            self.image = image
         } else {
             print("orignal image is nil")
         }
@@ -180,9 +196,15 @@ extension CreateViewController: UITextFieldDelegate{
         guard let nameInput = nameTextField.text, let emailInput = emailTextField.text, let descriptionInput = decriptionTxtField.text else {
             fatalError("nameInput, emailInput, and descriptionInput is empty")
         }
+        
         print("name: \(nameInput) ,email: \(emailInput),description: \(descriptionInput)")
+        if let imageData = image?.jpegData(compressionQuality: 0.5) {
+        let newConnection = ConnectionInfo.init(user: nil, name: nameInput, email: emailInput, address: locationInput ?? "", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: descriptionInput, connectionPicture: imageData)
+        connectionInfo = newConnection
+        }
         return textField.resignFirstResponder()
     }
+        
 }
 extension CreateViewController: MKMapViewDelegate{
     //view for Annotion

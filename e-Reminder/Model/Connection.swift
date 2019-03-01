@@ -43,6 +43,7 @@ class Connection: NSManagedObject {
         // saving image data to Core Data
         let imageView = UIImageView()
         //imageView.kf.setImage(with:)
+        
         imageView.image = UIImage.init(data: connectionInfo.connectionPicture)
        if let imageData = imageView.image?.jpegData(compressionQuality: 0.5){
             connection.picture = imageData as NSObject
@@ -50,7 +51,7 @@ class Connection: NSManagedObject {
         // get the User matching the passed in "name" from this method
         do {
             // Create relationship
-            let user = try User.getUser(name: connectionInfo.user, context: context) // This gets incremented everytime it gets called
+            let user = try User.getUser(name: connectionInfo.user ?? "", context: context) // This gets incremented everytime it gets called
             connection.user = user
         } catch {
             throw error

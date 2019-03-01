@@ -9,14 +9,14 @@
 import Foundation
 
 struct ConnectionInfo {
-    let user: String
-    let name: String
-    let email: String
-    let address: String
-    let latitude: Double
-    let longitude: Double
-    let createdDate: Date
-    let lastMeetupDate: Date
-    let description: String
-    let connectionPicture: Data
+    var user: String?
+    var name: String
+    var email: String
+    var address: String
+    var latitude: Double
+    var longitude: Double
+    var createdDate: Date?
+    var lastMeetupDate: Date?
+    var description: String
+    var connectionPicture: Data
 }

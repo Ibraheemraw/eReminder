@@ -7,90 +7,132 @@
 //
 
 import UIKit
-struct cellData {
-    var opened = Bool()
-    var title = String()
-    var sectionData = [String]()
-    
-}
+import CoreData
 
 class ConnectionsVC: UITableViewController {
- //Outlets
+    //Outlets
     @IBOutlet weak var tableViewObj: UITableView!
- //Private Properties
-    private var tableViewData = [cellData]()
-   private var searchController: UISearchController!
+    //Private Properties
+    private var connectionData = [Connection]()
+    private var searchController: UISearchController!
+    let id = "ConnectionsCell"
+    private var container = AppDelegate.container // container from AppDelegate
+    private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarView()
         searchController.delegate = self
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
-//        tableViewData = [cellData.init(opened: false, title: "First Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Second Connection", sectionData: ["Email", "Location where they met"]), cellData.init(opened: false, title: "Third Connection", sectionData: ["Email", "Location where they met"])]
-     
+        configfetchResultsContoller()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-    private func setupNavigationBarView(){
-        // Makes the navigation bar's title Larger
-self.navigationController?.navigationBar.prefersLargeTitles =  true
-     searchController = UISearchController.init(searchResultsController: nil) // setting it to nil becuase you don't have a search view set up
-    navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false // makes the search bar persistant
-    }
+    //Actions
     @IBAction func createConnectionBttn(_ sender: UIBarButtonItem) {
         let destinationVC = CreateViewController()
         self.present(destinationVC, animated: true, completion: nil)
     }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count
+    //Methods
+    private func setupNavigationBarView(){
+        // Makes the navigation bar's title Larger
+        self.navigationController?.navigationBar.prefersLargeTitles =  true
+        searchController = UISearchController.init(searchResultsController: nil) // setting it to nil becuase you don't have a search view set up
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false // makes the search bar persistant
+    }
+    private func configfetchResultsContoller(){
+        if let context = container?.viewContext{
+            // create a request
+            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+            // Assign NSSortDescriptor
+            request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+            //
+            fetchResultsContoller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            // set the delegate
+            fetchResultsContoller?.delegate = self
+            do {
+                try fetchResultsContoller?.performFetch()
+            } catch {
+                showAlert(title: "Error fetching data", message: "Try Again", style: .alert)
+            }
+            tableViewObj.reloadData()
+        }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
-            //testing to see if in this section is this expaned or opened
-            return tableViewData[section].sectionData.count + 1
+        if let sections = fetchResultsContoller?.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
         } else {
-            //if not return a certain value
-            return 1 // we only want one header to return if it isnot expanded or open
+            return 0
         }
     }
-    //"ConnectionsCell"
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dataIndex = indexPath.row - 1
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].title
-            return cell
-        } else {
-            // user different cell ID if needed
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[dataIndex]
-            return cell
-        }
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if tableViewData[indexPath.section].opened == true {
-                tableViewData[indexPath.section].opened = false
-                let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
-                tableView.reloadSections(sections, with: .none) // play around with this!!!!
-            } else {
-                tableViewData[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section) // becuase we want an array of sections
-                tableView.reloadSections(sections, with: .none) // play around with this!!!!
-            }
-        } else {
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Detail")
+         let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+        if let connection = fetchResultsContoller?.object(at: indexPath){
+            cell.textLabel?.text = connection.name
+            cell.detailTextLabel?.text = connection.address
             
-            viewController.modalPresentationStyle = .overCurrentContext
-            viewController.modalTransitionStyle = .coverVertical
-            self.present(viewController, animated: true, completion: nil)
+            cell.imageView?.image = UIImage(named: "profile-placeholder")// reloaded the imageData saved to Core Data
+            if let imageData = connection.picture as? Data {
+                DispatchQueue.global().async {
+                    let image = UIImage(data: imageData)
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = image
+                    }
+                }
+            }
+            
         }
-        
+        return cell
     }
+    // TableView Delegate
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if let connection = fetchResultsContoller?.object(at: indexPath){
+            container?.viewContext.delete(connection)
+            try? container?.viewContext.save()
+        }
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    
+    
 }
 //extensions
 extension ConnectionsVC: UISearchControllerDelegate {
     
+}
+extension ConnectionsVC: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableViewObj.beginUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType){
+        switch type {
+            case .insert:
+                tableViewObj.insertSections([sectionIndex], with: .fade)
+            case .delete:
+                tableViewObj.deleteSections([sectionIndex], with: .fade)
+            default:
+                break
+        }
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        guard let indexPath = indexPath, let newIndexPath = newIndexPath else {
+//            print("indexPath is nil")
+//            return
+//        }
+        switch type {
+        case .insert:
+            tableViewObj.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableViewObj.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            tableViewObj.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableViewObj.deleteRows(at: [indexPath!], with: .fade)
+            tableViewObj.insertRows(at: [newIndexPath!], with: .fade)
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableViewObj.endUpdates()
+    }
 }
