@@ -26,7 +26,7 @@
                   moduleName = "e-Reminder"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibraheem.r/Documents/Pursuit/Unit5/e-Reminder/e-Reminder/Controllers/FavoritesViewController.swift"
-                  timestampString = "573148179.92094"
+                  timestampString = "573158701.647801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "46"
@@ -41,7 +41,7 @@
                   moduleName = "e-Reminder"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibraheem.r/Documents/Pursuit/Unit5/e-Reminder/e-Reminder/Controllers/FavoritesViewController.swift"
-                  timestampString = "573148179.925441"
+                  timestampString = "573158701.650332"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "e-Reminder/Controllers/CreateViewController.swift"
-            timestampString = "573148178.884625"
+            timestampString = "573158701.32499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "showImagePicker()"
             landmarkType = "7">
          </BreakpointContent>
@@ -118,48 +118,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "e-Reminder/Controllers/ConnectionsVC.swift"
-            timestampString = "573148178.886796"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "e-Reminder/Controllers/ConnectionsVC.swift"
-            timestampString = "573148178.887557"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "e-Reminder/Controllers/ConnectionsVC.swift"
-            timestampString = "573148178.8879631"
+            filePath = "e-Reminder/Controllers/CreateViewController.swift"
+            timestampString = "573158701.325744"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "mapLongPressAction(gestureRecognizer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

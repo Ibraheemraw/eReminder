@@ -27,6 +27,9 @@ class CreateViewController: UIViewController {
     private var container = AppDelegate.container // Holds our coreData Database
     private var imagePickerViewController: UIImagePickerController! //Being able to set up the picture using the photogallery or camera
     private var locationInput: String? //for the alertController textfield
+    private var connectionName: String?
+    private var connectionEmail: String?
+    private var connectionDescription: String?
     private let identifier = "marker" // for the mapView
     var lat: Double?
     var long: Double?
@@ -53,6 +56,13 @@ class CreateViewController: UIViewController {
     }
     
     //Methods
+    private func createConnection(){
+        if let imageData = image?.jpegData(compressionQuality: 0.5){
+            let newConnection = ConnectionInfo.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
+            self.connectionInfo = newConnection
+        }
+        
+    }
     public func showImagePicker(){ // Presents photogallery or camera
         present(imagePickerViewController, animated: true, completion: nil)
     }
@@ -102,6 +112,8 @@ class CreateViewController: UIViewController {
         }
         self.locationInput = userInput
         self.getLocationInfo(input: userInput)
+    
+        
     }
     alertController.addTextField { (text) in
         text.placeholder = "Search for a place or a address"
@@ -135,6 +147,7 @@ class CreateViewController: UIViewController {
             // giving the annotation a title from the GoogleGeocoding Model
              self.lat = annotation.coordinate.latitude as! Double
              self.long = annotation.coordinate.longitude as! Double
+            
             annotation.title = locationInput! // assigning what the user types in to the title of the annotation
             // set the mapview to the coordinate region
             meetupMapView.setRegion(coordinateRegion, animated: true)
@@ -150,11 +163,13 @@ class CreateViewController: UIViewController {
     @IBAction func createConnection(_ sender: UIBarButtonItem) {
         //create a connection
         if let context = container?.viewContext { // context is the container of the app delegate
+            createConnection()
             do {
                 let _ = try Connection.createConnections(connectionInfo: connectionInfo, context: context)
                 //======================================
                 // PLEASE REMEMEBER TO SAVE THE CONTEXT
                 //======================================
+                
                 try? context.save()
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 showAlert(title: "Saved 🤗", message: "You created a new connection for \(connectionInfo.name)", style: .alert)
@@ -196,12 +211,16 @@ extension CreateViewController: UITextFieldDelegate{
         guard let nameInput = nameTextField.text, let emailInput = emailTextField.text, let descriptionInput = decriptionTxtField.text else {
             fatalError("nameInput, emailInput, and descriptionInput is empty")
         }
-        
-        print("name: \(nameInput) ,email: \(emailInput),description: \(descriptionInput)")
-        if let imageData = image?.jpegData(compressionQuality: 0.5) {
-        let newConnection = ConnectionInfo.init(user: nil, name: nameInput, email: emailInput, address: locationInput ?? "", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: descriptionInput, connectionPicture: imageData)
-        connectionInfo = newConnection
+        if nameInput.isEmpty || emailInput.isEmpty || descriptionInput.isEmpty  {
+            showAlert(title: "Remeber", message: "Don't Forget to press return", style: .alert)
         }
+        if !nameInput.isEmpty && !emailInput.isEmpty && !descriptionInput.isEmpty {
+            showAlert(title: "Add a loaction", message: "Now that you have filled all of the requirements. long press on the map and enter in your location", style: .alert)
+        }
+        self.connectionName = nameInput
+        self.connectionEmail = emailInput
+        self.connectionDescription = descriptionInput
+        print("name: \(nameInput) ,email: \(emailInput),description: \(descriptionInput)")
         return textField.resignFirstResponder()
     }
         
