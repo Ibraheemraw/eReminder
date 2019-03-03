@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import FaveButton
-
+import CoreData
 func color(_ rgbColor: Int) -> UIColor{
     return UIColor(
         red:   CGFloat((rgbColor & 0xFF0000) >> 16) / 255.0,
@@ -30,11 +30,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescription: UILabel!
     //Properties
     private var container = AppDelegate.container // is the database that holds our model
+    public var connection: Connection!
+    private var fetchResultsContoller: NSFetchedResultsController<Connection>!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentViewDesign()
         setupFavButton()
         setupNavigationBar()
+        fetchData()
         
     }
     private func setupContentViewDesign(){
@@ -47,6 +50,19 @@ class DetailViewController: UIViewController {
     navigationItem.largeTitleDisplayMode = .never
     navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "cancel", style: .plain, target: self, action: #selector(goBackToMainVC))
     
+    }
+    private func fetchData() {
+       detailNameLabel.text = connection.name
+        detailEmailLabel.text = connection.email
+        detailDescription.text = connection.description
+        if let imageData = connection.picture as? Data {
+            DispatchQueue.global().async {
+                let image = UIImage(data: imageData)
+                DispatchQueue.main.async {
+                    self.profileImage.image = image
+                }
+            }
+        }
     }
     @objc func goBackToMainVC(){
         self.dismiss(animated: true, completion: nil)
@@ -82,4 +98,8 @@ extension DetailViewController: FaveButtonDelegate{
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
         
     }
+}
+
+extension DetailViewController: NSFetchedResultsControllerDelegate {
+    
 }

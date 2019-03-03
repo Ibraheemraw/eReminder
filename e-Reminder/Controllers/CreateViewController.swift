@@ -61,7 +61,6 @@ class CreateViewController: UIViewController {
             let newConnection = ConnectionInfo.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
             self.connectionInfo = newConnection
         }
-        
     }
     public func showImagePicker(){ // Presents photogallery or camera
         present(imagePickerViewController, animated: true, completion: nil)
@@ -70,7 +69,6 @@ class CreateViewController: UIViewController {
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self // make sure you have UIImagePickerControllerDelegate, UINavigationControllerDelegate
         addImageAlert(imagePickerViewController)
-        
     }
     private func configureLongPress(){
         //create an instance of LongPressGestureRecognizer
@@ -85,7 +83,6 @@ class CreateViewController: UIViewController {
         emailTextField.delegate = self
         decriptionTxtField.delegate = self
         meetupMapView.delegate = self
-        
     }
     private func getLocationInfo(input: String){ // getting the address from the endpoint (formatted adress, lat and lng)
         GeocodingApiClient.createLocations(userInput: input) { [weak self](googleAddressReults, appError) in
@@ -112,8 +109,6 @@ class CreateViewController: UIViewController {
         }
         self.locationInput = userInput
         self.getLocationInfo(input: userInput)
-    
-        
     }
     alertController.addTextField { (text) in
         text.placeholder = "Search for a place or a address"
@@ -147,7 +142,6 @@ class CreateViewController: UIViewController {
             // giving the annotation a title from the GoogleGeocoding Model
              self.lat = annotation.coordinate.latitude as! Double
              self.long = annotation.coordinate.longitude as! Double
-            
             annotation.title = locationInput! // assigning what the user types in to the title of the annotation
             // set the mapview to the coordinate region
             meetupMapView.setRegion(coordinateRegion, animated: true)
@@ -159,7 +153,6 @@ class CreateViewController: UIViewController {
     @IBAction func dismissBttn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func createConnection(_ sender: UIBarButtonItem) {
         //create a connection
         if let context = container?.viewContext { // context is the container of the app delegate
@@ -169,24 +162,20 @@ class CreateViewController: UIViewController {
                 //======================================
                 // PLEASE REMEMEBER TO SAVE THE CONTEXT
                 //======================================
-                
                 try? context.save()
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 showAlert(title: "Saved 🤗", message: "You created a new connection for \(connectionInfo.name)", style: .alert)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
-            
         }
     }
-    
     @IBAction func setImage(_ sender: UIButton){
         setupImagePicker()
         showImagePicker()
         print("connection image has been tapped") // testing purposes
     }
 }
-
 //Extension
 extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //functions you'll need for the delegate //didSelect 'didFinishPickingMediaWithInfo' and didCancel
@@ -205,7 +194,6 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
         dismiss(animated: true, completion: nil)
     }
 }
-
 extension CreateViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let nameInput = nameTextField.text, let emailInput = emailTextField.text, let descriptionInput = decriptionTxtField.text else {

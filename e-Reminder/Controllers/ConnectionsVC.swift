@@ -8,16 +8,16 @@
 
 import UIKit
 import CoreData
-
 class ConnectionsVC: UITableViewController {
     //Outlets
     @IBOutlet weak var tableViewObj: UITableView!
     //Private Properties
-    private var connectionData = [Connection]()
+    private var connectionData = [ConnectionInfo]()
     private var searchController: UISearchController!
     let id = "ConnectionsCell"
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
+    private var gradient: CAGradientLayer! // Setting up the tableview background
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarView()
@@ -26,12 +26,24 @@ class ConnectionsVC: UITableViewController {
         tableViewObj.dataSource = self
         configfetchResultsContoller()
     }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addGradient()
+    }
+    
     //Actions
     @IBAction func createConnectionBttn(_ sender: UIBarButtonItem) {
         let destinationVC = CreateViewController()
         self.present(destinationVC, animated: true, completion: nil)
     }
     //Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? DetailViewController, let indexPath = tableViewObj.indexPathForSelectedRow else {
+            fatalError("DetailViewController is nil")
+        }
+        let connection = fetchResultsContoller?.object(at: indexPath)
+        destination.connection = connection
+    }
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
         self.navigationController?.navigationBar.prefersLargeTitles =  true
@@ -65,23 +77,30 @@ class ConnectionsVC: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as? ConnectionsListTableViewCell else {
+            print("Generic TableViewCell")
+            return UITableViewCell()
+        }
         if let connection = fetchResultsContoller?.object(at: indexPath){
-            cell.textLabel?.text = connection.name
-            cell.detailTextLabel?.text = connection.address
-            
+            cell.name?.text = connection.name
+            cell.location?.text = connection.address
             cell.imageView?.image = UIImage(named: "profile-placeholder")// reloaded the imageData saved to Core Data
             if let imageData = connection.picture as? Data {
                 DispatchQueue.global().async {
                     let image = UIImage(data: imageData)
                     DispatchQueue.main.async {
-                        cell.imageView?.image = image
+                        cell.connectionImage?.image = image
                     }
                 }
             }
-            
         }
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Detail")
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true, completion: nil)
     }
     // TableView Delegate
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -93,9 +112,6 @@ class ConnectionsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
-    
-    
 }
 //extensions
 extension ConnectionsVC: UISearchControllerDelegate {
@@ -116,10 +132,6 @@ extension ConnectionsVC: NSFetchedResultsControllerDelegate {
         }
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//        guard let indexPath = indexPath, let newIndexPath = newIndexPath else {
-//            print("indexPath is nil")
-//            return
-//        }
         switch type {
         case .insert:
             tableViewObj.insertRows(at: [newIndexPath!], with: .fade)
