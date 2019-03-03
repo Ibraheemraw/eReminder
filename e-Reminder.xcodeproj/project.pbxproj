@@ -10,7 +10,7 @@
 		4810BC432225CE9B002908D3 /* CoreDataConnections.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC412225CE9B002908D3 /* CoreDataConnections.xcdatamodeld */; };
 		4810BC482225D3C5002908D3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC472225D3C5002908D3 /* Connection.swift */; };
 		4810BC4A2225D3D8002908D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC492225D3D8002908D3 /* User.swift */; };
-		4810BC4E2225D8B8002908D3 /* ConnectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC4D2225D8B8002908D3 /* ConnectionInfo.swift */; };
+		4810BC4E2225D8B8002908D3 /* MyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC4D2225D8B8002908D3 /* MyConnection.swift */; };
 		4810BC512226017E002908D3 /* GeocodingApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC502226017E002908D3 /* GeocodingApiClient.swift */; };
 		4810BC53222601C0002908D3 /* GeocodingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC52222601C0002908D3 /* GeocodingModel.swift */; };
 		4810BC56222603B5002908D3 /* PrivateInfoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810BC55222603B5002908D3 /* PrivateInfoFile.swift */; };
@@ -43,7 +43,7 @@
 		4810BC422225CE9B002908D3 /* CoreDataConnections.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataConnections.xcdatamodel; sourceTree = "<group>"; };
 		4810BC472225D3C5002908D3 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		4810BC492225D3D8002908D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4810BC4D2225D8B8002908D3 /* ConnectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfo.swift; sourceTree = "<group>"; };
+		4810BC4D2225D8B8002908D3 /* MyConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConnection.swift; sourceTree = "<group>"; };
 		4810BC502226017E002908D3 /* GeocodingApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingApiClient.swift; sourceTree = "<group>"; };
 		4810BC52222601C0002908D3 /* GeocodingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingModel.swift; sourceTree = "<group>"; };
 		4810BC55222603B5002908D3 /* PrivateInfoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfoFile.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4810BC472225D3C5002908D3 /* Connection.swift */,
-				4810BC4D2225D8B8002908D3 /* ConnectionInfo.swift */,
+				4810BC4D2225D8B8002908D3 /* MyConnection.swift */,
 				4810BC492225D3D8002908D3 /* User.swift */,
 				4810BC52222601C0002908D3 /* GeocodingModel.swift */,
 			);
@@ -385,7 +385,7 @@
 				48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */,
 				4810BC582226056F002908D3 /* AppError.swift in Sources */,
 				48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */,
-				4810BC4E2225D8B8002908D3 /* ConnectionInfo.swift in Sources */,
+				4810BC4E2225D8B8002908D3 /* MyConnection.swift in Sources */,
 				48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */,
 				48B2F9D62227321E00A7C591 /* CircularImageView.swift in Sources */,
 				48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */,

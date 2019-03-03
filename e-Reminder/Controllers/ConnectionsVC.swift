@@ -12,7 +12,7 @@ class ConnectionsVC: UITableViewController {
     //Outlets
     @IBOutlet weak var tableViewObj: UITableView!
     //Private Properties
-    private var connectionData = [ConnectionInfo]()
+    private var connectionData = [MyConnection]()
     private var searchController: UISearchController!
     let id = "ConnectionsCell"
     private var container = AppDelegate.container // container from AppDelegate
@@ -28,7 +28,7 @@ class ConnectionsVC: UITableViewController {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        addGradient()
+        
     }
     
     //Actions

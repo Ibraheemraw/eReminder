@@ -11,7 +11,7 @@ import CoreData
 import Kingfisher
 class Connection: NSManagedObject {
  // create a function that returns a connection and takes in connection info and context
-    static func createConnections(connectionInfo: ConnectionInfo, context: NSManagedObjectContext) throws -> Connection {
+    static func createConnections(connectionInfo: MyConnection, context: NSManagedObjectContext) throws -> Connection {
         //Intialize the NSFetchRequest
         let request: NSFetchRequest<Connection> = Connection.fetchRequest() //NSFetchRequest<Connection> specifies what we want to fetch
         // Assign NSSortDescriptor

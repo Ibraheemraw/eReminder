@@ -34,7 +34,7 @@ class CreateViewController: UIViewController {
     var lat: Double?
     var long: Double?
     private var image: UIImage?
-    private var connectionInfo: ConnectionInfo!
+    private var myConnection: MyConnection!
     private var googleAddressReults = [Results](){
         didSet{
             DispatchQueue.main.async {
@@ -58,8 +58,8 @@ class CreateViewController: UIViewController {
     //Methods
     private func createConnection(){
         if let imageData = image?.jpegData(compressionQuality: 0.5){
-            let newConnection = ConnectionInfo.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
-            self.connectionInfo = newConnection
+            let newConnection = MyConnection.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
+            self.myConnection = newConnection
         }
     }
     public func showImagePicker(){ // Presents photogallery or camera
@@ -158,13 +158,13 @@ class CreateViewController: UIViewController {
         if let context = container?.viewContext { // context is the container of the app delegate
             createConnection()
             do {
-                let _ = try Connection.createConnections(connectionInfo: connectionInfo, context: context)
+                let _ = try Connection.createConnections(connectionInfo: myConnection, context: context)
                 //======================================
                 // PLEASE REMEMEBER TO SAVE THE CONTEXT
                 //======================================
                 try? context.save()
                 navigationItem.rightBarButtonItem?.isEnabled = false
-                showAlert(title: "Saved 🤗", message: "You created a new connection for \(connectionInfo.name)", style: .alert)
+                showAlert(title: "Saved 🤗", message: "You created a new connection for \(myConnection.name)", style: .alert)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }

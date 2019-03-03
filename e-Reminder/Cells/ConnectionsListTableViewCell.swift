@@ -16,7 +16,7 @@ class ConnectionsListTableViewCell: UITableViewCell {
     //Properties
     var gradient: CAGradientLayer!
 
-    private var iExpectAConnectionBack: ConnectionInfo!{
+    private var iExpectAConnectionBack: MyConnection!{
         didSet{
             updateUI()
         }

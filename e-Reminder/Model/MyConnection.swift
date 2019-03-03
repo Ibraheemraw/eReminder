@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct myConnection {
+struct MyConnection {
     var user: String?
     var name: String
     var email: String
