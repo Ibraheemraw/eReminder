@@ -15,6 +15,8 @@ class SettingsView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var connectionListPicker: UIPickerView!
     @IBOutlet weak var NotificationPicker: UIDatePicker!
+    
+    @IBOutlet weak var noticationBodyContent: UITextField!
     //Override Initalizers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)

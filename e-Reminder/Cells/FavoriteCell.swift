@@ -9,10 +9,12 @@
 import UIKit
 
 class FavoriteCell: UICollectionViewCell, Expandable {
-    //Outlets
+    // MARK: - Configuration Outlets
     @IBOutlet weak var textView: UITextView?
+    @IBOutlet weak var nameObj: UILabel!
+    @IBOutlet weak var emailObj: UILabel!
     @IBOutlet weak var followUpBttn: UIButton?
-    // Private Properties
+    // MARK: - Configuration Private Properties
     private var initialFrame: CGRect?
     private var initialCornerRadius: CGFloat?
     

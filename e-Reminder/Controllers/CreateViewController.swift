@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
-import AVFoundation
+//import AVFoundation
+import UserNotifications
 class CreateViewController: UIViewController {
-    //Outlets
+    //MARK: - Configuration Outlets
+    @IBOutlet weak var addItems: UIBarButtonItem!
     @IBOutlet weak var contentView: UIView!//the child view containing all of the objects (labels, textfields, mapview and button)
     @IBOutlet weak var backgroundImageView: UIImageView!//setting the gradient background
     @IBOutlet weak var connectionBttn: UIButton!//for changing the image of the connection you made
@@ -22,7 +24,7 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel! // Description label title
     @IBOutlet weak var decriptionTxtField: UITextField! //user adds a small description about the person
     @IBOutlet weak var meetupMapView: MKMapView! // the map view where the user met the person they are adding 
-    // Private Properties
+    //MARK: - Configuration Private Properties
     private var longPress: UILongPressGestureRecognizer!//for long press action on the map
     private var container = AppDelegate.container // Holds our coreData Database
     private var imagePickerViewController: UIImagePickerController! //Being able to set up the picture using the photogallery or camera
@@ -45,6 +47,7 @@ class CreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addItems.isEnabled = false
         setupContentViewDesign()
         configureLongPress()
         setupDelegates()
@@ -55,7 +58,32 @@ class CreateViewController: UIViewController {
         
     }
     
-    //Methods
+    //MARK: - Configuration Methods
+    private func launchNotification() {
+        let center = UNUserNotificationCenter.current() // current version of The central object for managing notification-related activities for your app or app extension
+        let content = UNMutableNotificationContent() //Takes care of the body of the notification. hast to be mutable
+        content.title = "Follow UP!"
+        content.subtitle = "\(connectionName ?? "name is nil") was your last connection 😃"
+        content.body = "You made a great connection. See what they are up to since you guys last met"
+        content.sound = UNNotificationSound.default
+        content.threadIdentifier = "local-notifications temp"
+        // When we want the notification to trigger
+        let date = Date.init(timeIntervalSinceNow: 10)// ten seconds from now
+        // getting the date compents
+        let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        // set the trigger
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponents, repeats: false)
+        //combining the content and trigger into a request
+        let request = UNNotificationRequest.init(identifier: "content", content: content, trigger: trigger)
+        //Disptach the request
+        center.add(request) { (error) in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+    }
+    //MARK: - Configuration of Creating an instance of a Connection
     private func createConnection(){
         if let imageData = image?.jpegData(compressionQuality: 0.5){
             let newConnection = MyConnection.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
@@ -109,6 +137,7 @@ class CreateViewController: UIViewController {
         }
         self.locationInput = userInput
         self.getLocationInfo(input: userInput)
+        self.addItems.isEnabled = true
     }
     alertController.addTextField { (text) in
         text.placeholder = "Search for a place or a address"
@@ -126,6 +155,7 @@ class CreateViewController: UIViewController {
         meetupMapView.layer.cornerRadius = 15
         backgroundImageView.layer.cornerRadius = 20
     }
+    //MARK: - Configuration Setting Up Map Annotation
     private func setupAnnotation(){
         //looping through the the array of resutls to setup the annotation
         for result in googleAddressReults {
@@ -149,7 +179,7 @@ class CreateViewController: UIViewController {
             meetupMapView.addAnnotation(annotation)
         }
     }
-    // Actions
+    //MARK: - Configuration Actions
     @IBAction func dismissBttn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -165,6 +195,7 @@ class CreateViewController: UIViewController {
                 try? context.save()
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 showAlert(title: "Saved 🤗", message: "You created a new connection for \(myConnection.name)", style: .alert)
+                launchNotification()
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
@@ -176,7 +207,7 @@ class CreateViewController: UIViewController {
         print("connection image has been tapped") // testing purposes
     }
 }
-//Extension
+//MARK: - Configuration Extension
 extension CreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //functions you'll need for the delegate //didSelect 'didFinishPickingMediaWithInfo' and didCancel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

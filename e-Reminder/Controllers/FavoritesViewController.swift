@@ -10,8 +10,6 @@ import UIKit
 class FavoritesViewController: UIViewController {
     //Outlets
     @IBOutlet weak var collectionViewObj: UICollectionView!
-   
-    
     //Private properties
     private var hiddenCells: [FavoriteCell] = []
     private var searchController: UISearchController!
@@ -36,6 +34,7 @@ class FavoritesViewController: UIViewController {
     }
     //Actions
     @IBAction func followUpPressed(_ sender: Any) {
+        
         let string = "Hello, world!"
         let url = URL(string: "https://www.youtube.com/")!
        

@@ -226,6 +226,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addItems" destination="bre-TM-sgt" id="ElD-qs-Nsp"/>
                         <outlet property="backgroundImageView" destination="Rx1-Vf-i95" id="Izc-3G-D0X"/>
                         <outlet property="connectionBttn" destination="xcM-i4-RO0" id="mRZ-wv-Tj4"/>
                         <outlet property="contentView" destination="ypA-v2-zir" id="nDI-dU-e1j"/>
@@ -357,8 +358,10 @@
                                             <constraint firstItem="a6v-dV-XkI" firstAttribute="top" secondItem="caX-WB-FPJ" secondAttribute="bottom" constant="11" id="wyu-Ld-aXB"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="emailObj" destination="GVZ-IG-iXV" id="jpU-G8-oVd"/>
                                             <outlet property="followUpBttn" destination="a6v-dV-XkI" id="FrU-jf-h4a"/>
-                                            <outlet property="textView" destination="caX-WB-FPJ" id="X11-rK-t4B"/>
+                                            <outlet property="nameObj" destination="fnF-YX-whn" id="5vu-wf-7aB"/>
+                                            <outlet property="textView" destination="caX-WB-FPJ" id="fdj-p3-VzP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -389,7 +392,7 @@
         <!--About My Connection-->
         <scene sceneID="eoX-za-kc6">
             <objects>
-                <viewController id="30Y-Kl-dNg" customClass="DetailViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="30Y-Kl-dNg" customClass="DetailViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n1D-2V-MoS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

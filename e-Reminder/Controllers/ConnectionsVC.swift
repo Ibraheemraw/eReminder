@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 class ConnectionsVC: UITableViewController {
-    //Outlets
+    //MARK: - Configuration Outlets
     @IBOutlet weak var tableViewObj: UITableView!
-    //Private Properties
+    //MARK: - Configuration Private Properties
     private var connectionData = [MyConnection]()
     private var searchController: UISearchController!
     let id = "ConnectionsCell"
@@ -31,18 +31,14 @@ class ConnectionsVC: UITableViewController {
         
     }
     
-    //Actions
+    //MARK: - Configuration Actions
     @IBAction func createConnectionBttn(_ sender: UIBarButtonItem) {
         let destinationVC = CreateViewController()
         self.present(destinationVC, animated: true, completion: nil)
     }
-    //Methods
+    //MARK: - Configuration Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? DetailViewController, let indexPath = tableViewObj.indexPathForSelectedRow else {
-            fatalError("DetailViewController is nil")
-        }
-        let connection = fetchResultsContoller?.object(at: indexPath)
-        destination.connection = connection
+        
     }
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
@@ -97,10 +93,17 @@ class ConnectionsVC: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Detail")
-        viewController.modalPresentationStyle = .overCurrentContext
-        viewController.modalTransitionStyle = .coverVertical
-        self.present(viewController, animated: true, completion: nil)
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        if let connection = fetchResultsContoller?.object(at: indexPath) {
+            
+            viewController.connection = connection
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+        //viewController.modalPresentationStyle = .overCurrentContext
+        //viewController.modalTransitionStyle = .coverVertical
+        //self.present(viewController, animated: true, completion: nil)
     }
     // TableView Delegate
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -113,7 +116,7 @@ class ConnectionsVC: UITableViewController {
         return 120
     }
 }
-//extensions
+//MARK: - Configuration Extensions
 extension ConnectionsVC: UISearchControllerDelegate {
     
 }

@@ -14,6 +14,7 @@
                 <outlet property="NotificationPicker" destination="GfT-0L-GVm" id="rNz-uR-IMd"/>
                 <outlet property="connectionListPicker" destination="th0-Tq-CWM" id="3Zv-Kx-bcL"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Tp5-HY-cvM"/>
+                <outlet property="noticationBodyContent" destination="zXs-Cq-3IT" id="YCx-sN-tsR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,31 +26,76 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                 </imageView>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="th0-Tq-CWM">
-                    <rect key="frame" x="0.0" y="166" width="375" height="216"/>
+                    <rect key="frame" x="0.0" y="147.5" width="375" height="216"/>
                 </pickerView>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GfT-0L-GVm">
-                    <rect key="frame" x="0.0" y="428" width="375" height="216"/>
+                <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GfT-0L-GVm">
+                    <rect key="frame" x="0.0" y="492.5" width="375" height="166.5"/>
                     <date key="date" timeIntervalSinceReferenceDate="572208060.42155397">
                         <!--2019-02-18 18:41:00 +0000-->
                     </date>
                 </datePicker>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Your Own Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1s-M2-9DV">
+                    <rect key="frame" x="11" y="46" width="353" height="31.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Person 👤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbm-Vi-g1v">
+                    <rect key="frame" x="11" y="114.5" width="353" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXs-Cq-3IT">
+                    <rect key="frame" x="11" y="410.5" width="353" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRF-rO-IH4">
+                    <rect key="frame" x="11" y="371.5" width="353" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Time to be Notified" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJH-vH-n1m">
+                    <rect key="frame" x="11" y="455.5" width="353" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="oRF-rO-IH4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="1z4-K8-aeq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o1s-M2-9DV" secondAttribute="trailing" constant="11" id="2el-Oo-att"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rbm-Vi-g1v" secondAttribute="trailing" constant="11" id="5jd-uJ-Q2y"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zHI-II-85P" secondAttribute="bottom" id="8t1-rN-dbU"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GfT-0L-GVm" secondAttribute="bottom" constant="23" id="9ds-2G-AUu"/>
+                <constraint firstItem="zXs-Cq-3IT" firstAttribute="top" secondItem="oRF-rO-IH4" secondAttribute="bottom" constant="10" id="9tr-7s-GMk"/>
+                <constraint firstItem="zXs-Cq-3IT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="BKa-ah-bAE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zHI-II-85P" secondAttribute="trailing" id="CIz-Ra-3ea"/>
-                <constraint firstItem="GfT-0L-GVm" firstAttribute="top" secondItem="th0-Tq-CWM" secondAttribute="bottom" constant="46" id="JL9-yX-fIw"/>
-                <constraint firstItem="GfT-0L-GVm" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Lqa-L3-KSJ"/>
-                <constraint firstItem="GfT-0L-GVm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NQr-vj-wpc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zXs-Cq-3IT" secondAttribute="trailing" constant="11" id="Czx-PX-iHr"/>
+                <constraint firstItem="GfT-0L-GVm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DFb-5u-tij"/>
+                <constraint firstItem="th0-Tq-CWM" firstAttribute="top" secondItem="rbm-Vi-g1v" secondAttribute="bottom" constant="4" id="GPo-j3-MnZ"/>
+                <constraint firstItem="GfT-0L-GVm" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="H6e-bH-nEt"/>
+                <constraint firstItem="GfT-0L-GVm" firstAttribute="top" secondItem="xJH-vH-n1m" secondAttribute="bottom" constant="8" id="PjU-KV-sKC"/>
                 <constraint firstItem="zHI-II-85P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QRZ-xx-s5K"/>
-                <constraint firstItem="th0-Tq-CWM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="146" id="a3n-14-bcf"/>
-                <constraint firstItem="th0-Tq-CWM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gej-M3-F1G"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xJH-vH-n1m" secondAttribute="trailing" constant="11" id="QmV-pX-re5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oRF-rO-IH4" secondAttribute="trailing" constant="11" id="RKL-WY-lud"/>
+                <constraint firstItem="th0-Tq-CWM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Sn9-bk-KPp"/>
+                <constraint firstItem="o1s-M2-9DV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="XyB-cM-KPq"/>
+                <constraint firstItem="rbm-Vi-g1v" firstAttribute="top" secondItem="o1s-M2-9DV" secondAttribute="bottom" constant="37" id="YPM-Fy-fIr"/>
+                <constraint firstItem="xJH-vH-n1m" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="bMc-Iy-tni"/>
+                <constraint firstItem="xJH-vH-n1m" firstAttribute="top" secondItem="zXs-Cq-3IT" secondAttribute="bottom" constant="15" id="dLG-CK-RxH"/>
                 <constraint firstItem="zHI-II-85P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gjY-8x-VXN"/>
-                <constraint firstItem="GfT-0L-GVm" firstAttribute="top" secondItem="th0-Tq-CWM" secondAttribute="bottom" constant="46" id="jBr-wx-UcH"/>
-                <constraint firstItem="th0-Tq-CWM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uoN-ja-TJU"/>
+                <constraint firstItem="th0-Tq-CWM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ijr-mf-JMt"/>
+                <constraint firstItem="o1s-M2-9DV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="26" id="m1H-E0-Icd"/>
+                <constraint firstItem="oRF-rO-IH4" firstAttribute="top" secondItem="th0-Tq-CWM" secondAttribute="bottom" constant="8" id="nkU-H3-HjO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GfT-0L-GVm" secondAttribute="bottom" constant="8" id="odG-Af-uVC"/>
+                <constraint firstItem="rbm-Vi-g1v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="zHo-LR-oHw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="170.40000000000001" y="48.125937031484263"/>
         </view>
     </objects>
     <resources>

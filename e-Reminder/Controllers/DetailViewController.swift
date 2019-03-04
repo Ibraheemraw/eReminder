@@ -88,7 +88,11 @@ class DetailViewController: UIViewController {
         return nil
     }
     @IBAction func addToFavorties(_ sender: FaveButton){
-        
+        guard let name = detailNameLabel.text else {
+            print("name is nil")
+            return
+        }
+        showAlert(title: "Added ❤️", message: "\(name) has been added to your Favorites", style: .alert)
     }
     @IBAction func sendMessage(_ sender: FaveButton){
         

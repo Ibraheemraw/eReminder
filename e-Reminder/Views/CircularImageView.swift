@@ -11,11 +11,8 @@ import UIKit
 class CircularImageView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
-        //
         clipsToBounds = true
         layer.masksToBounds = true
         layer.cornerRadius = bounds.width / 2.0
-        layer.borderColor = UIColor.lightGray.cgColor
-        layer.borderWidth = 1.0
     }
 }
