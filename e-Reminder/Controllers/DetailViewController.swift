@@ -45,8 +45,13 @@ class DetailViewController: UIViewController {
     }
     private func setupContentViewDesign(){
         let myColor : UIColor = .white
+       
+       collectionViewContentView.layer.borderColor = myColor.cgColor
         contentView.layer.borderColor = myColor.cgColor
+        
+       collectionViewContentView.layer.borderWidth = 5
         contentView.layer.borderWidth = 5
+       collectionViewContentView.layer.cornerRadius = 10
         contentView.layer.cornerRadius = 10
     }
    private func setupNavigationBar(){
