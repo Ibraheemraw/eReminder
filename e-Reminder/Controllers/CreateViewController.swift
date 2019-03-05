@@ -96,6 +96,7 @@ class CreateViewController: UIViewController {
     private func setupImagePicker(){
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self // make sure you have UIImagePickerControllerDelegate, UINavigationControllerDelegate
+        self.imagePickerViewController.allowsEditing = true
         addImageAlert(imagePickerViewController)
     }
     private func configureLongPress(){
@@ -216,7 +217,7 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //orignal image key
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            profileImage.contentMode = .scaleAspectFit
+            profileImage.contentMode = .scaleAspectFill
             profileImage.image = image
             self.image = image
         } else {

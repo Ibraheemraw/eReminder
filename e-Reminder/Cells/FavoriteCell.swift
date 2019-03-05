@@ -14,6 +14,7 @@ class FavoriteCell: UICollectionViewCell, Expandable {
     @IBOutlet weak var nameObj: UILabel!
     @IBOutlet weak var emailObj: UILabel!
     @IBOutlet weak var followUpBttn: UIButton?
+    @IBOutlet weak var profileImage: CircularImageView!
     // MARK: - Configuration Private Properties
     private var initialFrame: CGRect?
     private var initialCornerRadius: CGFloat?
@@ -30,7 +31,7 @@ class FavoriteCell: UICollectionViewCell, Expandable {
     
     private func setupCellPropertiesUI(){
         textView?.layer.cornerRadius = 5
-        followUpBttn?.layer.cornerRadius = 10
+    followUpBttn?.layer.cornerRadius = 10
     }
     
     

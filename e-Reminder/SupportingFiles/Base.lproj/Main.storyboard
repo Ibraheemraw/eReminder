@@ -271,7 +271,7 @@
             </objects>
             <point key="canvasLocation" x="358" y="1315"/>
         </scene>
-        <!--Favorites ❤️-->
+        <!--Favorites -->
         <scene sceneID="qYR-JL-9pg">
             <objects>
                 <viewController id="Rf8-Dg-4dA" customClass="FavoritesViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -370,6 +370,7 @@
                                             <outlet property="emailObj" destination="GVZ-IG-iXV" id="jpU-G8-oVd"/>
                                             <outlet property="followUpBttn" destination="a6v-dV-XkI" id="FrU-jf-h4a"/>
                                             <outlet property="nameObj" destination="fnF-YX-whn" id="5vu-wf-7aB"/>
+                                            <outlet property="profileImage" destination="Mlt-V6-HLx" id="JCz-Ot-kgf"/>
                                             <outlet property="textView" destination="caX-WB-FPJ" id="fdj-p3-VzP"/>
                                         </connections>
                                     </collectionViewCell>
@@ -389,7 +390,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sVX-lF-cLU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites ❤️" id="hHm-ik-RBO"/>
+                    <navigationItem key="navigationItem" title="Favorites " id="hHm-ik-RBO"/>
                     <connections>
                         <outlet property="collectionViewObj" destination="Ocv-Af-Z7B" id="ySA-iN-Mp5"/>
                     </connections>
@@ -410,10 +411,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPP-EI-0yc">
-                                <rect key="frame" x="16" y="80" width="343" height="219"/>
+                                <rect key="frame" x="16" y="80" width="343" height="239"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FacebookMessenger" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-fW-1oF">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="219"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="239"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-Go-Knk" customClass="FaveButton" customModule="FaveButton">
                                         <rect key="frame" x="8" y="81" width="56" height="56"/>
@@ -445,19 +446,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9b-Qs-FGE">
-                                        <rect key="frame" x="11" y="150" width="321" height="26.5"/>
+                                        <rect key="frame" x="11" y="150" width="321" height="27"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGq-eO-5Yc">
-                                        <rect key="frame" x="11" y="178.5" width="321" height="23"/>
+                                        <rect key="frame" x="11" y="179" width="321" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqd-Hh-0Au">
-                                        <rect key="frame" x="11" y="203.5" width="321" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqd-Hh-0Au">
+                                        <rect key="frame" x="11" y="204" width="321" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -486,27 +487,73 @@
                                     <constraint firstAttribute="trailing" secondItem="LsP-SW-16p" secondAttribute="trailing" constant="8" id="v13-X9-3Dz"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the icon to create an event " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96c-D3-wtf">
+                                <rect key="frame" x="11" y="339" width="353" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="2zw-6a-Nr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30A-G0-G12" customClass="FaveButton" customModule="FaveButton">
+                                <rect key="frame" x="135" y="371" width="105" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="QEs-E9-rC0"/>
+                                    <constraint firstAttribute="width" constant="105" id="dIH-w8-5gg"/>
+                                </constraints>
+                                <state key="normal" image="calendar"/>
+                                <connections>
+                                    <action selector="createEvent:" destination="30Y-Kl-dNg" eventType="touchUpInside" id="UWo-aS-tU8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPk-N7-RYg">
+                                <rect key="frame" x="37" y="484" width="301" height="148"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FacebookMessenger" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-ys-YdH">
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="148"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Tmp-ys-YdH" firstAttribute="top" secondItem="HPk-N7-RYg" secondAttribute="top" id="22v-AZ-uwP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tmp-ys-YdH" secondAttribute="bottom" id="Gs7-Pa-TQJ"/>
+                                    <constraint firstItem="Tmp-ys-YdH" firstAttribute="leading" secondItem="HPk-N7-RYg" secondAttribute="leading" id="SIv-YU-Yl4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tmp-ys-YdH" secondAttribute="trailing" id="mzA-R4-02v"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NWT-lh-jT3" firstAttribute="bottom" secondItem="fPP-EI-0yc" secondAttribute="bottom" constant="368" id="G3z-MB-XOv"/>
+                            <constraint firstItem="NWT-lh-jT3" firstAttribute="bottom" secondItem="fPP-EI-0yc" secondAttribute="bottom" constant="348" id="G3z-MB-XOv"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" id="Gxq-35-0sy"/>
+                            <constraint firstItem="NWT-lh-jT3" firstAttribute="trailing" secondItem="96c-D3-wtf" secondAttribute="trailing" constant="11" id="IYt-fi-64g"/>
+                            <constraint firstItem="96c-D3-wtf" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" constant="11" id="U3t-RK-ZQX"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="bottom" secondItem="NWT-lh-jT3" secondAttribute="bottom" id="Uh4-ae-7Rh"/>
+                            <constraint firstItem="HPk-N7-RYg" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" constant="37" id="W4T-tG-X9x"/>
+                            <constraint firstItem="30A-G0-G12" firstAttribute="centerX" secondItem="96c-D3-wtf" secondAttribute="centerX" id="cCO-b1-Syp"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="trailing" secondItem="NWT-lh-jT3" secondAttribute="trailing" id="caz-9E-FCZ"/>
                             <constraint firstItem="fPP-EI-0yc" firstAttribute="leading" secondItem="NWT-lh-jT3" secondAttribute="leading" constant="16" id="dNf-k2-cZr"/>
+                            <constraint firstItem="96c-D3-wtf" firstAttribute="top" secondItem="fPP-EI-0yc" secondAttribute="bottom" constant="20" id="eKb-Vk-fUC"/>
                             <constraint firstItem="0j6-E6-7MS" firstAttribute="top" secondItem="NWT-lh-jT3" secondAttribute="top" id="m5e-8U-2aY"/>
+                            <constraint firstItem="NWT-lh-jT3" firstAttribute="bottom" secondItem="HPk-N7-RYg" secondAttribute="bottom" constant="35" id="oRB-be-wNC"/>
                             <constraint firstItem="fPP-EI-0yc" firstAttribute="top" secondItem="NWT-lh-jT3" secondAttribute="top" constant="16" id="qU4-Ej-r1g"/>
+                            <constraint firstItem="NWT-lh-jT3" firstAttribute="trailing" secondItem="HPk-N7-RYg" secondAttribute="trailing" constant="37" id="rWv-tV-iqw"/>
                             <constraint firstItem="NWT-lh-jT3" firstAttribute="trailing" secondItem="fPP-EI-0yc" secondAttribute="trailing" constant="16" id="tEA-PC-Mb3"/>
+                            <constraint firstItem="HPk-N7-RYg" firstAttribute="top" secondItem="30A-G0-G12" secondAttribute="bottom" constant="8" id="taD-NG-aU5"/>
+                            <constraint firstItem="30A-G0-G12" firstAttribute="top" secondItem="96c-D3-wtf" secondAttribute="bottom" constant="8" symbolic="YES" id="uRR-Kd-FaJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NWT-lh-jT3"/>
                     </view>
                     <navigationItem key="navigationItem" title="About My Connection" id="x02-gC-bWq"/>
                     <connections>
+                        <outlet property="collectionViewContentView" destination="HPk-N7-RYg" id="sAb-6D-dTz"/>
                         <outlet property="contentView" destination="fPP-EI-0yc" id="4d3-gE-tZZ"/>
                         <outlet property="detailDescription" destination="qqd-Hh-0Au" id="i1R-Yy-Nmm"/>
                         <outlet property="detailEmailLabel" destination="vGq-eO-5Yc" id="zL7-Eb-kb3"/>
                         <outlet property="detailNameLabel" destination="e9b-Qs-FGE" id="TWp-Q6-Y0O"/>
                         <outlet property="emailButton" destination="LsP-SW-16p" id="a3H-2Z-xcP"/>
+                        <outlet property="eventBttn" destination="30A-G0-G12" id="LJH-Z3-RRS"/>
                         <outlet property="favoriteBttn" destination="SGD-Go-Knk" id="lox-yd-7f5"/>
                         <outlet property="profileImage" destination="kDF-7J-ehr" id="7yT-9k-v4u"/>
                     </connections>
@@ -688,6 +735,7 @@
     <resources>
         <image name="FacebookMessenger" width="1440" height="900"/>
         <image name="Reef" width="1440" height="900"/>
+        <image name="calendar" width="200" height="200"/>
         <image name="eBttn" width="388" height="388"/>
         <image name="heart" width="128" height="128"/>
         <image name="icons8-add_user_group_woman_man-1" width="25" height="25"/>

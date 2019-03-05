@@ -85,7 +85,9 @@ class ConnectionsVC: UITableViewController {
                 DispatchQueue.global().async {
                     let image = UIImage(data: imageData)
                     DispatchQueue.main.async {
+                        cell.connectionImage.contentMode = .scaleAspectFill
                         cell.connectionImage?.image = image
+                        
                     }
                 }
             }

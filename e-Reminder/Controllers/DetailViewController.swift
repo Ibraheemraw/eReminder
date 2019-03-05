@@ -22,8 +22,10 @@ func color(_ rgbColor: Int) -> UIColor{
 class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var collectionViewContentView: UIView!
     @IBOutlet weak var favoriteBttn: FaveButton!
     @IBOutlet weak var emailButton: FaveButton!
+    @IBOutlet weak var eventBttn: FaveButton!
     @IBOutlet weak var profileImage: CircularImageView!
     @IBOutlet weak var detailNameLabel: UILabel!
     @IBOutlet weak var detailEmailLabel: UILabel!
@@ -49,27 +51,28 @@ class DetailViewController: UIViewController {
     }
    private func setupNavigationBar(){
     navigationItem.largeTitleDisplayMode = .never
-    navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "cancel", style: .plain, target: self, action: #selector(goBackToMainVC))
+    //navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "cancel", style: .plain, target: self, action: #selector(goBackToMainVC))
     
     }
     private func fetchData() {
        detailNameLabel.text = connection.name
         detailEmailLabel.text = connection.email
-        detailDescription.text = connection.description
+        detailDescription.text = connection.detailDescription
         if let imageData = connection.picture as? Data {
             DispatchQueue.global().async {
                 let image = UIImage(data: imageData)
                 DispatchQueue.main.async {
+                    self.profileImage.contentMode = .scaleAspectFill
                     self.profileImage.image = image
                 }
             }
         }
     }
     private func saveToFavorites(){
-//        if let imageData = profileImage.image?.jpegData(compressionQuality: 0.5){
-//            let myFavoriteConnection = MyConnection.init(user: nil, name: detailNameLabel.text  ?? "name is nil", email: detailEmailLabel.text ?? "email is nil", address: connection.address ?? "address is nil", latitude: connection.lat, longitude: connection.lng, createdDate: nil, lastMeetupDate: nil, description: detailDescription.text ?? "description is nil", connectionPicture: imageData)
-//            myConnection = myFavoriteConnection
-//        }
+        if let imageData = profileImage.image?.jpegData(compressionQuality: 0.5){
+            let myFavoriteConnection = MyConnection.init(user: nil, name: detailNameLabel.text  ?? "name is nil", email: detailEmailLabel.text ?? "email is nil", address: connection.address ?? "address is nil", latitude: connection.lat, longitude: connection.lng, createdDate: nil, lastMeetupDate: nil, description: detailDescription.text ?? "description is nil", connectionPicture: imageData)
+            myConnection = myFavoriteConnection
+        }
     }
     @objc func goBackToMainVC(){
         self.dismiss(animated: true, completion: nil)
@@ -78,7 +81,9 @@ class DetailViewController: UIViewController {
       self.emailButton?.setSelected(selected: false, animated: false)
        self.favoriteBttn?.setSelected(selected: false, animated: false)
         emailButton.selectedColor = .yellow
-       favoriteBttn.delegate = self
+        eventBttn.selectedColor = .orange
+        eventBttn.delegate = self
+        favoriteBttn.delegate = self
         emailButton.delegate = self
     }
     let colors = [
@@ -112,6 +117,9 @@ class DetailViewController: UIViewController {
         
     }
     @IBAction func sendMessage(_ sender: FaveButton){
+        
+    }
+    @IBAction func createEvent(_ sender: FaveButton){
         
     }
 }

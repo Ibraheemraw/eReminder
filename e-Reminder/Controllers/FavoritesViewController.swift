@@ -16,22 +16,34 @@ class FavoritesViewController: UIViewController {
     private var searchController: UISearchController!
     private var expandedCell: FavoriteCell?
     private var isStatusBarHidden = false
-    private var collectionViewChanged = [Connection]()
-    private var connection: Connection? {
-        didSet{
-           // fetchData()
-        }
-    }
+    private var favoriteConnections = [Connection]()
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     override var prefersStatusBarHidden: Bool {
         return isStatusBarHidden
+    }
+    fileprivate func fetchData() {
+        let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        // predicate as needed
+        if let context = container?.viewContext {
+            do {
+                let connections = try context.fetch(request)
+                favoriteConnections = connections
+                
+                print("found \(connections.count) connections")
+            } catch {
+                print("fetching connections error: \(error.localizedDescription)")
+            }
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewObj.delegate = self
         collectionViewObj.dataSource = self
         setupNavigationBarView()
+        fetchData()
+       collectionViewObj.reloadData()
     }
 
     private func setupNavigationBarView(){
@@ -46,8 +58,7 @@ class FavoritesViewController: UIViewController {
         
         let string = "Hello, world!"
         let url = URL(string: "https://www.youtube.com/")!
-       
-        
+
         let activityViewController =
             UIActivityViewController.init(activityItems: [string, url], applicationActivities: nil)
         
@@ -57,24 +68,28 @@ class FavoritesViewController: UIViewController {
     }
     
 }
-
-//extentions
-extension FavoritesViewController: NSFetchedResultsControllerDelegate{
-   // private func fetchData(){
-  //      if let model = connection {
-            
-  //      }
-  //  }
-}
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return favoriteConnections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as? FavoriteCell else {
             fatalError("Collection View Cell is nil")
         }
+        let settingCells = favoriteConnections[indexPath.row]
+        cell.nameObj.text = settingCells.name
+        cell.emailObj.text = settingCells.email
+        cell.textView?.text = settingCells.detailDescription
+        if let imageData = settingCells.picture as? Data {
+            DispatchQueue.global().async {
+               let image = UIImage.init(data: imageData)
+                DispatchQueue.main.async {
+                   cell.profileImage.image = image
+                }
+            }
+        }
+        
         return cell
     }
     
