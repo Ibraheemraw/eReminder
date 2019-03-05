@@ -15,13 +15,17 @@ class SettingsViewController: UIViewController {
     //MARK: - Configuration Properties
     private var container = AppDelegate.container // container from AppDelegate
     private var names = [Connection]()
+    private var notificationName: String?
+    private var bodyText: String?
     //MARK: - Configuration Overriding Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsView.connectionListPicker.delegate = self
         settingsView.connectionListPicker.dataSource = self
+        settingsView.noticationBodyContent.delegate = self
        settingsView.NotificationPicker.addTarget(self, action: #selector(setupNotications), for: .valueChanged)
         getCoreDataInfo()
+        settingsView.NotificationPicker.isEnabled = false
     }
     func getCoreDataInfo(){
         if let context = container?.viewContext {
@@ -42,9 +46,9 @@ class SettingsViewController: UIViewController {
     @objc func setupNotications() {
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
-        content.title = "Notification Title"
-        content.subtitle = "Notification Subtitle"
-        content.body  = "This will be a description of the Notifcation"
+        content.title = "Custom Follow UP!"
+        content.subtitle = "Time to follow up with \(notificationName ?? "subtitle is nil")"
+        content.body  = "\(bodyText ?? "body is nil")"
         content.sound = UNNotificationSound.default
         content.threadIdentifier = "local-notifcations temp"
         let dateComponent = Calendar.current.dateComponents([.year, .month,.day,.hour, .minute, .second], from: settingsView.NotificationPicker.date)
@@ -69,6 +73,19 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return names[row].name
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-      
+      notificationName = names[row].name
+    }
+}
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let bodyText = textField.text else {
+            fatalError("Your bodyText constant is nil")
+        }
+        self.bodyText = bodyText
+        if !bodyText.isEmpty {
+            settingsView.NotificationPicker.isEnabled = true
+        }
+        print("The user's input: \(String(describing: self.bodyText))")
+       return textField.resignFirstResponder()
     }
 }

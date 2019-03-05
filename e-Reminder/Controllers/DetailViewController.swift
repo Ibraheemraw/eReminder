@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
     //Properties
     private var container = AppDelegate.container // is the database that holds our model
     public var connection: Connection!
+    public var myConnection: MyConnection!
     private var fetchResultsContoller: NSFetchedResultsController<Connection>!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,12 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    private func saveToFavorites(){
+//        if let imageData = profileImage.image?.jpegData(compressionQuality: 0.5){
+//            let myFavoriteConnection = MyConnection.init(user: nil, name: detailNameLabel.text  ?? "name is nil", email: detailEmailLabel.text ?? "email is nil", address: connection.address ?? "address is nil", latitude: connection.lat, longitude: connection.lng, createdDate: nil, lastMeetupDate: nil, description: detailDescription.text ?? "description is nil", connectionPicture: imageData)
+//            myConnection = myFavoriteConnection
+//        }
+    }
     @objc func goBackToMainVC(){
         self.dismiss(animated: true, completion: nil)
     }
@@ -92,7 +99,17 @@ class DetailViewController: UIViewController {
             print("name is nil")
             return
         }
-        showAlert(title: "Added ❤️", message: "\(name) has been added to your Favorites", style: .alert)
+        saveToFavorites()
+        if let context = container?.viewContext {
+            do {
+                let _ =  try Connection.createConnections(connectionInfo: myConnection, context: context)
+                try? context.save()
+                showAlert(title: "Added ❤️", message: "\(name) has been added to your Favorites", style: .alert)
+            } catch {
+                showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
+            }
+        }
+        
     }
     @IBAction func sendMessage(_ sender: FaveButton){
         
@@ -100,7 +117,7 @@ class DetailViewController: UIViewController {
 }
 extension DetailViewController: FaveButtonDelegate{
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool) {
-        
+
     }
 }
 

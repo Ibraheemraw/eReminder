@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 class FavoritesViewController: UIViewController {
     //Outlets
     @IBOutlet weak var collectionViewObj: UICollectionView!
@@ -15,6 +16,14 @@ class FavoritesViewController: UIViewController {
     private var searchController: UISearchController!
     private var expandedCell: FavoriteCell?
     private var isStatusBarHidden = false
+    private var collectionViewChanged = [Connection]()
+    private var connection: Connection? {
+        didSet{
+           // fetchData()
+        }
+    }
+    private var container = AppDelegate.container // container from AppDelegate
+    private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     override var prefersStatusBarHidden: Bool {
         return isStatusBarHidden
     }
@@ -50,6 +59,13 @@ class FavoritesViewController: UIViewController {
 }
 
 //extentions
+extension FavoritesViewController: NSFetchedResultsControllerDelegate{
+   // private func fetchData(){
+  //      if let model = connection {
+            
+  //      }
+  //  }
+}
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10

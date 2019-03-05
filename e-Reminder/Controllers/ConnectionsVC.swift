@@ -12,7 +12,7 @@ class ConnectionsVC: UITableViewController {
     //MARK: - Configuration Outlets
     @IBOutlet weak var tableViewObj: UITableView!
     //MARK: - Configuration Private Properties
-    private var connectionData = [MyConnection]()
+    private var connectionData = [Connection]()
     private var searchController: UISearchController!
     let id = "ConnectionsCell"
     private var container = AppDelegate.container // container from AppDelegate
@@ -21,7 +21,7 @@ class ConnectionsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarView()
-        searchController.delegate = self
+        setupSearch()
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
         configfetchResultsContoller()
@@ -37,8 +37,9 @@ class ConnectionsVC: UITableViewController {
         self.present(destinationVC, animated: true, completion: nil)
     }
     //MARK: - Configuration Methods
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    private func setupSearch(){
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
     }
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
@@ -80,7 +81,6 @@ class ConnectionsVC: UITableViewController {
         if let connection = fetchResultsContoller?.object(at: indexPath){
             cell.name?.text = connection.name
             cell.location?.text = connection.address
-            cell.imageView?.image = UIImage(named: "profile-placeholder")// reloaded the imageData saved to Core Data
             if let imageData = connection.picture as? Data {
                 DispatchQueue.global().async {
                     let image = UIImage(data: imageData)
@@ -101,9 +101,6 @@ class ConnectionsVC: UITableViewController {
             navigationController?.pushViewController(viewController, animated: true)
         }
         
-        //viewController.modalPresentationStyle = .overCurrentContext
-        //viewController.modalTransitionStyle = .coverVertical
-        //self.present(viewController, animated: true, completion: nil)
     }
     // TableView Delegate
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -117,8 +114,63 @@ class ConnectionsVC: UITableViewController {
     }
 }
 //MARK: - Configuration Extensions
-extension ConnectionsVC: UISearchControllerDelegate {
-    
+extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let search = searchBar.text else {
+            fatalError("search is nil")
+        }
+        if let context = container?.viewContext {
+            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+            for connection in connectionData {
+                request.predicate = NSPredicate.init(format: "name = %@", connection.name ?? "name is nil")
+            }
+            do {
+                let connections = try context.fetch(request)
+                connectionData = connections
+            } catch {
+                print(error)
+            }
+            connectionData = connectionData.filter(){
+                guard let name = $0.name else {
+                    fatalError("name is nil")
+                }
+                return name.contains(search)
+                
+            }
+        }
+        tableViewObj.reloadData()
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+//        guard let searchText = searchController.searchBar.text else {
+//            fatalError("searh text is nil")
+//        }
+//        if searchText == ""{
+//            configfetchResultsContoller()
+//       } //else {
+//            if let context = container?.viewContext {
+//                let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+//                request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+//                for connection in connectionData {
+//                    request.predicate = NSPredicate.init(format: "name = %@", connection.name ?? "name is nil")
+//                }
+//                do {
+//                    let connections = try context.fetch(request)
+//                    connectionData = connections
+//                } catch {
+//                    print(error)
+//                }
+//                connectionData = connectionData.filter(){
+//                    guard let name = $0.name else {
+//                        fatalError("name is nil")
+//                    }
+//                   return name.contains(searchText)
+//                }
+//            }
+//        }
+//        tableViewObj.reloadData()
+    }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

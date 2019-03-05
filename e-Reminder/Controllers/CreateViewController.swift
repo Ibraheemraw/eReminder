@@ -235,6 +235,7 @@ extension CreateViewController: UITextFieldDelegate{
         }
         if !nameInput.isEmpty && !emailInput.isEmpty && !descriptionInput.isEmpty {
             showAlert(title: "Add a loaction", message: "Now that you have filled all of the requirements. long press on the map and enter in your location", style: .alert)
+            textField.resignFirstResponder()
         }
         self.connectionName = nameInput
         self.connectionEmail = emailInput
