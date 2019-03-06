@@ -25,13 +25,23 @@ class ConnectionsVC: UITableViewController {
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
         configfetchResultsContoller()
+//        addGradient()
+        view.backgroundColor = .yellow
         
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-    
+    func addGradient(){
+        let softCyan = UIColor.init(red: 156/255, green: 236/255, blue: 251/255, alpha: 1)
+        let softBlue = UIColor.init(red: 101/255, green: 199/255, blue: 247/255, alpha: 1)
+        let strongBlue = UIColor.init(red: 0/255, green: 82/255, blue: 212/255, alpha: 1)
+        gradient = CAGradientLayer()
+        gradient.frame = tableViewObj.bounds
+        gradient.colors = [softCyan.cgColor, softBlue.cgColor, strongBlue.cgColor]
+        tableViewObj.layer.addSublayer(gradient)
+    }
     //MARK: - Configuration Actions
     @IBAction func createConnectionBttn(_ sender: UIBarButtonItem) {
         let destinationVC = CreateViewController()
@@ -41,11 +51,13 @@ class ConnectionsVC: UITableViewController {
     private func setupSearch(){
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
     }
     private func setupNavigationBarView(){
         // Makes the navigation bar's title Larger
         self.navigationController?.navigationBar.prefersLargeTitles =  true
         searchController = UISearchController.init(searchResultsController: nil) // setting it to nil becuase you don't have a search view set up
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false // makes the search bar persistant
     }
@@ -79,6 +91,9 @@ class ConnectionsVC: UITableViewController {
             print("Generic TableViewCell")
             return UITableViewCell()
         }
+//        let softCyan = UIColor.init(red: 156/255, green: 236/255, blue: 251/255, alpha: 0.5)
+//        let softBlue = UIColor.init(red: 101/255, green: 199/255, blue: 247/255, alpha: 0.5)
+//        let strongBlue = UIColor.init(red: 0/255, green: 82/255, blue: 212/255, alpha: 0.5)
         if let connection = fetchResultsContoller?.object(at: indexPath){
             cell.name?.text = connection.name
             cell.location?.text = connection.address
@@ -93,6 +108,7 @@ class ConnectionsVC: UITableViewController {
                 }
             }
         }
+//        cell.backgroundColor = UIColor.yellow.withAlphaComponent(1.0)
         return cell
     }
     private func getImages(destinationViewController: DetailViewController){
@@ -132,33 +148,58 @@ class ConnectionsVC: UITableViewController {
     }
 }
 //MARK: - Configuration Extensions
-extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        guard let search = searchBar.text else {
-            fatalError("search is nil")
+        guard let searchTerm = searchController.searchBar.text else {
+            print("search term is nil")
+            return
         }
-        if let context = container?.viewContext {
-            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-            
-            do {
-                let connections = try context.fetch(request)
-                connectionData = connections
-                connectionData = connectionData.filter(){
-                    guard let name = $0.name else {
-                        fatalError("name is nil")
-                    }
-                    return name.contains(search)
+        if searchTerm == "" {
+            configfetchResultsContoller()
+        } else {
+            if let context = container?.viewContext{
+               let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+                do {
+                    let connections = try context.fetch(request)
+                    connectionData = connections
+                } catch {
+                    print("error iwth fetching connection: \(error)")
                 }
-            } catch {
-                print(error)
             }
+            connectionData = connectionData.filter{
+                guard let name = $0.name else {
+                    fatalError("name is nil")
+                }
+                return name.contains(searchTerm)
+            }
+            tableViewObj.reloadData()
         }
-        tableViewObj.reloadData()
     }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        guard let search = searchBar.text else {
+//            fatalError("search is nil")
+//        }
+//        if let context = container?.viewContext {
+//            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+//            request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+//
+//            do {
+//                let connections = try context.fetch(request)
+//                connectionData = connections
+//                connectionData = connectionData.filter(){
+//                    guard let name = $0.name else {
+//                        fatalError("name is nil")
+//                    }
+//                    return name.contains(search)
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        tableViewObj.reloadData()
+//    }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

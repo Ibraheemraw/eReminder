@@ -159,8 +159,28 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
                 }
             }
         }
+    
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("you can press")
+        if let connection = fetchResultsContoller?.object(at: indexPath){
+//            detailNameLabel.text = connection.name
+//            detailEmailLabel.text = connection.email
+//            detailDescription.text = connection.detailDescription
+            guard let imageData = connection.picture as? Data else {
+                fatalError("image Data is nil")
+            }
+            DispatchQueue.global().async {
+                let image = UIImage.init(data: imageData)
+                DispatchQueue.main.async {
+                    self.profileImage.image = image
+                }
+                
+            }
+            
+        }
+    }
     
 }

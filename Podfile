@@ -11,5 +11,4 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'FaveButton'
-pod 'Kingfisher'
 end

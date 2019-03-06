@@ -85,6 +85,7 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UICollect
             DispatchQueue.global().async {
                let image = UIImage.init(data: imageData)
                 DispatchQueue.main.async {
+                    cell.profileImage.contentMode = .scaleAspectFill
                    cell.profileImage.image = image
                 }
             }
