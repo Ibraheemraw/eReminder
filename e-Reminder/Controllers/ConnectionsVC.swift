@@ -133,6 +133,8 @@ class ConnectionsVC: UITableViewController {
 }
 //MARK: - Configuration Extensions
 extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         guard let search = searchBar.text else {
@@ -141,53 +143,21 @@ extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate {
         if let context = container?.viewContext {
             let request: NSFetchRequest<Connection> = Connection.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-            for connection in connectionData {
-                request.predicate = NSPredicate.init(format: "name = %@", connection.name ?? "name is nil")
-            }
+            
             do {
                 let connections = try context.fetch(request)
                 connectionData = connections
+                connectionData = connectionData.filter(){
+                    guard let name = $0.name else {
+                        fatalError("name is nil")
+                    }
+                    return name.contains(search)
+                }
             } catch {
                 print(error)
             }
-            connectionData = connectionData.filter(){
-                guard let name = $0.name else {
-                    fatalError("name is nil")
-                }
-                return name.contains(search)
-                
-            }
         }
         tableViewObj.reloadData()
-    }
-    func updateSearchResults(for searchController: UISearchController) {
-//        guard let searchText = searchController.searchBar.text else {
-//            fatalError("searh text is nil")
-//        }
-//        if searchText == ""{
-//            configfetchResultsContoller()
-//       } //else {
-//            if let context = container?.viewContext {
-//                let request: NSFetchRequest<Connection> = Connection.fetchRequest()
-//                request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-//                for connection in connectionData {
-//                    request.predicate = NSPredicate.init(format: "name = %@", connection.name ?? "name is nil")
-//                }
-//                do {
-//                    let connections = try context.fetch(request)
-//                    connectionData = connections
-//                } catch {
-//                    print(error)
-//                }
-//                connectionData = connectionData.filter(){
-//                    guard let name = $0.name else {
-//                        fatalError("name is nil")
-//                    }
-//                   return name.contains(searchText)
-//                }
-//            }
-//        }
-//        tableViewObj.reloadData()
     }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {

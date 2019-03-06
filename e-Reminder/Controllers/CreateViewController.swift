@@ -201,6 +201,7 @@ class CreateViewController: UIViewController {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
         }
+        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func setImage(_ sender: UIButton){
         setupImagePicker()

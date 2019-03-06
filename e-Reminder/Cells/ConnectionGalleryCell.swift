@@ -15,17 +15,6 @@ class ConnectionGalleryCell: UICollectionViewCell {
     public var connection: Connection!
     override func awakeFromNib() {
         super.awakeFromNib()
-//        configCell()
     }
-//    private func configCell(){
-//        if let imageData = connection.picture as? Data {
-//            DispatchQueue.global().async {
-//                let image = UIImage.init(data: imageData)
-//                DispatchQueue.main.async {
-//                    self.profileImage.image = image
-//                }
-//            }
-//        }
-//    }
-    
+
 }

@@ -45,6 +45,7 @@ class DetailViewController: UIViewController {
         fetchData()
         connectionList.dataSource = self
         connectionList.delegate = self
+        connectionList.reloadData()
         
     }
     private func setupContentViewDesign(){
@@ -60,7 +61,6 @@ class DetailViewController: UIViewController {
     }
    private func setupNavigationBar(){
     navigationItem.largeTitleDisplayMode = .never
-    //navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "cancel", style: .plain, target: self, action: #selector(goBackToMainVC))
     
     }
     private func fetchData() {
