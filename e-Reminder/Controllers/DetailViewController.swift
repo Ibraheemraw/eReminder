@@ -154,6 +154,7 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
             DispatchQueue.global().async {
                 let image = UIImage.init(data: imageData)
                 DispatchQueue.main.async {
+                    cell.profileImage.contentMode = .scaleAspectFill
                     cell.profileImage.image = image
                 }
             }

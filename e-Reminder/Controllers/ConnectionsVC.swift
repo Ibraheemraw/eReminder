@@ -25,7 +25,7 @@ class ConnectionsVC: UITableViewController {
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
         configfetchResultsContoller()
-        getImages()
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,15 +95,15 @@ class ConnectionsVC: UITableViewController {
         }
         return cell
     }
-    private func getImages(){
+    private func getImages(destinationViewController: DetailViewController){
         if let context = container?.viewContext{
             let request: NSFetchRequest<Connection> = Connection.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
             do {
-                let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
                 let connectionList = try context.fetch(request)
-                viewController.connectionsList = connectionList
-                print(" there are \(viewController.connectionsList.count) of connections in the connection view")
+                destinationViewController.connectionsList = connectionList
+                
+                print(" there are \(destinationViewController.connectionsList.count) of connections in the connection view")
             } catch {
                 print("error in gathering the images. error: \(error.localizedDescription)")
             }
@@ -111,7 +111,8 @@ class ConnectionsVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-                self.getImages()
+        
+        self.getImages(destinationViewController: viewController)
         if let connection = fetchResultsContoller?.object(at: indexPath) {
             
             viewController.connection = connection
