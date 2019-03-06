@@ -513,13 +513,52 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FacebookMessenger" translatesAutoresizingMaskIntoConstraints="NO" id="Tmp-ys-YdH">
                                         <rect key="frame" x="0.0" y="0.0" width="301" height="148"/>
                                     </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-te-Yzj">
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="148"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6dh-4I-Zv9">
+                                            <size key="itemSize" width="145" height="143"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ConnectionGalleryCell" id="MPa-47-L2d" customClass="ConnectionGalleryCell" customModule="e_Reminder" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="2.5" width="145" height="143"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="143"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="80O-li-vsC" customClass="CircularImageView" customModule="e_Reminder" customModuleProvider="target">
+                                                            <rect key="frame" x="18.5" y="15" width="108" height="108"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="108" id="COG-5E-DeD"/>
+                                                                <constraint firstAttribute="width" constant="108" id="RgI-bp-vRc"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="80O-li-vsC" firstAttribute="centerX" secondItem="MPa-47-L2d" secondAttribute="centerX" id="13U-Tu-kvG"/>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="80O-li-vsC" secondAttribute="bottom" constant="12" id="u4f-cQ-5nz"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="profileImage" destination="80O-li-vsC" id="Kgm-XJ-j4K"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="AtD-te-Yzj" firstAttribute="top" secondItem="HPk-N7-RYg" secondAttribute="top" id="120-vM-6TJ"/>
                                     <constraint firstItem="Tmp-ys-YdH" firstAttribute="top" secondItem="HPk-N7-RYg" secondAttribute="top" id="22v-AZ-uwP"/>
                                     <constraint firstAttribute="bottom" secondItem="Tmp-ys-YdH" secondAttribute="bottom" id="Gs7-Pa-TQJ"/>
+                                    <constraint firstItem="AtD-te-Yzj" firstAttribute="leading" secondItem="HPk-N7-RYg" secondAttribute="leading" id="N7I-4s-ept"/>
+                                    <constraint firstAttribute="bottom" secondItem="AtD-te-Yzj" secondAttribute="bottom" id="PW7-6v-nYg"/>
                                     <constraint firstItem="Tmp-ys-YdH" firstAttribute="leading" secondItem="HPk-N7-RYg" secondAttribute="leading" id="SIv-YU-Yl4"/>
                                     <constraint firstAttribute="trailing" secondItem="Tmp-ys-YdH" secondAttribute="trailing" id="mzA-R4-02v"/>
+                                    <constraint firstAttribute="trailing" secondItem="AtD-te-Yzj" secondAttribute="trailing" id="sF7-hr-k2f"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -548,6 +587,7 @@
                     <navigationItem key="navigationItem" title="About My Connection" id="x02-gC-bWq"/>
                     <connections>
                         <outlet property="collectionViewContentView" destination="HPk-N7-RYg" id="sAb-6D-dTz"/>
+                        <outlet property="connectionList" destination="AtD-te-Yzj" id="r1G-HB-Bvf"/>
                         <outlet property="contentView" destination="fPP-EI-0yc" id="4d3-gE-tZZ"/>
                         <outlet property="detailDescription" destination="qqd-Hh-0Au" id="i1R-Yy-Nmm"/>
                         <outlet property="detailEmailLabel" destination="vGq-eO-5Yc" id="zL7-Eb-kb3"/>

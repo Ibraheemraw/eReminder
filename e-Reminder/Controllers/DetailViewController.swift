@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var collectionViewContentView: UIView!
+    @IBOutlet weak var connectionList: UICollectionView!
     @IBOutlet weak var favoriteBttn: FaveButton!
     @IBOutlet weak var emailButton: FaveButton!
     @IBOutlet weak var eventBttn: FaveButton!
@@ -34,6 +35,7 @@ class DetailViewController: UIViewController {
     private var container = AppDelegate.container // is the database that holds our model
     public var connection: Connection!
     public var myConnection: MyConnection!
+    public var connectionsList = [Connection]()
     private var fetchResultsContoller: NSFetchedResultsController<Connection>!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,8 @@ class DetailViewController: UIViewController {
         setupFavButton()
         setupNavigationBar()
         fetchData()
+        connectionList.dataSource = self
+        connectionList.delegate = self
         
     }
     private func setupContentViewDesign(){
@@ -134,6 +138,28 @@ extension DetailViewController: FaveButtonDelegate{
     }
 }
 
-extension DetailViewController: NSFetchedResultsControllerDelegate {
+extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(" there are \(connectionsList.count) of connections in the detail view")
+        return connectionsList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConnectionGalleryCell", for: indexPath) as? ConnectionGalleryCell else {
+            print("collection view cell is nil")
+            return UICollectionViewCell()
+        }
+        let settingCells = connectionsList[indexPath.row]
+        if let imageData = settingCells.picture as? Data {
+            DispatchQueue.global().async {
+                let image = UIImage.init(data: imageData)
+                DispatchQueue.main.async {
+                    cell.profileImage.image = image
+                }
+            }
+        }
+        return cell
+    }
+    
     
 }
