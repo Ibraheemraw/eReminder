@@ -129,7 +129,10 @@ class DetailViewController: UIViewController {
         
     }
     @IBAction func createEvent(_ sender: FaveButton){
-        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let createAndAddEventViewController = storyBoard.instantiateViewController(withIdentifier: "CreateAndAddEventController") as! CreateViewController
+        createAndAddEventViewController.modalPresentationStyle = .overCurrentContext
+        present(createAndAddEventViewController, animated: true, completion: nil)
     }
 }
 extension DetailViewController: FaveButtonDelegate{

@@ -18,6 +18,9 @@
 		48266BA42229B96B0032C565 /* ConnectionsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48266BA32229B96B0032C565 /* ConnectionsListTableViewCell.swift */; };
 		48266BAA222F2D320032C565 /* ConnectionGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48266BA9222F2D320032C565 /* ConnectionGalleryCell.swift */; };
 		48266BAC223058420032C565 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48266BAB223058420032C565 /* GalleryCollectionView.swift */; };
+		48266BCC223172540032C565 /* CreateAndAddEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48266BCB223172540032C565 /* CreateAndAddEventView.xib */; };
+		48266BCE223176CB0032C565 /* CreateAndAddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48266BCD223176CB0032C565 /* CreateAndAddEventView.swift */; };
+		48266BD0223181130032C565 /* CreateAndAddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48266BCF223181130032C565 /* CreateAndAddEventController.swift */; };
 		48355088220CE16400B220EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355087220CE16400B220EF /* AppDelegate.swift */; };
 		4835508A220CE16400B220EF /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48355089220CE16400B220EF /* ConnectionsVC.swift */; };
 		4835508D220CE16400B220EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4835508B220CE16400B220EF /* Main.storyboard */; };
@@ -53,6 +56,9 @@
 		48266BA32229B96B0032C565 /* ConnectionsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsListTableViewCell.swift; sourceTree = "<group>"; };
 		48266BA9222F2D320032C565 /* ConnectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionGalleryCell.swift; sourceTree = "<group>"; };
 		48266BAB223058420032C565 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		48266BCB223172540032C565 /* CreateAndAddEventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAndAddEventView.xib; sourceTree = "<group>"; };
+		48266BCD223176CB0032C565 /* CreateAndAddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndAddEventView.swift; sourceTree = "<group>"; };
+		48266BCF223181130032C565 /* CreateAndAddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAndAddEventController.swift; sourceTree = "<group>"; };
 		48355084220CE16400B220EF /* e-Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "e-Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		48355087220CE16400B220EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48355089220CE16400B220EF /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				48E8AE1D22125D97008C29C6 /* MapViewController.swift */,
 				48DFC9AD2210EFC8004B0E8F /* DetailViewController.swift */,
 				48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */,
+				48266BCF223181130032C565 /* CreateAndAddEventController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +221,8 @@
 				48683590221B2E3500F55D41 /* SettingsView.swift */,
 				48B2F9D52227321E00A7C591 /* CircularImageView.swift */,
 				48266BAB223058420032C565 /* GalleryCollectionView.swift */,
+				48266BCB223172540032C565 /* CreateAndAddEventView.xib */,
+				48266BCD223176CB0032C565 /* CreateAndAddEventView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 				4868358F221B2E1800F55D41 /* SettingsView.xib in Resources */,
 				4835508D220CE16400B220EF /* Main.storyboard in Resources */,
 				486D5CB62215DC51005ABFF0 /* GoogleService-Info.plist in Resources */,
+				48266BCC223172540032C565 /* CreateAndAddEventView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,29 +326,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-e-Reminder/Pods-e-Reminder-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,8 +386,10 @@
 				48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */,
 				4810BC4E2225D8B8002908D3 /* MyConnection.swift in Sources */,
 				48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */,
+				48266BD0223181130032C565 /* CreateAndAddEventController.swift in Sources */,
 				48B2F9D62227321E00A7C591 /* CircularImageView.swift in Sources */,
 				48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */,
+				48266BCE223176CB0032C565 /* CreateAndAddEventView.swift in Sources */,
 				4810BC512226017E002908D3 /* GeocodingApiClient.swift in Sources */,
 				48266BAC223058420032C565 /* GalleryCollectionView.swift in Sources */,
 				48683591221B2E3500F55D41 /* SettingsView.swift in Sources */,

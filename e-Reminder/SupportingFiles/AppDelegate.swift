@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import UserNotifications
 import CoreData
 @UIApplicationMain
@@ -19,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure() // to configure firebase to your app
         // Gain access to the lastest Usernotification center
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.sound, .alert]

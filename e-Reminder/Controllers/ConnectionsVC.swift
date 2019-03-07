@@ -18,6 +18,16 @@ class ConnectionsVC: UITableViewController {
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     private var gradient: CAGradientLayer! // Setting up the tableview background
+    private var tableViewState: TableViewState = .showAllConnections {
+        didSet {
+            tableViewObj.reloadData()
+        }
+    }
+    //MARK: - Enum
+    private enum TableViewState {
+        case isBeingSearched
+        case showAllConnections
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarView()
@@ -80,10 +90,15 @@ class ConnectionsVC: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchResultsContoller?.sections, sections.count > 0 {
-            return sections[section].numberOfObjects
-        } else {
-            return 0
+        switch tableViewState {
+        case .isBeingSearched:
+            return connectionData.count
+        case .showAllConnections:
+            if let sections = fetchResultsContoller?.sections, sections.count > 0 {
+                return sections[section].numberOfObjects
+            } else {
+                return 0
+            }
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

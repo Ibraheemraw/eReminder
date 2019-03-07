@@ -605,6 +605,24 @@
             </objects>
             <point key="canvasLocation" x="2672.8000000000002" y="560.86956521739137"/>
         </scene>
+        <!--Create And Add Event Controller-->
+        <scene sceneID="aPh-4n-oSz">
+            <objects>
+                <viewController storyboardIdentifier="CreateAndAddEventController" id="qnV-Uq-WOI" customClass="CreateAndAddEventController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kma-va-c45" customClass="CreateAndAddEventView" customModule="e_Reminder" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="0.061563570205479451" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FGf-2Z-fXY"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="kma-va-c45" id="paA-he-TmI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezJ-Xi-WKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3583" y="561"/>
+        </scene>
         <!--Map-->
         <scene sceneID="tSe-Po-H2t">
             <objects>
