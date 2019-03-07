@@ -41,8 +41,6 @@ class Connection: NSManagedObject {
         connection.lng =  connectionInfo.longitude
         // saving image data to Core Data
         let imageView = UIImageView()
-        //imageView.kf.setImage(with:)
-        
         imageView.image = UIImage.init(data: connectionInfo.connectionPicture)
        if let imageData = imageView.image?.jpegData(compressionQuality: 0.5){
             connection.picture = imageData as NSObject

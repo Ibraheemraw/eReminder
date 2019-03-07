@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import FaveButton
 import CoreData
+import MessageUI
 func color(_ rgbColor: Int) -> UIColor{
     return UIColor(
         red:   CGFloat((rgbColor & 0xFF0000) >> 16) / 255.0,
@@ -126,7 +127,23 @@ class DetailViewController: UIViewController {
         
     }
     @IBAction func sendMessage(_ sender: FaveButton){
-        
+        // step 3 create a condition where if you can send mail
+        if MFMailComposeViewController.canSendMail(){
+            // step 4 create a mailComposeViewController instance
+            let mailComposeViewController = MFMailComposeViewController()
+            // step 5 create the recipients
+            mailComposeViewController.setToRecipients(["\(String(describing: detailEmailLabel.text))"])
+            // step 6 set the subject
+            mailComposeViewController.setSubject("Follow Up !")
+            // step 7 set the message body
+            mailComposeViewController.setMessageBody("Hey, \(String(describing: detailNameLabel.text)) I am writing to you becuase....", isHTML: false)
+            // step 8 set the delegate
+            mailComposeViewController.mailComposeDelegate = self
+            // step 9 present the contoller
+            present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            print("issue with create a email message")
+        }
     }
     @IBAction func createEvent(_ sender: FaveButton){
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -184,4 +201,10 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
+}
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+    // 10 setup the didFinishWith result function to dismiss the email
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
