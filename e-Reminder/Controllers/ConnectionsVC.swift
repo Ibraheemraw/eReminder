@@ -35,7 +35,7 @@ class ConnectionsVC: UITableViewController {
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
         configfetchResultsContoller()
-//        addGradient()
+        addGradient()
         view.backgroundColor = .yellow
         
     }
@@ -50,7 +50,11 @@ class ConnectionsVC: UITableViewController {
         gradient = CAGradientLayer()
         gradient.frame = tableViewObj.bounds
         gradient.colors = [softCyan.cgColor, softBlue.cgColor, strongBlue.cgColor]
-        tableViewObj.layer.addSublayer(gradient)
+        
+        let gView = UIView(frame: view.bounds)
+        gView.layer.addSublayer(gradient)
+        
+        tableViewObj.backgroundView = gView
     }
     //MARK: - Configuration Actions
     @IBAction func createConnectionBttn(_ sender: UIBarButtonItem) {
@@ -106,9 +110,6 @@ class ConnectionsVC: UITableViewController {
             print("Generic TableViewCell")
             return UITableViewCell()
         }
-//        let softCyan = UIColor.init(red: 156/255, green: 236/255, blue: 251/255, alpha: 0.5)
-//        let softBlue = UIColor.init(red: 101/255, green: 199/255, blue: 247/255, alpha: 0.5)
-//        let strongBlue = UIColor.init(red: 0/255, green: 82/255, blue: 212/255, alpha: 0.5)
         if let connection = fetchResultsContoller?.object(at: indexPath){
             cell.name?.text = connection.name
             cell.location?.text = connection.address
@@ -123,7 +124,7 @@ class ConnectionsVC: UITableViewController {
                 }
             }
         }
-//        cell.backgroundColor = UIColor.yellow.withAlphaComponent(1.0)
+        cell.backgroundColor = .clear 
         return cell
     }
     private func getImages(destinationViewController: DetailViewController){

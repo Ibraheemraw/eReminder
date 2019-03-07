@@ -130,7 +130,7 @@ class DetailViewController: UIViewController {
     }
     @IBAction func createEvent(_ sender: FaveButton){
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let createAndAddEventViewController = storyBoard.instantiateViewController(withIdentifier: "CreateAndAddEventController") as! CreateViewController
+        let createAndAddEventViewController = storyBoard.instantiateViewController(withIdentifier: "CreateAndAddEventController") as! CreateAndAddEventController
         createAndAddEventViewController.modalPresentationStyle = .overCurrentContext
         present(createAndAddEventViewController, animated: true, completion: nil)
     }
@@ -162,19 +162,17 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
                 }
             }
         }
-    
+        cell.backgroundColor = .clear
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("you can press")
-        if let connection = fetchResultsContoller?.object(at: indexPath){
-//            detailNameLabel.text = connection.name
-//            detailEmailLabel.text = connection.email
-//            detailDescription.text = connection.detailDescription
-            guard let imageData = connection.picture as? Data else {
-                fatalError("image Data is nil")
-            }
+        let connection = connectionsList[indexPath.row]
+        detailNameLabel.text = connection.name
+        detailEmailLabel.text = connection.email
+        detailDescription.text = connection.detailDescription
+        if let imageData = connection.picture as? Data {
             DispatchQueue.global().async {
                 let image = UIImage.init(data: imageData)
                 DispatchQueue.main.async {
@@ -182,8 +180,8 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
                 }
                 
             }
-            
         }
+        
     }
     
 }
