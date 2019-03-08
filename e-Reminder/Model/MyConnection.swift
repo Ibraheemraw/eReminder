@@ -14,6 +14,7 @@ struct MyConnection {
     var email: String
     var address: String
     var latitude: Double
+    var isFavorite: Bool
     var longitude: Double
     var createdDate: Date?
     var lastMeetupDate: Date?

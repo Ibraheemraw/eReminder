@@ -16,22 +16,33 @@ class FavoritesViewController: UIViewController {
     private var searchController: UISearchController!
     private var expandedCell: FavoriteCell?
     private var isStatusBarHidden = false
-    private var favoriteConnections = [Connection]()
+    private var favoriteConnections = [Connection](){
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionViewObj.reloadData()
+            }
+            
+        }
+    }
+    
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     override var prefersStatusBarHidden: Bool {
         return isStatusBarHidden
     }
     fileprivate func fetchData() {
-        let request: NSFetchRequest<Connection> = Connection.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        // predicate as needed
         if let context = container?.viewContext {
+            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            // predicate as needed
+            request.predicate = NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
             do {
                 let connections = try context.fetch(request)
                 favoriteConnections = connections
                 
-                print("found \(connections.count) connections")
+                print("found \(favoriteConnections.count) connections")
+                
+                favoriteConnections.forEach { print($0.isFavorite) }
             } catch {
                 print("fetching connections error: \(error.localizedDescription)")
             }
@@ -43,7 +54,6 @@ class FavoritesViewController: UIViewController {
         collectionViewObj.dataSource = self
         setupNavigationBarView()
         fetchData()
-       collectionViewObj.reloadData()
     }
 
     private func setupNavigationBarView(){

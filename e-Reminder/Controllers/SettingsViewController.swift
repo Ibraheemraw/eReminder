@@ -51,7 +51,7 @@ class SettingsViewController: UIViewController {
         content.body  = "\(bodyText ?? "body is nil")"
         content.sound = UNNotificationSound.default
         content.threadIdentifier = "local-notifcations temp"
-        let dateComponent = Calendar.current.dateComponents([.year, .month,.day,.hour, .minute, .second], from: settingsView.NotificationPicker.date)
+        let dateComponent = Calendar.current.dateComponents([.year, .month,.day,.hour, .minute, .second, .second, .nanosecond], from: settingsView.NotificationPicker.date)
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: dateComponent, repeats: false)
         let request = UNNotificationRequest.init(identifier: "content", content: content, trigger: trigger)
         center.add(request) { (error) in

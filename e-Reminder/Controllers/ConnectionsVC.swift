@@ -54,10 +54,6 @@ class ConnectionsVC: UITableViewController {
             tableViewObj.reloadData()
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     func addGradient(){
         let softCyan = UIColor.init(red: 156/255, green: 236/255, blue: 251/255, alpha: 1)
         let softBlue = UIColor.init(red: 101/255, green: 199/255, blue: 247/255, alpha: 1)
@@ -149,8 +145,6 @@ class ConnectionsVC: UITableViewController {
             do {
                 let connectionList = try context.fetch(request)
                 destinationViewController.connectionsList = connectionList
-                
-                print(" there are \(destinationViewController.connectionsList.count) of connections in the connection view")
             } catch {
                 print("error in gathering the images. error: \(error.localizedDescription)")
             }
@@ -207,30 +201,6 @@ extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate, UISearchC
             tableViewObj.reloadData()
         }
     }
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.resignFirstResponder()
-//        guard let search = searchBar.text else {
-//            fatalError("search is nil")
-//        }
-//        if let context = container?.viewContext {
-//            let request: NSFetchRequest<Connection> = Connection.fetchRequest()
-//            request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-//
-//            do {
-//                let connections = try context.fetch(request)
-//                connectionData = connections
-//                connectionData = connectionData.filter(){
-//                    guard let name = $0.name else {
-//                        fatalError("name is nil")
-//                    }
-//                    return name.contains(search)
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//        tableViewObj.reloadData()
-//    }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

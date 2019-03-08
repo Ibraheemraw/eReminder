@@ -35,16 +35,18 @@ class Connection: NSManagedObject {
         connection.name = connectionInfo.name
         connection.email =  connectionInfo.email
         connection.detailDescription = connectionInfo.description
+
         connection.createdDate = connectionInfo.createdDate
         connection.lastMeetupDate = connectionInfo.lastMeetupDate
         connection.address = connectionInfo.address
         connection.lat =  connectionInfo.latitude
         connection.lng =  connectionInfo.longitude
+        connection.isFavorite = connectionInfo.isFavorite
         // saving image data to Core Data
         let imageView = UIImageView()
-        let resizedImage = Toucan.init(image: imageView.image!).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse()
-        resizedImage.image = UIImage.init(data: connectionInfo.connectionPicture)
-       if let imageData = imageView.image?.jpegData(compressionQuality: 0.5){
+        imageView.image = UIImage.init(data: connectionInfo.connectionPicture)
+              let resizedImage = Toucan.init(image: imageView.image!).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse()
+       if let imageData = resizedImage.image?.jpegData(compressionQuality: 0.5){
             connection.picture = imageData as NSObject
         }
         // get the User matching the passed in "name" from this method

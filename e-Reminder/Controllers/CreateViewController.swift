@@ -87,7 +87,7 @@ class CreateViewController: UIViewController {
     //MARK: - Configuration of Creating an instance of a Connection
     private func createConnection(){
         if let imageData = image?.jpegData(compressionQuality: 0.5){
-            let newConnection = MyConnection.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
+            let newConnection = MyConnection.init(user: nil, name: connectionName ?? "name is nil", email: connectionEmail ?? "email is nil", address: locationInput ?? "address is nil", latitude: lat ?? 0.0, isFavorite: false, longitude: long ?? 0.0, createdDate: nil, lastMeetupDate: nil, description: connectionDescription ??  "description is nil", connectionPicture: imageData)
             self.myConnection = newConnection
         }
     }
@@ -129,25 +129,25 @@ class CreateViewController: UIViewController {
             }
         }
     }
-   @objc private func mapLongPressAction(gestureRecognizer: UILongPressGestureRecognizer){
-    let alertController = UIAlertController.init(title: "Add a location", message: "Here is where you add the location of where you met the person", preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    let customAction = UIAlertAction(title: "Create", style: .default){(success) in
-        guard let userInput = alertController.textFields?.first?.text else {
-            print("alertController textField is nil")
-            return
+    @objc private func mapLongPressAction(gestureRecognizer: UILongPressGestureRecognizer){
+        let alertController = UIAlertController.init(title: "Add a location", message: "Here is where you add the location of where you met the person", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let customAction = UIAlertAction(title: "Create", style: .default){(success) in
+            guard let userInput = alertController.textFields?.first?.text else {
+                print("alertController textField is nil")
+                return
+            }
+            self.locationInput = userInput
+            self.getLocationInfo(input: userInput)
+            self.addItems.isEnabled = true
         }
-        self.locationInput = userInput
-        self.getLocationInfo(input: userInput)
-        self.addItems.isEnabled = true
-    }
-    alertController.addTextField { (text) in
-        text.placeholder = "Search for a place or a address"
-        text.textAlignment = .center
-    }
-    alertController.addAction(cancelAction)
-    alertController.addAction(customAction)
-    present(alertController, animated: true)
+        alertController.addTextField { (text) in
+            text.placeholder = "Search for a place or a address"
+            text.textAlignment = .center
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(customAction)
+        present(alertController, animated: true)
     }
     private func setupContentViewDesign(){
         let myColor : UIColor = .white
@@ -172,8 +172,8 @@ class CreateViewController: UIViewController {
             //Giving the annotation a coordinate
             annotation.coordinate = coordinate
             // giving the annotation a title from the GoogleGeocoding Model
-             self.lat = annotation.coordinate.latitude as! Double
-             self.long = annotation.coordinate.longitude as! Double
+            self.lat = annotation.coordinate.latitude as! Double
+            self.long = annotation.coordinate.longitude as! Double
             annotation.title = locationInput! // assigning what the user types in to the title of the annotation
             // set the mapview to the coordinate region
             meetupMapView.setRegion(coordinateRegion, animated: true)
@@ -185,7 +185,7 @@ class CreateViewController: UIViewController {
     @IBAction func dismissBttn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func createConnection(_ sender: UIBarButtonItem) {
+    @IBAction func createConnection(_ sender: Any) {
         //create a connection
         if let context = container?.viewContext { // context is the container of the app delegate
             createConnection()
@@ -198,12 +198,10 @@ class CreateViewController: UIViewController {
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 showAlert(title: "Saved 🤗", message: "You created a new connection for \(myConnection.name)", style: .alert)
                 launchNotification()
-                self.dismiss(animated: true, completion: nil)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
         }
-        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func setImage(_ sender: UIButton){
         setupImagePicker()
@@ -269,8 +267,10 @@ extension CreateViewController: UITextFieldDelegate{
         if nameInput.isEmpty || emailInput.isEmpty || descriptionInput.isEmpty  {
         }
         if !nameInput.isEmpty && !emailInput.isEmpty && !descriptionInput.isEmpty {
+            nameTextField.resignFirstResponder()
+            emailTextField.resignFirstResponder()
+            decriptionTxtField.resignFirstResponder()
             showAlert(title: "Add a loaction", message: "Now that you have filled all of the requirements. long press on the map and enter in your location", style: .alert)
-            textField.resignFirstResponder()
         }
         self.connectionName = nameInput
         self.connectionEmail = emailInput
@@ -278,7 +278,7 @@ extension CreateViewController: UITextFieldDelegate{
         print("name: \(nameInput) ,email: \(emailInput),description: \(descriptionInput)")
         return textField.resignFirstResponder()
     }
-        
+    
 }
 extension CreateViewController: MKMapViewDelegate{
     //view for Annotion
@@ -290,7 +290,7 @@ extension CreateViewController: MKMapViewDelegate{
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
             annotationView = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: identifier)
-           annotationView!.canShowCallout = true
+            annotationView!.canShowCallout = true
         } else {
             annotationView!.annotation = annotation
         }

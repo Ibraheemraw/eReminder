@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
     private var container = AppDelegate.container // is the database that holds our model
     public var connection: Connection!
     public var myConnection: MyConnection!
+    public var myFavoriteConnection: MyConnection!
     public var connectionsList = [Connection]()
     private var fetchResultsContoller: NSFetchedResultsController<Connection>!
     override func viewDidLoad() {
@@ -80,8 +81,10 @@ class DetailViewController: UIViewController {
     }
     private func saveToFavorites(){
         if let imageData = profileImage.image?.jpegData(compressionQuality: 0.5){
-            let myFavoriteConnection = MyConnection.init(user: nil, name: detailNameLabel.text  ?? "name is nil", email: detailEmailLabel.text ?? "email is nil", address: connection.address ?? "address is nil", latitude: connection.lat, longitude: connection.lng, createdDate: nil, lastMeetupDate: nil, description: detailDescription.text ?? "description is nil", connectionPicture: imageData)
-            myConnection = myFavoriteConnection
+            let textExmaple = "hello"
+            detailDescription.text = textExmaple
+            let myFavoriteConnection = MyConnection.init(user: nil, name: detailNameLabel.text  ?? "name is nil", email: detailEmailLabel.text ?? "email is nil", address: connection.address ?? "address is nil", latitude: connection.lat, isFavorite: true, longitude: connection.lng, createdDate: nil, lastMeetupDate: nil, description: textExmaple , connectionPicture: imageData)
+            self.myFavoriteConnection = myFavoriteConnection
         }
     }
     @objc func goBackToMainVC(){
@@ -92,6 +95,7 @@ class DetailViewController: UIViewController {
        self.favoriteBttn?.setSelected(selected: false, animated: false)
         emailButton.selectedColor = .yellow
         eventBttn.selectedColor = .orange
+        
         eventBttn.delegate = self
         favoriteBttn.delegate = self
         emailButton.delegate = self
@@ -114,11 +118,32 @@ class DetailViewController: UIViewController {
             print("name is nil")
             return
         }
-        saveToFavorites()
+        
         if let context = container?.viewContext {
             do {
-                let _ =  try Connection.createConnections(connectionInfo: myConnection, context: context)
+                //saveToFavorites()
+                
+                let request: NSFetchRequest<Connection> = Connection.fetchRequest()
+                request.predicate = NSPredicate(format: "name = %@", name)
+                //do {
+                let results = try context.fetch(request)
+                
+                guard let connectionToUpdate = results.first else {
+                    print("no connection")
+                    return
+                }
+                connectionToUpdate.isFavorite = true
                 try? context.save()
+                    
+                //} catch {
+                    
+                //}
+                
+                
+                
+                
+                //let _ =  try Connection.createConnections(connectionInfo: myFavoriteConnection, context: context)
+                //try? context.save()
                 showAlert(title: "Added ❤️", message: "\(name) has been added to your Favorites", style: .alert)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
@@ -185,6 +210,9 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("you can press")
+        favoriteBttn.setSelected(selected: false, animated: false)
+        eventBttn.setSelected(selected: false, animated: false)
+        emailButton.setSelected(selected: false, animated: false)
         let connection = connectionsList[indexPath.row]
         detailNameLabel.text = connection.name
         detailEmailLabel.text = connection.email

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreData
+import Toucan
 class MapViewController: UIViewController {
     //Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -72,9 +73,9 @@ extension MapViewController: MKMapViewDelegate{
             annotationView!.canShowCallout = true
             if let imageData = connectionLocations[0].picture as? Data {
                 let image = UIImage.init(data: imageData)
-//                image?.size = CGSize.init(width: 25, height: 25)
                 DispatchQueue.global().async {
-                    annotationView?.image = image
+                    let resizedImage = Toucan.init(image: image!).resize(CGSize.init(width: 100, height: 100))
+                    annotationView?.image = resizedImage.image
 
                 }
             }
