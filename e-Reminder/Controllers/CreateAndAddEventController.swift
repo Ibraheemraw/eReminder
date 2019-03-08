@@ -54,7 +54,7 @@ class CreateAndAddEventController: UIViewController {
                 } catch {
                     print("Error is \(error)")
                 }
-                print("Event has been saved")
+                self.showAlert(title: "Event Saved", message: "You can check your calendar to see the event", style: .alert)
             } else {
                 print("Else error statment is: \(String(describing: error))")
             }

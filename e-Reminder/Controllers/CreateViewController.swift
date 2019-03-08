@@ -197,6 +197,7 @@ class CreateViewController: UIViewController {
                 navigationItem.rightBarButtonItem?.isEnabled = false
                 showAlert(title: "Saved 🤗", message: "You created a new connection for \(myConnection.name)", style: .alert)
                 launchNotification()
+                self.dismiss(animated: true, completion: nil)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
             }
@@ -207,6 +208,37 @@ class CreateViewController: UIViewController {
         setupImagePicker()
         showImagePicker()
         print("connection image has been tapped") // testing purposes
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        registerKeyboardNotifications()
+    }
+    private func registerKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyBaord), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyBaord), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc private func willShowKeyBaord(notification: Notification){
+        guard let info = notification.userInfo, let keyBoardFrame = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else {
+            print("UserInfo is nil")
+            return
+        }
+        //print(" UserInfo is:  \(info)")
+        contentView.transform = CGAffineTransform.init(translationX: 0, y: -keyBoardFrame.height + 150)
+    }
+    @objc private func willHideKeyBaord(notification: Notification){
+        contentView.transform = CGAffineTransform.identity
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        unregisterKeyboardNotifications()
+    }
+    deinit {
+        //clean up code and memory
+    }
+    
+    private func unregisterKeyboardNotifications(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 //MARK: - Configuration Extension
@@ -233,7 +265,6 @@ extension CreateViewController: UITextFieldDelegate{
             fatalError("nameInput, emailInput, and descriptionInput is empty")
         }
         if nameInput.isEmpty || emailInput.isEmpty || descriptionInput.isEmpty  {
-            showAlert(title: "Remeber", message: "Don't Forget to press return", style: .alert)
         }
         if !nameInput.isEmpty && !emailInput.isEmpty && !descriptionInput.isEmpty {
             showAlert(title: "Add a loaction", message: "Now that you have filled all of the requirements. long press on the map and enter in your location", style: .alert)
