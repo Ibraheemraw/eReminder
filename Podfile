@@ -7,4 +7,5 @@ target 'e-Reminder' do
 
   # Pods for e-Reminder
 pod 'FaveButton'
+pod 'Toucan', '~> 1.1'
 end

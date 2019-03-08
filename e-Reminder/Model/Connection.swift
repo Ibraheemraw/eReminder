@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Toucan
 class Connection: NSManagedObject {
  // create a function that returns a connection and takes in connection info and context
     static func createConnections(connectionInfo: MyConnection, context: NSManagedObjectContext) throws -> Connection {
@@ -41,7 +42,8 @@ class Connection: NSManagedObject {
         connection.lng =  connectionInfo.longitude
         // saving image data to Core Data
         let imageView = UIImageView()
-        imageView.image = UIImage.init(data: connectionInfo.connectionPicture)
+        let resizedImage = Toucan.init(image: imageView.image!).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse()
+        resizedImage.image = UIImage.init(data: connectionInfo.connectionPicture)
        if let imageData = imageView.image?.jpegData(compressionQuality: 0.5){
             connection.picture = imageData as NSObject
         }

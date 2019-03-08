@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Toucan
 //import AVFoundation
 import UserNotifications
 class CreateViewController: UIViewController {
@@ -252,7 +253,8 @@ extension CreateViewController: UIImagePickerControllerDelegate, UINavigationCon
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             profileImage.contentMode = .scaleAspectFill
             profileImage.image = image
-            self.image = image
+            let resizedImage = Toucan.init(image: image).resize(CGSize.init(width: 500, height: 500)).maskWithEllipse()
+            self.image = resizedImage.image
         } else {
             print("orignal image is nil")
         }

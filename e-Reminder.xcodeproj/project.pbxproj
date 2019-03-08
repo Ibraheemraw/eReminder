@@ -35,7 +35,7 @@
 		48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */; };
 		48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */; };
 		48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */; };
-		48DFC9AC2210EAF5004B0E8F /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */; };
+		48DFC9AC2210EAF5004B0E8F /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9AB2210EAF5004B0E8F /* MessagingViewController.swift */; };
 		48DFC9AE2210EFC8004B0E8F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFC9AD2210EFC8004B0E8F /* DetailViewController.swift */; };
 		48E8AE1A22121AD4008C29C6 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8AE1922121AD3008C29C6 /* FavoriteCell.swift */; };
 		48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8AE1B221222A8008C29C6 /* Expandable.swift */; };
@@ -75,7 +75,7 @@
 		48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		48DFC9A72210CAB7004B0E8F /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
+		48DFC9AB2210EAF5004B0E8F /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		48DFC9AD2210EFC8004B0E8F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		48E8AE1922121AD3008C29C6 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		48E8AE1B221222A8008C29C6 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				48DFC9A92210E3E3004B0E8F /* FavoritesViewController.swift */,
 				48E8AE1D22125D97008C29C6 /* MapViewController.swift */,
 				48DFC9AD2210EFC8004B0E8F /* DetailViewController.swift */,
-				48DFC9AB2210EAF5004B0E8F /* DraftsViewController.swift */,
+				48DFC9AB2210EAF5004B0E8F /* MessagingViewController.swift */,
 				48266BCF223181130032C565 /* CreateAndAddEventController.swift */,
 			);
 			path = Controllers;
@@ -327,12 +327,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-e-Reminder/Pods-e-Reminder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -377,7 +379,7 @@
 				486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */,
 				48E8AE1A22121AD4008C29C6 /* FavoriteCell.swift in Sources */,
 				4810BC53222601C0002908D3 /* GeocodingModel.swift in Sources */,
-				48DFC9AC2210EAF5004B0E8F /* DraftsViewController.swift in Sources */,
+				48DFC9AC2210EAF5004B0E8F /* MessagingViewController.swift in Sources */,
 				48E8AE1E22125D97008C29C6 /* MapViewController.swift in Sources */,
 				48DFC9AE2210EFC8004B0E8F /* DetailViewController.swift in Sources */,
 				4810BC4A2225D3D8002908D3 /* User.swift in Sources */,

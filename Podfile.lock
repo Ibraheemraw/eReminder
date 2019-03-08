@@ -1,16 +1,20 @@
 PODS:
   - FaveButton (3.2.0)
+  - Toucan (1.1.0)
 
 DEPENDENCIES:
   - FaveButton
+  - Toucan (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FaveButton
+    - Toucan
 
 SPEC CHECKSUMS:
   FaveButton: c818ab3d04d22a7615e93f08c7b35932acb3f735
+  Toucan: 8f228fabb21521b9658692df9325fe76e71d74b2
 
-PODFILE CHECKSUM: bd3c098d862e7d97a8cc2de012e9e88f78ae3b7c
+PODFILE CHECKSUM: 427ba8fc5f4dcad151f5284cbb10da21ccb5661f
 
 COCOAPODS: 1.6.0

@@ -11,6 +11,7 @@ import CoreData
 class ConnectionsVC: UITableViewController {
     //MARK: - Configuration Outlets
     @IBOutlet weak var tableViewObj: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     //MARK: - Configuration Private Properties
     private var connectionData = [Connection]()
     private var searchController: UISearchController!
@@ -38,6 +39,20 @@ class ConnectionsVC: UITableViewController {
         addGradient()
         view.backgroundColor = .yellow
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        activityIndicatorAction()
+    }
+    private func activityIndicatorAction(){
+        if tableViewObj == nil {
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
+            tableViewObj.reloadData()
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()

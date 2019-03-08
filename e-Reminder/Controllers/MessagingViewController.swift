@@ -8,11 +8,16 @@
 
 import UIKit
 
-class DraftsViewController: UIViewController {
+class MessagingViewController: UIViewController {
     private var searchController: UISearchController!
+    @IBOutlet weak var subscribe: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarView()
+        let myColor : UIColor = .white
+        subscribe.layer.borderColor = myColor.cgColor
+        subscribe.layer.borderWidth = 3
+        subscribe.layer.cornerRadius = 10
     }
     
     private func setupNavigationBarView(){

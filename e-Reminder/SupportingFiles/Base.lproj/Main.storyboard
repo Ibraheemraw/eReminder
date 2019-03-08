@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="B5k-cm-aKz">
+                            <rect key="frame" x="0.0" y="149" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConnectionsCell" rowHeight="121" id="Hdc-iQ-oDB" customClass="ConnectionsListTableViewCell" customModule="e_Reminder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="121"/>
@@ -79,6 +83,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="B5k-cm-aKz" id="uuG-UD-A5y"/>
                         <outlet property="tableViewObj" destination="hC7-p3-iS2" id="6FK-p8-2jM"/>
                     </connections>
                 </tableViewController>
@@ -247,7 +252,7 @@
         <!--Messaging-->
         <scene sceneID="7gA-1U-1Ln">
             <objects>
-                <viewController id="1Se-4b-79e" customClass="DraftsViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1Se-4b-79e" customClass="MessagingViewController" customModule="e_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HpK-tY-1aL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,21 +260,72 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reef" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-je-BJW">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="6Rk-P2-rqb">
+                                <rect key="frame" x="123.5" y="269.5" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Yjf-Qu-uaw"/>
+                                    <constraint firstAttribute="width" constant="128" id="w4F-J7-Hzf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interested in messaging your connections? 🤔" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UJ-Lf-2Dy">
+                                <rect key="frame" x="16" y="190" width="343" height="45.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.91103916949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to Premium account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB5-Lq-Lz9">
+                                <rect key="frame" x="16" y="416" width="343" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.91103916949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnf-29-pQD">
+                                <rect key="frame" x="112.5" y="458" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="ls3-Zc-JD3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Subscribe">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="0.91103916949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting at $4.99/month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-ih-cnb">
+                                <rect key="frame" x="11" y="489" width="353" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.91103916949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.69172198399999996" green="0.91588606859999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="1UJ-Lf-2Dy" firstAttribute="leading" secondItem="FQW-MN-VX3" secondAttribute="leading" constant="16" id="06h-5n-GjJ"/>
+                            <constraint firstItem="fnf-29-pQD" firstAttribute="centerX" secondItem="QHD-ih-cnb" secondAttribute="centerX" id="3YI-Rz-o5r"/>
+                            <constraint firstItem="QHD-ih-cnb" firstAttribute="top" secondItem="fnf-29-pQD" secondAttribute="bottom" constant="1" id="6tv-JJ-WgP"/>
+                            <constraint firstItem="QHD-ih-cnb" firstAttribute="leading" secondItem="FQW-MN-VX3" secondAttribute="leading" constant="11" id="9ot-dz-rcg"/>
                             <constraint firstItem="fu4-je-BJW" firstAttribute="leading" secondItem="FQW-MN-VX3" secondAttribute="leading" id="Kku-bT-HmO"/>
                             <constraint firstItem="FQW-MN-VX3" firstAttribute="bottom" secondItem="fu4-je-BJW" secondAttribute="bottom" id="KzL-XQ-R1n"/>
+                            <constraint firstItem="6Rk-P2-rqb" firstAttribute="centerY" secondItem="HpK-tY-1aL" secondAttribute="centerY" id="N1v-Mt-xK2"/>
+                            <constraint firstItem="6Rk-P2-rqb" firstAttribute="centerX" secondItem="HpK-tY-1aL" secondAttribute="centerX" id="Sf3-d0-x6x"/>
+                            <constraint firstItem="fnf-29-pQD" firstAttribute="top" secondItem="OB5-Lq-Lz9" secondAttribute="bottom" constant="19" id="Vlz-aV-ZOD"/>
+                            <constraint firstItem="FQW-MN-VX3" firstAttribute="trailing" secondItem="QHD-ih-cnb" secondAttribute="trailing" constant="11" id="Woc-OO-hRq"/>
                             <constraint firstItem="fu4-je-BJW" firstAttribute="top" secondItem="FQW-MN-VX3" secondAttribute="top" id="dcW-ma-ITX"/>
                             <constraint firstItem="FQW-MN-VX3" firstAttribute="trailing" secondItem="fu4-je-BJW" secondAttribute="trailing" id="i2d-Tv-DGn"/>
+                            <constraint firstItem="1UJ-Lf-2Dy" firstAttribute="top" secondItem="FQW-MN-VX3" secondAttribute="top" constant="74" id="oVN-42-HnQ"/>
+                            <constraint firstItem="FQW-MN-VX3" firstAttribute="trailing" secondItem="1UJ-Lf-2Dy" secondAttribute="trailing" constant="16" id="p2I-Nv-72Q"/>
+                            <constraint firstItem="FQW-MN-VX3" firstAttribute="trailing" secondItem="OB5-Lq-Lz9" secondAttribute="trailing" constant="16" id="q9w-F6-2G8"/>
+                            <constraint firstItem="OB5-Lq-Lz9" firstAttribute="top" secondItem="6Rk-P2-rqb" secondAttribute="bottom" constant="18.5" id="qj9-3t-T50"/>
+                            <constraint firstItem="OB5-Lq-Lz9" firstAttribute="leading" secondItem="FQW-MN-VX3" secondAttribute="leading" constant="16" id="t7z-xN-eek"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FQW-MN-VX3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messaging" id="MN6-uW-IBL"/>
+                    <connections>
+                        <outlet property="subscribe" destination="fnf-29-pQD" id="Bac-bh-Xmi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5V-qY-5PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="1315"/>
+            <point key="canvasLocation" x="357.60000000000002" y="1314.6926536731635"/>
         </scene>
         <!--Favorites -->
         <scene sceneID="qYR-JL-9pg">
@@ -801,6 +857,7 @@
         <image name="icons8-add_user_group_woman_man-1" width="25" height="25"/>
         <image name="icons8-saddle_stitched_booklet_filled" width="25" height="25"/>
         <image name="icons8-world_map_filled" width="25" height="25"/>
+        <image name="messageLogo2" width="512" height="512"/>
         <image name="profile-placeholder" width="385" height="409"/>
     </resources>
 </document>

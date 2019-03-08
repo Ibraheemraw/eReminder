@@ -7,24 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C0378FF8E265FD93658973416F0C6E2 /* FaveButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCB3486C4EC31F08C0A4DFADBD08001 /* FaveButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1082145231A5A7268CBCACFC5CF44F4A /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B87085137E5565F1D8557BB3E09884 /* Easing.swift */; };
-		1F9E125938EDDC4E6F91AEBD15E01A94 /* FaveIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08D9781AE5B7AFE285430D5AFEB12E7 /* FaveIcon.swift */; };
-		3A28AFFB331275209613D88EEC7F96EB /* FaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5791E475023BCE8E9ADFB1F44325F477 /* FaveButton.swift */; };
-		3E6779429C82AC101877D39E8D27AD2D /* Pods-e-Reminder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 726CFE8C4CBC598D0DC7D008CA775989 /* Pods-e-Reminder-dummy.m */; };
-		3E9265962AF75B20B6D5DE4ED3A298A8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53B83D76A1BDAB51E5CC6FEC9093263 /* Geometry.swift */; };
-		4890884ADFC8BA4723E742DD0BD26FED /* Constraints+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E828090E096243A014098D329801AC /* Constraints+.swift */; };
-		8DA1A00E2DB8BC65FF7580EF498C8357 /* FaveButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ECF3B63F5D24CA26343C1AB21D72CC /* FaveButton-dummy.m */; };
-		9BDCB22D09FC01129DA0D3AC3427AAB9 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F2132F56741B03855D22242AA8765 /* Spark.swift */; };
+		0C0378FF8E265FD93658973416F0C6E2 /* FaveButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC7C0C3A2A7A43004692634D730919B1 /* FaveButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1082145231A5A7268CBCACFC5CF44F4A /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F3E0238DBFEA040667AF3B618660 /* Easing.swift */; };
+		1F9E125938EDDC4E6F91AEBD15E01A94 /* FaveIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19ECA8C534CFEA008253B6AB41795E9 /* FaveIcon.swift */; };
+		3A28AFFB331275209613D88EEC7F96EB /* FaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E26DDEE5F961264E40BBEDCBC7729 /* FaveButton.swift */; };
+		3E9265962AF75B20B6D5DE4ED3A298A8 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C02126902B868B481A56FFC163DB /* Geometry.swift */; };
+		42B4A25705507D5FBA299F0712AA3A92 /* Toucan-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 06EB4492F767192BF241AA459CC5F01E /* Toucan-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4890884ADFC8BA4723E742DD0BD26FED /* Constraints+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F632500D5A21042A3580E838ADCDE6 /* Constraints+.swift */; };
+		62D12839C80E30F68DB22A40E7FA5E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		7C84F34742B01C9152282A6259202F2A /* Pods-e-Reminder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0420F889875B095F181263427DFBF702 /* Pods-e-Reminder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DA1A00E2DB8BC65FF7580EF498C8357 /* FaveButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F47377B461CCA3273BBC801711DEF7 /* FaveButton-dummy.m */; };
+		9BDCB22D09FC01129DA0D3AC3427AAB9 /* Spark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A4F177F940296E4FBD2689D2C9C0C1 /* Spark.swift */; };
+		A2FB315F77DC32B82808EF51EB2E3C76 /* Pods-e-Reminder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 726CFE8C4CBC598D0DC7D008CA775989 /* Pods-e-Reminder-dummy.m */; };
 		A560B066A5321C26D7E279A07AA92571 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		C13E6EB5299D2BBD0239D9380BCA852B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		D9628A5ABD7EB757056F17500EBC45CD /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15089B03B8F0DDB7E9C094F0B811EC94 /* Init.swift */; };
-		E52AD49F8FB74AD67DB8F1CAFE478ECB /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AB34D1B4F5C091B57C0250659C7FA2 /* Ring.swift */; };
-		F62C0BB0EE859CD3D75D6E26806D92BB /* Pods-e-Reminder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0420F889875B095F181263427DFBF702 /* Pods-e-Reminder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B263DE7EDB404FD45B538E098C70A762 /* Toucan-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B842667C2086C053AB83EE9206791A9 /* Toucan-dummy.m */; };
+		BA22FDA169A5D08D45769FF01F6C987C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		D93708FEFEEDB8EF7E76281DD1BD5130 /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12C527DD809B015C54916266067954B /* Toucan.swift */; };
+		D9628A5ABD7EB757056F17500EBC45CD /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2DF01D9CBA0A0BA00B0C478C1563B /* Init.swift */; };
+		E52AD49F8FB74AD67DB8F1CAFE478ECB /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB22B83205DF8CCED59CB6280D1FBDA2 /* Ring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C977E4D7CEF92763BB159A4596D5E6B1 /* PBXContainerItemProxy */ = {
+		9D3CFE7198CE7CEB8522BC2DCF5BDCCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EB9FF1B2EF9247BE0C3EB8BA6F5B3BD;
+			remoteInfo = Toucan;
+		};
+		CF675FBFC3FF018B897D7255C5BFEB67 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -36,39 +47,55 @@
 /* Begin PBXFileReference section */
 		0420F889875B095F181263427DFBF702 /* Pods-e-Reminder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-e-Reminder-umbrella.h"; sourceTree = "<group>"; };
 		059A6256EF420C7FE1558E8145664592 /* Pods-e-Reminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-e-Reminder.release.xcconfig"; sourceTree = "<group>"; };
+		06EB4492F767192BF241AA459CC5F01E /* Toucan-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toucan-umbrella.h"; sourceTree = "<group>"; };
 		0764B9320AEC2F9E10C5D67C6E35A823 /* Pods-e-Reminder-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-e-Reminder-acknowledgements.markdown"; sourceTree = "<group>"; };
-		08ECF3B63F5D24CA26343C1AB21D72CC /* FaveButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FaveButton-dummy.m"; sourceTree = "<group>"; };
-		0DCB3486C4EC31F08C0A4DFADBD08001 /* FaveButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FaveButton-umbrella.h"; sourceTree = "<group>"; };
+		0889783F9C22911CADD6B45E469AAFF7 /* Toucan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Toucan.framework; path = Toucan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEB5011D43FFAA4ABF58731367AC7EC /* Pods-e-Reminder-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-e-Reminder-acknowledgements.plist"; sourceTree = "<group>"; };
-		15089B03B8F0DDB7E9C094F0B811EC94 /* Init.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Init.swift; path = Source/Helpers/Init.swift; sourceTree = "<group>"; };
+		137E26DDEE5F961264E40BBEDCBC7729 /* FaveButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FaveButton.swift; path = Source/FaveButton.swift; sourceTree = "<group>"; };
+		1805A382E5CD2457A66490AE146F8F1E /* FaveButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FaveButton-prefix.pch"; sourceTree = "<group>"; };
+		1B842667C2086C053AB83EE9206791A9 /* Toucan-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toucan-dummy.m"; sourceTree = "<group>"; };
+		1BD5F3E0238DBFEA040667AF3B618660 /* Easing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Easing.swift; path = Source/Helpers/Easing.swift; sourceTree = "<group>"; };
 		2ABC87240711BCE1F37453438D4AC3B2 /* Pods-e-Reminder-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-e-Reminder-frameworks.sh"; sourceTree = "<group>"; };
-		386FA9872A592B7A8AEA506ECD755D4D /* FaveButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FaveButton.xcconfig; sourceTree = "<group>"; };
+		2D6429618128BFC096FC6C75126910FB /* Toucan.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Toucan.modulemap; sourceTree = "<group>"; };
+		35F47377B461CCA3273BBC801711DEF7 /* FaveButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FaveButton-dummy.m"; sourceTree = "<group>"; };
+		3E6C20323D089940C442D6C0904A67F7 /* Pods_e_Reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_e_Reminder.framework; path = "Pods-e-Reminder.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A200E529ECE836405D86AC697A0BC9 /* Pods-e-Reminder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-e-Reminder.modulemap"; sourceTree = "<group>"; };
-		56FB12209355690E7F277A9A7D589AC2 /* Pods_e_Reminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_e_Reminder.framework; path = "Pods-e-Reminder.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5791E475023BCE8E9ADFB1F44325F477 /* FaveButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FaveButton.swift; path = Source/FaveButton.swift; sourceTree = "<group>"; };
-		60B87085137E5565F1D8557BB3E09884 /* Easing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Easing.swift; path = Source/Helpers/Easing.swift; sourceTree = "<group>"; };
+		63A4F177F940296E4FBD2689D2C9C0C1 /* Spark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Spark.swift; path = Source/Spark.swift; sourceTree = "<group>"; };
+		69098620DD68AB686AB546B4E18FC00C /* FaveButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FaveButton.framework; path = FaveButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69A510A3734FC81401BDA0F354B3B130 /* FaveButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FaveButton.modulemap; sourceTree = "<group>"; };
 		726CFE8C4CBC598D0DC7D008CA775989 /* Pods-e-Reminder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-e-Reminder-dummy.m"; sourceTree = "<group>"; };
+		7EE98E7337B14767866A7214E28A75FA /* Toucan-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Toucan-Info.plist"; sourceTree = "<group>"; };
 		8FCC9D9C98E43D4BC747CF6DF025DD66 /* Pods-e-Reminder-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-e-Reminder-Info.plist"; sourceTree = "<group>"; };
+		92F632500D5A21042A3580E838ADCDE6 /* Constraints+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Constraints+.swift"; path = "Source/Helpers/Constraints+.swift"; sourceTree = "<group>"; };
 		9ACF59F0C5D1E77E7B535DCDC4A77327 /* Pods-e-Reminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-e-Reminder.debug.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0306467013BD372D4A3F78881953E58 /* FaveButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FaveButton.modulemap; sourceTree = "<group>"; };
-		A53B83D76A1BDAB51E5CC6FEC9093263 /* Geometry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Source/Helpers/Geometry.swift; sourceTree = "<group>"; };
-		B6DC6E36BDD2A512D91FB9A021016D0A /* FaveButton-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FaveButton-Info.plist"; sourceTree = "<group>"; };
+		AB22B83205DF8CCED59CB6280D1FBDA2 /* Ring.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Ring.swift; path = Source/Ring.swift; sourceTree = "<group>"; };
+		AFA2DF01D9CBA0A0BA00B0C478C1563B /* Init.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Init.swift; path = Source/Helpers/Init.swift; sourceTree = "<group>"; };
+		B12C527DD809B015C54916266067954B /* Toucan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toucan.swift; path = Source/Toucan.swift; sourceTree = "<group>"; };
+		B428FD2233D96D35051E462A88942949 /* Toucan.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toucan.xcconfig; sourceTree = "<group>"; };
+		BC7C0C3A2A7A43004692634D730919B1 /* FaveButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FaveButton-umbrella.h"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D3E828090E096243A014098D329801AC /* Constraints+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Constraints+.swift"; path = "Source/Helpers/Constraints+.swift"; sourceTree = "<group>"; };
-		D9AB34D1B4F5C091B57C0250659C7FA2 /* Ring.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Ring.swift; path = Source/Ring.swift; sourceTree = "<group>"; };
-		DA8F2132F56741B03855D22242AA8765 /* Spark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Spark.swift; path = Source/Spark.swift; sourceTree = "<group>"; };
-		E29F3AF8A8BBADDD38BC1A29B32236EA /* FaveButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FaveButton-prefix.pch"; sourceTree = "<group>"; };
-		EF78BA1ACA80F1F4B94700779D5CD4F1 /* FaveButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FaveButton.framework; path = FaveButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F08D9781AE5B7AFE285430D5AFEB12E7 /* FaveIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FaveIcon.swift; path = Source/FaveIcon.swift; sourceTree = "<group>"; };
+		D19ECA8C534CFEA008253B6AB41795E9 /* FaveIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FaveIcon.swift; path = Source/FaveIcon.swift; sourceTree = "<group>"; };
+		E2423B7438E63682D59845AF403DC94D /* Toucan-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toucan-prefix.pch"; sourceTree = "<group>"; };
+		F955A024F3A84519C85718B6ADE8436C /* FaveButton-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FaveButton-Info.plist"; sourceTree = "<group>"; };
+		FAD3C02126902B868B481A56FFC163DB /* Geometry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Source/Helpers/Geometry.swift; sourceTree = "<group>"; };
+		FB12E8CC95DAC39A6519EC5998D471C9 /* FaveButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FaveButton.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		20A2D673A80C478DEFB216B42EE53228 /* Frameworks */ = {
+		2901424AD3AA54766CE8935699D726AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C13E6EB5299D2BBD0239D9380BCA852B /* Foundation.framework in Frameworks */,
+				BA22FDA169A5D08D45769FF01F6C987C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF7449C654B462B6140DB88384132BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62D12839C80E30F68DB22A40E7FA5E56 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,26 +110,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		205250956A4AE7D3D820EC86AF0ED6DA /* Support Files */ = {
+		016A3DC7EA7112B0A8982977D0EDDE3A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A0306467013BD372D4A3F78881953E58 /* FaveButton.modulemap */,
-				386FA9872A592B7A8AEA506ECD755D4D /* FaveButton.xcconfig */,
-				08ECF3B63F5D24CA26343C1AB21D72CC /* FaveButton-dummy.m */,
-				B6DC6E36BDD2A512D91FB9A021016D0A /* FaveButton-Info.plist */,
-				E29F3AF8A8BBADDD38BC1A29B32236EA /* FaveButton-prefix.pch */,
-				0DCB3486C4EC31F08C0A4DFADBD08001 /* FaveButton-umbrella.h */,
+				2D6429618128BFC096FC6C75126910FB /* Toucan.modulemap */,
+				B428FD2233D96D35051E462A88942949 /* Toucan.xcconfig */,
+				1B842667C2086C053AB83EE9206791A9 /* Toucan-dummy.m */,
+				7EE98E7337B14767866A7214E28A75FA /* Toucan-Info.plist */,
+				E2423B7438E63682D59845AF403DC94D /* Toucan-prefix.pch */,
+				06EB4492F767192BF241AA459CC5F01E /* Toucan-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/FaveButton";
+			path = "../Target Support Files/Toucan";
 			sourceTree = "<group>";
 		};
-		53AC66C70E10CF5DBB0E30A39C48BD8E /* Pods */ = {
+		146DBB07F6FDD6E13128C0F8945DB9C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BAD55129D8023E9B25981A299F9E7CE /* FaveButton */,
+				69098620DD68AB686AB546B4E18FC00C /* FaveButton.framework */,
+				3E6C20323D089940C442D6C0904A67F7 /* Pods_e_Reminder.framework */,
+				0889783F9C22911CADD6B45E469AAFF7 /* Toucan.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		333DD12C020E7A950A9D22215C9B1609 /* FaveButton */ = {
+			isa = PBXGroup;
+			children = (
+				92F632500D5A21042A3580E838ADCDE6 /* Constraints+.swift */,
+				1BD5F3E0238DBFEA040667AF3B618660 /* Easing.swift */,
+				137E26DDEE5F961264E40BBEDCBC7729 /* FaveButton.swift */,
+				D19ECA8C534CFEA008253B6AB41795E9 /* FaveIcon.swift */,
+				FAD3C02126902B868B481A56FFC163DB /* Geometry.swift */,
+				AFA2DF01D9CBA0A0BA00B0C478C1563B /* Init.swift */,
+				AB22B83205DF8CCED59CB6280D1FBDA2 /* Ring.swift */,
+				63A4F177F940296E4FBD2689D2C9C0C1 /* Spark.swift */,
+				8921A83F4B94569D2A5C9CFC2E56E5BB /* Support Files */,
+			);
+			name = FaveButton;
+			path = FaveButton;
 			sourceTree = "<group>";
 		};
 		56496AF3E6B9030982427C92BE74B538 /* Pods-e-Reminder */ = {
@@ -130,30 +176,37 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7BAD55129D8023E9B25981A299F9E7CE /* FaveButton */ = {
+		69FAA8F3FB3626D5439179D3CABFC661 /* Toucan */ = {
 			isa = PBXGroup;
 			children = (
-				D3E828090E096243A014098D329801AC /* Constraints+.swift */,
-				60B87085137E5565F1D8557BB3E09884 /* Easing.swift */,
-				5791E475023BCE8E9ADFB1F44325F477 /* FaveButton.swift */,
-				F08D9781AE5B7AFE285430D5AFEB12E7 /* FaveIcon.swift */,
-				A53B83D76A1BDAB51E5CC6FEC9093263 /* Geometry.swift */,
-				15089B03B8F0DDB7E9C094F0B811EC94 /* Init.swift */,
-				D9AB34D1B4F5C091B57C0250659C7FA2 /* Ring.swift */,
-				DA8F2132F56741B03855D22242AA8765 /* Spark.swift */,
-				205250956A4AE7D3D820EC86AF0ED6DA /* Support Files */,
+				B12C527DD809B015C54916266067954B /* Toucan.swift */,
+				016A3DC7EA7112B0A8982977D0EDDE3A /* Support Files */,
 			);
-			name = FaveButton;
-			path = FaveButton;
+			name = Toucan;
+			path = Toucan;
 			sourceTree = "<group>";
 		};
-		833D00451787E3FB53ECA07C1A9F6699 /* Products */ = {
+		8921A83F4B94569D2A5C9CFC2E56E5BB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF78BA1ACA80F1F4B94700779D5CD4F1 /* FaveButton.framework */,
-				56FB12209355690E7F277A9A7D589AC2 /* Pods_e_Reminder.framework */,
+				69A510A3734FC81401BDA0F354B3B130 /* FaveButton.modulemap */,
+				FB12E8CC95DAC39A6519EC5998D471C9 /* FaveButton.xcconfig */,
+				35F47377B461CCA3273BBC801711DEF7 /* FaveButton-dummy.m */,
+				F955A024F3A84519C85718B6ADE8436C /* FaveButton-Info.plist */,
+				1805A382E5CD2457A66490AE146F8F1E /* FaveButton-prefix.pch */,
+				BC7C0C3A2A7A43004692634D730919B1 /* FaveButton-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/FaveButton";
+			sourceTree = "<group>";
+		};
+		95C235A86108AEF6D34F4FEB3422F56D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				333DD12C020E7A950A9D22215C9B1609 /* FaveButton */,
+				69FAA8F3FB3626D5439179D3CABFC661 /* Toucan */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
@@ -169,8 +222,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				53AC66C70E10CF5DBB0E30A39C48BD8E /* Pods */,
-				833D00451787E3FB53ECA07C1A9F6699 /* Products */,
+				95C235A86108AEF6D34F4FEB3422F56D /* Pods */,
+				146DBB07F6FDD6E13128C0F8945DB9C1 /* Products */,
 				654C273FBB25899E3E0613C3B66FD490 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -186,11 +239,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		9A5E1951B2F38D12C032FD9DC9B29EA2 /* Headers */ = {
+		5ED0E152F294BD3757E61C40A3023D41 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F62C0BB0EE859CD3D75D6E26806D92BB /* Pods-e-Reminder-umbrella.h in Headers */,
+				42B4A25705507D5FBA299F0712AA3A92 /* Toucan-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,9 +255,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0C45E94CB6BD62976BD09D2F2E34C96 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C84F34742B01C9152282A6259202F2A /* Pods-e-Reminder-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		04B9CF69EE77A79419FD862788F13AE9 /* Pods-e-Reminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C638C7AE2825121E85F519CA85379D74 /* Build configuration list for PBXNativeTarget "Pods-e-Reminder" */;
+			buildPhases = (
+				D0C45E94CB6BD62976BD09D2F2E34C96 /* Headers */,
+				76614B086BA2780A66CBCE3BEDA49F76 /* Sources */,
+				2901424AD3AA54766CE8935699D726AF /* Frameworks */,
+				155CBCF5D1B95DF02BC23A7214E980F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3D3A23B0D40B92F0ABC739F114EC224 /* PBXTargetDependency */,
+				5C11AB4B74F58314F435AC7FDD893D9D /* PBXTargetDependency */,
+			);
+			name = "Pods-e-Reminder";
+			productName = "Pods-e-Reminder";
+			productReference = 3E6C20323D089940C442D6C0904A67F7 /* Pods_e_Reminder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		593E58645EC26F03DAA1A087EC7DDF13 /* FaveButton */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F36C31B7D6F9D3835027FB209140809 /* Build configuration list for PBXNativeTarget "FaveButton" */;
@@ -220,26 +301,25 @@
 			);
 			name = FaveButton;
 			productName = FaveButton;
-			productReference = EF78BA1ACA80F1F4B94700779D5CD4F1 /* FaveButton.framework */;
+			productReference = 69098620DD68AB686AB546B4E18FC00C /* FaveButton.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		739CA685E14CBDAC572479CDEB62E169 /* Pods-e-Reminder */ = {
+		8EB9FF1B2EF9247BE0C3EB8BA6F5B3BD /* Toucan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1D4BE4826EFA50113E7A0F48A8F94FD /* Build configuration list for PBXNativeTarget "Pods-e-Reminder" */;
+			buildConfigurationList = E6904E2AE455A1D37F363A1AB7B4FB30 /* Build configuration list for PBXNativeTarget "Toucan" */;
 			buildPhases = (
-				9A5E1951B2F38D12C032FD9DC9B29EA2 /* Headers */,
-				AC6EF59A84ADD11ACEF083332DE393CE /* Sources */,
-				20A2D673A80C478DEFB216B42EE53228 /* Frameworks */,
-				02A85F4CBA6F3D841192BEA1BAE44AE8 /* Resources */,
+				5ED0E152F294BD3757E61C40A3023D41 /* Headers */,
+				0CEC7433AE326E70C0182222E8A9098C /* Sources */,
+				6EF7449C654B462B6140DB88384132BD /* Frameworks */,
+				8925425CB2A331E5A01B55BCC1484E51 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B54EE92F97E4FDA42B98F9A2FD258E46 /* PBXTargetDependency */,
 			);
-			name = "Pods-e-Reminder";
-			productName = "Pods-e-Reminder";
-			productReference = 56FB12209355690E7F277A9A7D589AC2 /* Pods_e_Reminder.framework */;
+			name = Toucan;
+			productName = Toucan;
+			productReference = 0889783F9C22911CADD6B45E469AAFF7 /* Toucan.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -259,18 +339,19 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 833D00451787E3FB53ECA07C1A9F6699 /* Products */;
+			productRefGroup = 146DBB07F6FDD6E13128C0F8945DB9C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				593E58645EC26F03DAA1A087EC7DDF13 /* FaveButton */,
-				739CA685E14CBDAC572479CDEB62E169 /* Pods-e-Reminder */,
+				04B9CF69EE77A79419FD862788F13AE9 /* Pods-e-Reminder */,
+				8EB9FF1B2EF9247BE0C3EB8BA6F5B3BD /* Toucan */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		02A85F4CBA6F3D841192BEA1BAE44AE8 /* Resources */ = {
+		155CBCF5D1B95DF02BC23A7214E980F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,14 +365,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8925425CB2A331E5A01B55BCC1484E51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AC6EF59A84ADD11ACEF083332DE393CE /* Sources */ = {
+		0CEC7433AE326E70C0182222E8A9098C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E6779429C82AC101877D39E8D27AD2D /* Pods-e-Reminder-dummy.m in Sources */,
+				B263DE7EDB404FD45B538E098C70A762 /* Toucan-dummy.m in Sources */,
+				D93708FEFEEDB8EF7E76281DD1BD5130 /* Toucan.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76614B086BA2780A66CBCE3BEDA49F76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2FB315F77DC32B82808EF51EB2E3C76 /* Pods-e-Reminder-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,18 +411,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B54EE92F97E4FDA42B98F9A2FD258E46 /* PBXTargetDependency */ = {
+		5C11AB4B74F58314F435AC7FDD893D9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toucan;
+			target = 8EB9FF1B2EF9247BE0C3EB8BA6F5B3BD /* Toucan */;
+			targetProxy = 9D3CFE7198CE7CEB8522BC2DCF5BDCCC /* PBXContainerItemProxy */;
+		};
+		A3D3A23B0D40B92F0ABC739F114EC224 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FaveButton;
 			target = 593E58645EC26F03DAA1A087EC7DDF13 /* FaveButton */;
-			targetProxy = C977E4D7CEF92763BB159A4596D5E6B1 /* PBXContainerItemProxy */;
+			targetProxy = CF675FBFC3FF018B897D7255C5BFEB67 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FF8222D34FEF33B36E611C8768B9012 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 386FA9872A592B7A8AEA506ECD755D4D /* FaveButton.xcconfig */;
+			baseConfigurationReference = FB12E8CC95DAC39A6519EC5998D471C9 /* FaveButton.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -358,12 +461,10 @@
 			};
 			name = Debug;
 		};
-		21F9EDF525091DECFA1CF9FB03286470 /* Debug */ = {
+		3F9A50300427605046CE16BDBA7C04C8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9ACF59F0C5D1E77E7B535DCDC4A77327 /* Pods-e-Reminder.debug.xcconfig */;
+			baseConfigurationReference = B428FD2233D96D35051E462A88942949 /* Toucan.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -373,28 +474,28 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-e-Reminder/Pods-e-Reminder-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Toucan/Toucan-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toucan/Toucan-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-e-Reminder/Pods-e-Reminder.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Toucan/Toucan.modulemap";
+				PRODUCT_MODULE_NAME = Toucan;
+				PRODUCT_NAME = Toucan;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		4093433A309EFE160336AC736594AB22 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -460,7 +561,7 @@
 			};
 			name = Debug;
 		};
-		4160661EC8126F131B6659DD3852B8A9 /* Release */ = {
+		76A61D22A95032E00D444C2F9C5270CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 059A6256EF420C7FE1558E8145664592 /* Pods-e-Reminder.release.xcconfig */;
 			buildSettings = {
@@ -559,9 +660,47 @@
 			};
 			name = Release;
 		};
+		9EAC30ED8EFCB64E1AD40796DBD1FCE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ACF59F0C5D1E77E7B535DCDC4A77327 /* Pods-e-Reminder.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-e-Reminder/Pods-e-Reminder-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-e-Reminder/Pods-e-Reminder.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		9EB3935154CE5518AD0BC936F9778250 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 386FA9872A592B7A8AEA506ECD755D4D /* FaveButton.xcconfig */;
+			baseConfigurationReference = FB12E8CC95DAC39A6519EC5998D471C9 /* FaveButton.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -595,6 +734,41 @@
 			};
 			name = Release;
 		};
+		DDE93351CCBCAAB84DB6DB297A5FB5EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B428FD2233D96D35051E462A88942949 /* Toucan.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toucan/Toucan-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toucan/Toucan-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Toucan/Toucan.modulemap";
+				PRODUCT_MODULE_NAME = Toucan;
+				PRODUCT_NAME = Toucan;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -616,11 +790,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1D4BE4826EFA50113E7A0F48A8F94FD /* Build configuration list for PBXNativeTarget "Pods-e-Reminder" */ = {
+		C638C7AE2825121E85F519CA85379D74 /* Build configuration list for PBXNativeTarget "Pods-e-Reminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21F9EDF525091DECFA1CF9FB03286470 /* Debug */,
-				4160661EC8126F131B6659DD3852B8A9 /* Release */,
+				9EAC30ED8EFCB64E1AD40796DBD1FCE9 /* Debug */,
+				76A61D22A95032E00D444C2F9C5270CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6904E2AE455A1D37F363A1AB7B4FB30 /* Build configuration list for PBXNativeTarget "Toucan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDE93351CCBCAAB84DB6DB297A5FB5EF /* Debug */,
+				3F9A50300427605046CE16BDBA7C04C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
