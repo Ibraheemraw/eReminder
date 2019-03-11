@@ -1,6 +1,13 @@
 # eReminder
 
-> Here goes your awesome project description!
+> The  eReminder loads a list of your contacts aka connections, you created in the app,  based on the location(s) you have met the other individual at. Also Creating reminders and notifications to yourself about those people you have saved in the app.
+- The user should be able to search their connections based on location or name 
+    - The user should be to save a connection to their Favorites
+    - The user should be able to adjust the reminder time to any time they see fit in the Settings 
+    - The user should be able to create connections that are added to their connections list section.
+    - Users should be able to delete any connection from the connections list 
+    - The user should be able to segue to a detail view of the connection they created showing more information
+       - The user should be able to send a message un the detail view to the user either via email or text message.
 
 ## Table of contents
 * [General info](#general-info)
