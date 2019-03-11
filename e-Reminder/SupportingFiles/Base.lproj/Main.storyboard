@@ -17,13 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="kmB-5e-HEB">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="B5k-cm-aKz">
-                            <rect key="frame" x="0.0" y="149" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="526" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConnectionsCell" rowHeight="121" id="Hdc-iQ-oDB" customClass="ConnectionsListTableViewCell" customModule="e_Reminder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="121"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hdc-iQ-oDB" id="L5x-V1-66g">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
@@ -84,6 +89,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="B5k-cm-aKz" id="uuG-UD-A5y"/>
+                        <outlet property="searchBarObj" destination="kmB-5e-HEB" id="RWT-ub-bP0"/>
                         <outlet property="tableViewObj" destination="hC7-p3-iS2" id="6FK-p8-2jM"/>
                     </connections>
                 </tableViewController>

@@ -12,29 +12,18 @@ class ConnectionsVC: UITableViewController {
     //MARK: - Configuration Outlets
     @IBOutlet weak var tableViewObj: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchBarObj: UISearchBar!
     //MARK: - Configuration Private Properties
     private var connectionData = [Connection]()
-    private var searchController: UISearchController!
     let id = "ConnectionsCell"
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     private var gradient: CAGradientLayer! // Setting up the tableview background
-    private var tableViewState: TableViewState = .showAllConnections {
-        didSet {
-            tableViewObj.reloadData()
-        }
-    }
-    //MARK: - Enum
-    private enum TableViewState {
-        case isBeingSearched
-        case showAllConnections
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBarView()
-        setupSearch()
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
+        searchBarObj.delegate = self
         configfetchResultsContoller()
         addGradient()
         view.backgroundColor = .yellow
@@ -61,7 +50,6 @@ class ConnectionsVC: UITableViewController {
         gradient = CAGradientLayer()
         gradient.frame = tableViewObj.bounds
         gradient.colors = [softCyan.cgColor, softBlue.cgColor, strongBlue.cgColor]
-        
         let gView = UIView(frame: view.bounds)
         gView.layer.addSublayer(gradient)
         
@@ -72,20 +60,7 @@ class ConnectionsVC: UITableViewController {
         let destinationVC = CreateViewController()
         self.present(destinationVC, animated: true, completion: nil)
     }
-    //MARK: - Configuration Methods
-    private func setupSearch(){
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.delegate = self
-    }
-    private func setupNavigationBarView(){
-        // Makes the navigation bar's title Larger
-        self.navigationController?.navigationBar.prefersLargeTitles =  true
-        searchController = UISearchController.init(searchResultsController: nil) // setting it to nil becuase you don't have a search view set up
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false // makes the search bar persistant
-    }
+    
     private func configfetchResultsContoller(){
         if let context = container?.viewContext{
             // create a request
@@ -105,15 +80,10 @@ class ConnectionsVC: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch tableViewState {
-        case .isBeingSearched:
-            return connectionData.count
-        case .showAllConnections:
-            if let sections = fetchResultsContoller?.sections, sections.count > 0 {
-                return sections[section].numberOfObjects
-            } else {
-                return 0
-            }
+        if let sections = fetchResultsContoller?.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -173,33 +143,23 @@ class ConnectionsVC: UITableViewController {
     }
 }
 //MARK: - Configuration Extensions
-extension ConnectionsVC: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchTerm = searchController.searchBar.text else {
-            print("search term is nil")
-            return
+extension ConnectionsVC: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let userSearch = searchBar.text else {
+            fatalError("search text is nil")
         }
-        if searchTerm == "" {
+        if userSearch == "" {
             configfetchResultsContoller()
         } else {
-            if let context = container?.viewContext{
-               let request: NSFetchRequest<Connection> = Connection.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-                do {
-                    let connections = try context.fetch(request)
-                    connectionData = connections
-                } catch {
-                    print("error iwth fetching connection: \(error)")
+            if var sections = fetchResultsContoller?.sections {
+                sections = sections.filter{
+                    $0.name.contains(userSearch)
                 }
+                tableViewObj.numberOfRows(inSection: sections.count)
             }
-            connectionData = connectionData.filter{
-                guard let name = $0.name else {
-                    fatalError("name is nil")
-                }
-                return name.contains(searchTerm)
-            }
-            tableViewObj.reloadData()
         }
+        tableViewObj.reloadData()
+        searchBar.resignFirstResponder()
     }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {

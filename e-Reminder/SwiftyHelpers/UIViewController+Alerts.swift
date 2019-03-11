@@ -47,18 +47,22 @@ extension UIViewController {
         let alertController = UIAlertController.init(title: "Create Connection Photo", message: nil, preferredStyle: .actionSheet)
         let takePhotoAction = UIAlertAction.init(title: "Take Photo", style: .default){(alertAction) in
             imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = true
+            //imagePicker.cameraCaptureMode = .photo
             self.present(imagePicker, animated: true)
         }
         let chooseFromLibraryAction = UIAlertAction.init(title: "Choose From Library", style: .default) { (alertAction) in
              imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true)
         }
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel)
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
             takePhotoAction.isEnabled = false
+        } else {
+            alertController.addAction(takePhotoAction)
         }
         alertController.addAction(cancelAction)
-        alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
         present(alertController, animated: true)
     }

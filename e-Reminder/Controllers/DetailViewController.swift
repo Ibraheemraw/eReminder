@@ -121,7 +121,7 @@ class DetailViewController: UIViewController {
         
         if let context = container?.viewContext {
             do {
-                //saveToFavorites()
+
                 
                 let request: NSFetchRequest<Connection> = Connection.fetchRequest()
                 request.predicate = NSPredicate(format: "name = %@", name)
@@ -134,16 +134,7 @@ class DetailViewController: UIViewController {
                 }
                 connectionToUpdate.isFavorite = true
                 try? context.save()
-                    
-                //} catch {
-                    
-                //}
                 
-                
-                
-                
-                //let _ =  try Connection.createConnections(connectionInfo: myFavoriteConnection, context: context)
-                //try? context.save()
                 showAlert(title: "Added ❤️", message: "\(name) has been added to your Favorites", style: .alert)
             } catch {
                 showAlert(title: "⚠️Error Saving This Connection⚠️", message: (error as! AppError).errorMessage(), style: .alert)
@@ -152,6 +143,10 @@ class DetailViewController: UIViewController {
         
     }
     @IBAction func sendMessage(_ sender: FaveButton){
+        guard let bodyText = detailNameLabel.text else {
+            print("name is nil")
+            return
+        }
         // step 3 create a condition where if you can send mail
         if MFMailComposeViewController.canSendMail(){
             // step 4 create a mailComposeViewController instance
@@ -161,7 +156,7 @@ class DetailViewController: UIViewController {
             // step 6 set the subject
             mailComposeViewController.setSubject("Follow Up !")
             // step 7 set the message body
-            mailComposeViewController.setMessageBody("Hey, \(String(describing: detailNameLabel.text)) I am writing to you becuase....", isHTML: false)
+            mailComposeViewController.setMessageBody("Hey, \(bodyText) I am writing to you becuase....", isHTML: false)
             // step 8 set the delegate
             mailComposeViewController.mailComposeDelegate = self
             // step 9 present the contoller

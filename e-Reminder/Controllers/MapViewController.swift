@@ -52,8 +52,11 @@ class MapViewController: UIViewController {
             let coordinateRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
             //Create an instance of an Annotation
             let annotation = MKPointAnnotation()
+            
             //Giving the annotation a coordinate
             annotation.coordinate = coordinate
+            annotation.title = location.name
+            annotation.subtitle = location.address
             mapView.setRegion(coordinateRegion, animated: true)
             mapView.addAnnotation(annotation)
         }
@@ -71,14 +74,17 @@ extension MapViewController: MKMapViewDelegate{
         if annotationView == nil {
             annotationView = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
-            if let imageData = connectionLocations[0].picture as? Data {
-                let image = UIImage.init(data: imageData)
-                DispatchQueue.global().async {
-                    let resizedImage = Toucan.init(image: image!).resize(CGSize.init(width: 100, height: 100))
-                    annotationView?.image = resizedImage.image
-
-                }
-            }
+//            for picture in connectionLocations {
+//
+//                if let imageData = picture.picture as? Data {
+//                    let image = UIImage.init(data: imageData)
+//                    DispatchQueue.global().async {
+//                        let resizedImage = Toucan.init(image: image!).resize(CGSize.init(width: 100, height: 100))
+//                        annotationView?.image = resizedImage.image
+//
+//                    }
+//                }
+//            }
         } else {
             annotationView!.annotation = annotation
         }

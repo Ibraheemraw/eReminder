@@ -98,7 +98,28 @@ class CreateViewController: UIViewController {
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self // make sure you have UIImagePickerControllerDelegate, UINavigationControllerDelegate
         self.imagePickerViewController.allowsEditing = true
-        addImageAlert(imagePickerViewController)
+//        addImageAlert(imagePickerViewController)
+        let alertController = UIAlertController.init(title: "Create Connection Photo", message: nil, preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction.init(title: "Take Photo", style: .default){(alertAction) in
+            self.imagePickerViewController.sourceType = .camera
+            self.imagePickerViewController.allowsEditing = true
+            self.present(self.imagePickerViewController, animated: true)
+        }
+        let chooseFromLibraryAction = UIAlertAction.init(title: "Choose From Library", style: .default) { (alertAction) in
+            self.imagePickerViewController.sourceType = .photoLibrary
+            self.imagePickerViewController.allowsEditing = true
+            self.present(self.imagePickerViewController, animated: true)
+        }
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel)
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+           takePhotoAction.isEnabled = false
+        } else {
+            takePhotoAction.isEnabled = true
+            alertController.addAction(takePhotoAction)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(chooseFromLibraryAction)
+        present(alertController, animated: true)
     }
     private func configureLongPress(){
         //create an instance of LongPressGestureRecognizer
@@ -206,7 +227,6 @@ class CreateViewController: UIViewController {
     @IBAction func setImage(_ sender: UIButton){
         setupImagePicker()
         showImagePicker()
-        print("connection image has been tapped") // testing purposes
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
