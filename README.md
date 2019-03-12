@@ -28,7 +28,7 @@ I am the type of person who likes to socialize. I go to networking events, paint
 ![Connectionlist](https://media.giphy.com/media/eePNcOFAgOzSpfxe5V/giphy.gif)
 * Messaging View (FMO)
     - Allows users to chat with one another in the app 
-![MessagingView](messagingview.jpeg)
+
 
 ## Technologies
 * FavButton(Cocoapods)
