@@ -46,6 +46,19 @@ I am the type of person who likes to socialize. I go to networking events, paint
     ![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)
     
     ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)![notificationConnection](https://user-images.githubusercontent.com/43886009/54218314-b8211c80-44c3-11e9-896f-597c3290b0e4.jpeg)
+* Detail View of your Connection
+    - This view shows:
+        - Connection Image
+        - Connection Name 
+        - Connection Email
+        - Connection Description 
+        - Collection view of the other connections you have
+    - In this view you are able to: 
+        - save a connection 
+        - create and email 
+        - create an event that will be sent to your calendar
+        - You can click on one of the other connection to switch the image and detail information up top
+
     
 ## Technologies
 * FavButton(Cocoapods)
