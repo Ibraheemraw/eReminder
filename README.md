@@ -39,7 +39,10 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - The location where you met the person (To save the location you long press on the Map and type in the location of the place you met them.)
         - Genterates a notification that notifies you within an hour after creating the connection
 
-    ![CreatationView1](https://media.giphy.com/media/9A5fAni7pY7MrnEbox/giphy.gif)![CreatationView1](https://media.giphy.com/media/MWu51c6bNKdxC5VOsl/giphy.gif)![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)![notificationConnection](https://user-images.githubusercontent.com/43886009/54218053-303b1280-44c3-11e9-9866-f1a61c412726.jpeg)
+    ![CreatationView1](https://media.giphy.com/media/9A5fAni7pY7MrnEbox/giphy.gif)
+    ![CreatationView1](https://media.giphy.com/media/MWu51c6bNKdxC5VOsl/giphy.gif)
+    ![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)
+    ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
