@@ -68,6 +68,10 @@ I am the type of person who likes to socialize. I go to networking events, paint
   - Sending an email to your connection
   
        ![CreatationView4](https://media.giphy.com/media/26ot6lkkQWz1apfZim/giphy.gif)
+       
+  - Creating an event
+  
+       ![CreatationView5](https://media.giphy.com/media/x0dr6PtjboKYNesOG0/giphy.gif)![CreatationView6](https://media.giphy.com/media/1qebRmKyXx7AN3DUEg/giphy.gif)
     
 ## Technologies
 * FavButton(Cocoapods)
