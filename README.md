@@ -72,7 +72,13 @@ I am the type of person who likes to socialize. I go to networking events, paint
   - Creating an event
   
        ![CreatationView5](https://media.giphy.com/media/x0dr6PtjboKYNesOG0/giphy.gif)![CreatationView6](https://media.giphy.com/media/1qebRmKyXx7AN3DUEg/giphy.gif)
-    
+* MapView of your connection
+    - shows a annotation of all the connections you have created 
+    - The annotations have: 
+        - name 
+        - location title where you me the person 
+
+    ![MapView](https://media.giphy.com/media/mkwIf6MpYZOedLBe5M/giphy.gif)
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
