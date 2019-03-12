@@ -23,7 +23,7 @@
 I am the type of person who likes to socialize. I go to networking events, paint and sips, neighborhood events, happy hours, etc and I end up making great connections with these people at the events, but after the event is over I forget to hit them up about doing other things with them. Sure there Is social media but with social media there is so many things going on in your feed you tend to forget why you go on sometimes. With this app it has one purpose and you can focus on have custom reminders for these specific people.
 
 ## Gifs
-![Example screenshot](./img/screenshot.png)
+![Connectionlist](https://media.giphy.com/media/eePNcOFAgOzSpfxe5V/giphy.gif)
 
 ## Technologies
 * FavButton(Cocoapods)
