@@ -59,7 +59,7 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - create an event that will be sent to your calendar
         - You can click on one of the other connection to switch the image and detail information up top
 
-![CreatationView1](https://media.giphy.com/media/KWwQthUpXXnVaRiZcp/giphy.gif)[CreatationView2](https://media.giphy.com/media/3XHacOqjTEmZVzUBtu/giphy.gif)
+![CreatationView1](https://media.giphy.com/media/KWwQthUpXXnVaRiZcp/giphy.gif)![CreatationView2](https://media.giphy.com/media/3XHacOqjTEmZVzUBtu/giphy.gif)
     
 ## Technologies
 * FavButton(Cocoapods)
