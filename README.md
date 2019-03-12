@@ -37,7 +37,8 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - Email
         - Description (Something about the person to help you remember them)
         - The location where you met the person (To save the location you long press on the Map and type in the location of the place you met them.)
-![CreatationView1](https://media.giphy.com/media/9A5fAni7pY7MrnEbox/giphy.gif), ![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif), ![CreatationView1](https://media.giphy.com/media/MWu51c6bNKdxC5VOsl/giphy.gif), ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)
+
+    ![CreatationView1](https://media.giphy.com/media/9A5fAni7pY7MrnEbox/giphy.gif)![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)![CreatationView1](https://media.giphy.com/media/MWu51c6bNKdxC5VOsl/giphy.gif)![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
