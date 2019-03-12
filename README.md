@@ -25,6 +25,7 @@ I am the type of person who likes to socialize. I go to networking events, paint
 ## Gifs
 * ConnectionList 
     - Displays a list of the connections you have created. It is Organized by names
+    
 ![Connectionlist](https://media.giphy.com/media/eePNcOFAgOzSpfxe5V/giphy.gif)
 * Messaging View (FMO)
     - Allows users to chat with one another in the app 
