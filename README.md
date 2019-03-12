@@ -60,6 +60,12 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - You can click on one of the other connection to switch the image and detail information up top
 
 ![CreatationView1](https://media.giphy.com/media/KWwQthUpXXnVaRiZcp/giphy.gif)![CreatationView2](https://media.giphy.com/media/3XHacOqjTEmZVzUBtu/giphy.gif)
+
+       * Saving To Favorites
+        ![CreatationView3](https://media.giphy.com/media/lo58hPNvu8L88p34Cu/giphy.gif)
+        
+       * Sending an email to your connection
+        ![CreatationView4](https://media.giphy.com/media/26ot6lkkQWz1apfZim/giphy.gif)
     
 ## Technologies
 * FavButton(Cocoapods)
