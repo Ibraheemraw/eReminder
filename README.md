@@ -45,7 +45,7 @@ I am the type of person who likes to socialize. I go to networking events, paint
     
     ![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)
     
-    ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)
+    ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)![notificationConnection](https://user-images.githubusercontent.com/43886009/54218314-b8211c80-44c3-11e9-896f-597c3290b0e4.jpeg)
     
 ## Technologies
 * FavButton(Cocoapods)
