@@ -99,6 +99,7 @@ I am the type of person who likes to socialize. I go to networking events, paint
 * Userlocation(FMO)
 * UIKit 
 * EventKit
+* Geocding (Google Api)
 
 ## Features
 List of features ready and TODOs for future development
