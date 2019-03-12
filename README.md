@@ -128,3 +128,5 @@ Created by Ibraheem K. Rawlinson (https://www.linkedin.com/in/ibraheem-rawlinson
 ## Presentation
 To see my presentation click on the link: (https://prezi.com/view/F51O6fPObofCRBJalO3C/)
 
+## Proposal
+To see Proposal click on the link: (https://betterproposals.io/proposal/cover?ProposalID=xxYNthpqYi8FbxvcOa-FvTFHQWVZHRN9RsmbNpwGto4&ContactID=CaCrMZ7820lhokuzU405BPCRdKLP5IggyHuYiMFAMn8)
