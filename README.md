@@ -86,7 +86,9 @@ I am the type of person who likes to socialize. I go to networking events, paint
        - Add a description for the notification body 
        - Set the time they what to be notified 
 
-    ![CreateYourOwnNotificationView](https://media.giphy.com/media/fwW6QjFmEpUopRZjVd/giphy.gif)
+    ![CreateYourOwnNotificationView](https://media.giphy.com/media/fwW6QjFmEpUopRZjVd/giphy.gif)![IMG_5610](https://user-images.githubusercontent.com/43886009/54222121-24ebe500-44cb-11e9-800c-8b8432563075.jpeg)
+    
+    
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
