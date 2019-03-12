@@ -40,9 +40,13 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - Genterates a notification that notifies you within an hour after creating the connection
 
     ![CreatationView1](https://media.giphy.com/media/9A5fAni7pY7MrnEbox/giphy.gif)
+    
     ![CreatationView1](https://media.giphy.com/media/MWu51c6bNKdxC5VOsl/giphy.gif)
+    
     ![CreatationView1](https://media.giphy.com/media/6EcxyycU8h064clecb/giphy.gif)
+    
     ![CreatationView1](https://media.giphy.com/media/p3qSxkhMoTdn0z8tJa/giphy.gif)
+    
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
