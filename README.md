@@ -20,38 +20,42 @@
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+I am the type of person who likes to socialize. I go to networking events, paint and sips, neighborhood events, happy hours, etc and I end up making great connections with these people at the events, but after the event is over I forget to hit them up about doing other things with them. Sure there Is social media but with social media there is so many things going on in your feed you tend to forget why you go on sometimes. With this app it has one purpose and you can focus on have custom reminders for these specific people.
 
 ## Gifs
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
-
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+* FavButton(Cocoapods)
+* Toucan - version 1.1
+* CoreData
+* MessageUI
+* UserNotification
+* Mapkit
+* Userlocation(FMO)
+* UIKit 
+* EventKit
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Creating custom notifications
+* Creating events to the calendar 
+* Sending email messages to the connection
+* Creates a notification when you create a connection 
+* Saves the location of where you met the person
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Improve search and filtering 
+* Setup images in the map annotions
+* Creating profiles
+* Creating QR codes for each profile user 
+* Improving creation of saving connection's location
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: in Progress and why? This app has met MVP but this will be placed in the app store later this year. Summer of 2019
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+This project was inpsired by two Apps: Rememorate & Wmsy
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Ibraheem K. Rawlinson (https://www.linkedin.com/in/ibraheem-rawlinson-83199962/) - feel free to contact me!
