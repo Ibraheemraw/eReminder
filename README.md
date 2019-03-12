@@ -79,6 +79,14 @@ I am the type of person who likes to socialize. I go to networking events, paint
         - location title where you me the person 
 
     ![MapView](https://media.giphy.com/media/mkwIf6MpYZOedLBe5M/giphy.gif)
+    
+* Creating your own notifications
+    - The user is able to:
+       - Choose the name as the notification title 
+       - Add a description for the notification body 
+       - Set the time they what to be notified 
+
+    ![CreateYourOwnNotificationView](https://media.giphy.com/media/fwW6QjFmEpUopRZjVd/giphy.gif)
 ## Technologies
 * FavButton(Cocoapods)
 * Toucan - version 1.1
