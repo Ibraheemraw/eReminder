@@ -125,6 +125,6 @@ This project was inpsired by two Apps: Rememorate & Wmsy
 ## Contact
 Created by Ibraheem K. Rawlinson (https://www.linkedin.com/in/ibraheem-rawlinson-83199962/) - feel free to contact me!
 
-## Presontation
-To see my presontation click on the link: (https://prezi.com/view/F51O6fPObofCRBJalO3C/)
+## Presentation
+To see my presentation click on the link: (https://prezi.com/view/F51O6fPObofCRBJalO3C/)
 
