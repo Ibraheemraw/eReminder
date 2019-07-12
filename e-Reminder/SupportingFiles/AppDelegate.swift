@@ -39,9 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if FlagFeatures.isNewTabBar == true {
            let controllers = [connectionsVC,mapVC,moreVC]
             tabbar?.viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
+            window?.rootViewController = tabbar
         } else {
             let controllers = [connectionsVC,favoritesVC,mapVC,moreVC,messagingVC]
            tabbar?.viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
+            window?.rootViewController = tabbar
         }
         
         return true
