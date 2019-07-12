@@ -28,6 +28,7 @@
 		48355092220CE16500B220EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48355090220CE16500B220EF /* LaunchScreen.storyboard */; };
 		485892DB22D8DCB6007F983E /* FlagFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485892DA22D8DCB6007F983E /* FlagFeatures.swift */; };
 		485892DE22D8E142007F983E /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485892DD22D8E142007F983E /* MainTabBar.swift */; };
+		485892E022D92C98007F983E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485892DF22D92C98007F983E /* UIView+Extensions.swift */; };
 		4868358F221B2E1800F55D41 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4868358E221B2E1800F55D41 /* SettingsView.xib */; };
 		48683591221B2E3500F55D41 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48683590221B2E3500F55D41 /* SettingsView.swift */; };
 		486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */; };
@@ -69,6 +70,7 @@
 		48355093220CE16500B220EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		485892DA22D8DCB6007F983E /* FlagFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagFeatures.swift; sourceTree = "<group>"; };
 		485892DD22D8E142007F983E /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		485892DF22D92C98007F983E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4868358E221B2E1800F55D41 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		48683590221B2E3500F55D41 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				48DE12C52220B107003BD3B8 /* UIViewController+Alerts.swift */,
 				4810BC572226056F002908D3 /* AppError.swift */,
+				485892DF22D92C98007F983E /* UIView+Extensions.swift */,
 			);
 			path = SwiftyHelpers;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				48266BD0223181130032C565 /* CreateAndAddEventController.swift in Sources */,
 				48B2F9D62227321E00A7C591 /* CircularImageView.swift in Sources */,
 				48E8AE1C221222A8008C29C6 /* Expandable.swift in Sources */,
+				485892E022D92C98007F983E /* UIView+Extensions.swift in Sources */,
 				48266BCE223176CB0032C565 /* CreateAndAddEventView.swift in Sources */,
 				4810BC512226017E002908D3 /* GeocodingApiClient.swift in Sources */,
 				48266BAC223058420032C565 /* GalleryCollectionView.swift in Sources */,
