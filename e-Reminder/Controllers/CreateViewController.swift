@@ -16,15 +16,16 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var addItems: UIBarButtonItem!
     @IBOutlet weak var contentView: UIView!//the child view containing all of the objects (labels, textfields, mapview and button)
     @IBOutlet weak var backgroundImageView: UIImageView!//setting the gradient background
-    @IBOutlet weak var connectionBttn: UIButton!//for changing the image of the connection you made
+    @IBOutlet weak var profileImageBttn: UIButton!
     @IBOutlet weak var profileImage: CircularImageView!
-    @IBOutlet weak var name: UILabel! // name of the person you have connected with
-    @IBOutlet weak var nameTextField: UITextField! // user enters the persons name
-    @IBOutlet weak var email: UILabel! // email of person you have connected with
-    @IBOutlet weak var emailTextField: UITextField!// user enters the persons email
-    @IBOutlet weak var descriptionLabel: UILabel! // Description label title
-    @IBOutlet weak var decriptionTxtField: UITextField! //user adds a small description about the person
-    @IBOutlet weak var meetupMapView: MKMapView! // the map view where the user met the person they are adding 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var decriptionTxtField: UITextField!
+    @IBOutlet weak var meetupMapView: MKMapView!
+    
     //MARK: - Configuration Private Properties
     private var longPress: UILongPressGestureRecognizer!//for long press action on the map
     private var container = AppDelegate.container // Holds our coreData Database
@@ -48,6 +49,10 @@ class CreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createVCSettings()
+        
+    }
+    private func createVCSettings(){
         addItems.isEnabled = false
         setupContentViewDesign()
         configureLongPress()
@@ -56,9 +61,7 @@ class CreateViewController: UIViewController {
         emailTextField.placeholder = "Ex: Ibraheem@me.com..."
         decriptionTxtField.placeholder = "Something about the person..."
         self.image = profileImage.image
-        
     }
-    
     //MARK: - Configuration Methods
     private func launchNotification() {
         let center = UNUserNotificationCenter.current() // current version of The central object for managing notification-related activities for your app or app extension
@@ -129,7 +132,7 @@ class CreateViewController: UIViewController {
         //add the getsure to the mapview
         meetupMapView.addGestureRecognizer(longPress) // when the user holds on to the map it will take them 1/2 sec for them to see the alert controller
     }
-    private func setupDelegates(){ // for listening in for when the user selects the textfields, and Mapview. Also when they click the return button
+    private func setupDelegates(){
         nameTextField.delegate = self
         emailTextField.delegate = self
         decriptionTxtField.delegate = self
@@ -180,25 +183,16 @@ class CreateViewController: UIViewController {
     }
     //MARK: - Configuration Setting Up Map Annotation
     private func setupAnnotation(){
-        //looping through the the array of resutls to setup the annotation
         for result in googleAddressReults {
-            // set up the region - how close should
             let regionRadius: CLLocationDistance = 8000
-            //get the coordinates
             let coordinate = CLLocationCoordinate2D.init(latitude: result.geometry.location.lat, longitude: result.geometry.location.lng)
-            //set the coordinate region
             let coordinateRegion = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-            //Create an instance of an Annotation
             let annotation = MKPointAnnotation()
-            //Giving the annotation a coordinate
             annotation.coordinate = coordinate
-            // giving the annotation a title from the GoogleGeocoding Model
-            self.lat = annotation.coordinate.latitude as! Double
-            self.long = annotation.coordinate.longitude as! Double
-            annotation.title = locationInput! // assigning what the user types in to the title of the annotation
-            // set the mapview to the coordinate region
+            self.lat = annotation.coordinate.latitude
+            self.long = annotation.coordinate.longitude
+            annotation.title = locationInput!
             meetupMapView.setRegion(coordinateRegion, animated: true)
-            // setting the annotation on the mapview
             meetupMapView.addAnnotation(annotation)
         }
     }

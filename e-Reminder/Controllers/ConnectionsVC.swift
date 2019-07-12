@@ -14,20 +14,27 @@ class ConnectionsVC: UITableViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchBarObj: UISearchBar!
     //MARK: - Configuration Private Properties
-    private var connectionData = [Connection]()
+    private var connectionData = [Connection]() {
+        didSet{
+            tableViewObj.reloadData()
+        }
+    }
     let id = "ConnectionsCell"
     private var container = AppDelegate.container // container from AppDelegate
     private var fetchResultsContoller: NSFetchedResultsController<Connection>? // fetch controller to modifgy the table view based on core data upates
     private var gradient: CAGradientLayer! // Setting up the tableview background
     override func viewDidLoad() {
         super.viewDidLoad()
+        connectionsVCSettings()
+        
+    }
+    private func connectionsVCSettings(){
         tableViewObj.delegate = self
         tableViewObj.dataSource = self
         searchBarObj.delegate = self
         configfetchResultsContoller()
         addGradient()
         view.backgroundColor = .yellow
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -144,23 +151,23 @@ class ConnectionsVC: UITableViewController {
 }
 //MARK: - Configuration Extensions
 extension ConnectionsVC: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let userSearch = searchBar.text else {
-            fatalError("search text is nil")
-        }
-        if userSearch == "" {
-            configfetchResultsContoller()
-        } else {
-            if var sections = fetchResultsContoller?.sections {
-                sections = sections.filter{
-                    $0.name.contains(userSearch)
-                }
-                tableViewObj.numberOfRows(inSection: sections.count)
-            }
-        }
-        tableViewObj.reloadData()
-        searchBar.resignFirstResponder()
-    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        guard let userSearch = searchBar.text else {
+//            fatalError("search text is nil")
+//        }
+//        if userSearch == "" {
+//            configfetchResultsContoller()
+//        } else {
+//            if var sections = fetchResultsContoller?.sections {
+//                sections = sections.filter{
+//                    $0.name.contains(userSearch)
+//                }
+//                tableViewObj.numberOfRows(inSection: sections.count)
+//            }
+//        }
+//        tableViewObj.reloadData()
+//        searchBar.resignFirstResponder()
+//    }
 }
 extension ConnectionsVC: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

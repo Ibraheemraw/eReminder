@@ -27,6 +27,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         center.delegate = self
+        let mainSB = UIStoryboard.init(name: "Main", bundle: nil)
+        let tabbar = mainSB.instantiateViewController(withIdentifier: "MainTabBar") as? UITabBarController
+        let connectionsVC = mainSB.instantiateViewController(withIdentifier: "ConnectionsVC") as! ConnectionsVC
+        let messagingVC = mainSB.instantiateViewController(withIdentifier: "MessagingViewController") as! MessagingViewController
+        let favoritesVC = mainSB.instantiateViewController(withIdentifier: "FavoritesViewController") as! FavoritesViewController
+        let mapVC = mainSB.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        let moreVC = mainSB.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        
+       //tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
+        if FlagFeatures.isNewTabBar == true {
+           let controllers = [connectionsVC,mapVC,moreVC]
+            tabbar?.viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
+        } else {
+            let controllers = [connectionsVC,favoritesVC,mapVC,moreVC,messagingVC]
+           tabbar?.viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
+        }
+        
         return true
     }
     //Will present the notifcation in the forgrounds

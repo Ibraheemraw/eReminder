@@ -26,7 +26,8 @@
 		4835508D220CE16400B220EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4835508B220CE16400B220EF /* Main.storyboard */; };
 		4835508F220CE16500B220EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4835508E220CE16500B220EF /* Assets.xcassets */; };
 		48355092220CE16500B220EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48355090220CE16500B220EF /* LaunchScreen.storyboard */; };
-		4835509C220CF0CA00B220EF /* eReminderLogoV2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4835509B220CF0CA00B220EF /* eReminderLogoV2.png */; };
+		485892DB22D8DCB6007F983E /* FlagFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485892DA22D8DCB6007F983E /* FlagFeatures.swift */; };
+		485892DE22D8E142007F983E /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485892DD22D8E142007F983E /* MainTabBar.swift */; };
 		4868358F221B2E1800F55D41 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4868358E221B2E1800F55D41 /* SettingsView.xib */; };
 		48683591221B2E3500F55D41 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48683590221B2E3500F55D41 /* SettingsView.swift */; };
 		486D5CB42214C03A005ABFF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */; };
@@ -66,7 +67,8 @@
 		4835508E220CE16500B220EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48355091220CE16500B220EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48355093220CE16500B220EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4835509B220CF0CA00B220EF /* eReminderLogoV2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eReminderLogoV2.png; path = ../../../../../Downloads/eReminderLogoV2.png; sourceTree = "<group>"; };
+		485892DA22D8DCB6007F983E /* FlagFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagFeatures.swift; sourceTree = "<group>"; };
+		485892DD22D8E142007F983E /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		4868358E221B2E1800F55D41 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		48683590221B2E3500F55D41 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		486D5CB32214C03A005ABFF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				4810BC4D2225D8B8002908D3 /* MyConnection.swift */,
 				4810BC492225D3D8002908D3 /* User.swift */,
 				4810BC52222601C0002908D3 /* GeocodingModel.swift */,
+				485892DA22D8DCB6007F983E /* FlagFeatures.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,7 +164,6 @@
 				484D9EF12219F7370015D275 /* Protocols */,
 				484D9EEE2219F6F30015D275 /* Controllers */,
 				484D9EF02219F72D0015D275 /* Cells */,
-				4835509B220CF0CA00B220EF /* eReminderLogoV2.png */,
 				48355093220CE16500B220EF /* Info.plist */,
 				486D5CB52215DC50005ABFF0 /* GoogleService-Info.plist */,
 				48DE12C72220B1A0003BD3B8 /* SwiftyHelpers */,
@@ -176,6 +178,7 @@
 				4810BC412225CE9B002908D3 /* CoreDataConnections.xcdatamodeld */,
 				4835508B220CE16400B220EF /* Main.storyboard */,
 				4835508E220CE16500B220EF /* Assets.xcassets */,
+				485892DC22D8DF50007F983E /* Main.storyboard */,
 				48355090220CE16500B220EF /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
@@ -192,6 +195,7 @@
 				48DFC9AD2210EFC8004B0E8F /* DetailViewController.swift */,
 				48DFC9AB2210EAF5004B0E8F /* MessagingViewController.swift */,
 				48266BCF223181130032C565 /* CreateAndAddEventController.swift */,
+				485892DD22D8E142007F983E /* MainTabBar.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -304,7 +308,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4835509C220CF0CA00B220EF /* eReminderLogoV2.png in Resources */,
 				48355092220CE16500B220EF /* LaunchScreen.storyboard in Resources */,
 				4835508F220CE16500B220EF /* Assets.xcassets in Resources */,
 				4868358F221B2E1800F55D41 /* SettingsView.xib in Resources */,
@@ -386,6 +389,8 @@
 				48DE12C62220B107003BD3B8 /* UIViewController+Alerts.swift in Sources */,
 				4810BC582226056F002908D3 /* AppError.swift in Sources */,
 				48DFC9AA2210E3E3004B0E8F /* FavoritesViewController.swift in Sources */,
+				485892DE22D8E142007F983E /* MainTabBar.swift in Sources */,
+				485892DB22D8DCB6007F983E /* FlagFeatures.swift in Sources */,
 				4810BC4E2225D8B8002908D3 /* MyConnection.swift in Sources */,
 				48DFC9A82210CAB7004B0E8F /* CreateViewController.swift in Sources */,
 				48266BD0223181130032C565 /* CreateAndAddEventController.swift in Sources */,
@@ -416,6 +421,13 @@
 				48355091220CE16500B220EF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		485892DC22D8DF50007F983E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
